@@ -1,0 +1,1213 @@
+{
+	"version": 1,
+	"projects": {
+		"api": {
+			"root": "apps/api",
+			"sourceRoot": "apps/api/src",
+			"projectType": "application",
+			"architect": {
+				"build": {
+					"builder": "@nrwl/node:build",
+					"outputs": ["{options.outputPath}"],
+					"options": {
+						"outputPath": "dist/apps/api",
+						"main": "apps/api/src/main.ts",
+						"tsConfig": "apps/api/tsconfig.app.json",
+						"assets": ["apps/api/src/assets"]
+					},
+					"configurations": {
+						"production": {
+							"optimization": true,
+							"extractLicenses": true,
+							"inspect": false,
+							"fileReplacements": [
+								{
+									"replace": "apps/api/src/environments/environment.ts",
+									"with": "apps/api/src/environments/environment.prod.ts"
+								}
+							]
+						}
+					}
+				},
+				"serve": {
+					"builder": "@nrwl/node:execute",
+					"options": {
+						"buildTarget": "api:build"
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"outputs": ["{options.outputFile}"],
+					"options": {
+						"lintFilePatterns": ["apps/api/**/*.ts"]
+					}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/apps/api"],
+					"options": {
+						"jestConfig": "apps/api/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			},
+			"tags": []
+		},
+		"api-interfaces": {
+			"projectType": "library",
+			"root": "libs/api/interfaces",
+			"sourceRoot": "libs/api/interfaces/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/api/interfaces"],
+					"options": {
+						"jestConfig": "libs/api/interfaces/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/api/interfaces/src/**/*.ts",
+							"libs/api/interfaces/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch": {
+			"projectType": "library",
+			"root": "libs/arch",
+			"sourceRoot": "libs/arch/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch"],
+					"options": {
+						"jestConfig": "libs/arch/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/src/**/*.ts",
+							"libs/arch/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-core-data-access": {
+			"projectType": "library",
+			"root": "libs/arch/core/data-access",
+			"sourceRoot": "libs/arch/core/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/core/data-access"],
+					"options": {
+						"jestConfig": "libs/arch/core/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/core/data-access/src/**/*.ts",
+							"libs/arch/core/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-core-feature": {
+			"projectType": "library",
+			"root": "libs/arch/core/feature",
+			"sourceRoot": "libs/arch/core/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/core/feature"],
+					"options": {
+						"jestConfig": "libs/arch/core/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/core/feature/src/**/*.ts",
+							"libs/arch/core/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-core-types": {
+			"projectType": "library",
+			"root": "libs/arch/core/types",
+			"sourceRoot": "libs/arch/core/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/core/types"],
+					"options": {
+						"jestConfig": "libs/arch/core/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/core/types/src/**/*.ts",
+							"libs/arch/core/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-dashboard": {
+			"projectType": "library",
+			"root": "libs/arch/dashboard",
+			"sourceRoot": "libs/arch/dashboard/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/dashboard"],
+					"options": {
+						"jestConfig": "libs/arch/dashboard/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/dashboard/src/**/*.ts",
+							"libs/arch/dashboard/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-dashboard-data-access": {
+			"projectType": "library",
+			"root": "libs/arch/dashboard/data-access",
+			"sourceRoot": "libs/arch/dashboard/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/dashboard/data-access"],
+					"options": {
+						"jestConfig": "libs/arch/dashboard/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/dashboard/data-access/src/**/*.ts",
+							"libs/arch/dashboard/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-dashboard-feature": {
+			"projectType": "library",
+			"root": "libs/arch/dashboard/feature",
+			"sourceRoot": "libs/arch/dashboard/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/dashboard/feature"],
+					"options": {
+						"jestConfig": "libs/arch/dashboard/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/dashboard/feature/src/**/*.ts",
+							"libs/arch/dashboard/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-dashboard-types": {
+			"projectType": "library",
+			"root": "libs/arch/dashboard/types",
+			"sourceRoot": "libs/arch/dashboard/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/dashboard/types"],
+					"options": {
+						"jestConfig": "libs/arch/dashboard/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/dashboard/types/src/**/*.ts",
+							"libs/arch/dashboard/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-login": {
+			"projectType": "library",
+			"root": "libs/arch/login",
+			"sourceRoot": "libs/arch/login/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/login"],
+					"options": {
+						"jestConfig": "libs/arch/login/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/login/src/**/*.ts",
+							"libs/arch/login/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-login-data-access": {
+			"projectType": "library",
+			"root": "libs/arch/login/data-access",
+			"sourceRoot": "libs/arch/login/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/login/data-access"],
+					"options": {
+						"jestConfig": "libs/arch/login/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/login/data-access/src/**/*.ts",
+							"libs/arch/login/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-login-feature": {
+			"projectType": "library",
+			"root": "libs/arch/login/feature",
+			"sourceRoot": "libs/arch/login/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/login/feature"],
+					"options": {
+						"jestConfig": "libs/arch/login/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/login/feature/src/**/*.ts",
+							"libs/arch/login/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"arch-login-types": {
+			"projectType": "library",
+			"root": "libs/arch/login/types",
+			"sourceRoot": "libs/arch/login/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/arch/login/types"],
+					"options": {
+						"jestConfig": "libs/arch/login/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/arch/login/types/src/**/*.ts",
+							"libs/arch/login/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "apps/ng-arch",
+			"sourceRoot": "apps/ng-arch/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:browser",
+					"options": {
+						"outputPath": "dist/apps/ng-arch",
+						"index": "apps/ng-arch/src/index.html",
+						"main": "apps/ng-arch/src/main.ts",
+						"polyfills": "apps/ng-arch/src/polyfills.ts",
+						"tsConfig": "apps/ng-arch/tsconfig.app.json",
+						"assets": ["apps/ng-arch/src/assets"],
+						"styles": [
+							"node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+							"apps/ng-arch/src/styles.scss"
+						],
+						"stylePreprocessorOptions": {
+							"includePaths": ["libs/shared/ui/styles"]
+						},
+						"scripts": [
+							"./node_modules/@lottiefiles/lottie-player/dist/lottie-player.js"
+						],
+						"vendorChunk": true,
+						"extractLicenses": false,
+						"buildOptimizer": false,
+						"sourceMap": true,
+						"optimization": false,
+						"namedChunks": true
+					},
+					"configurations": {
+						"production": {
+							"fileReplacements": [
+								{
+									"replace": "apps/ng-arch/src/environments/environment.ts",
+									"with": "apps/ng-arch/src/environments/environment.prod.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"extractLicenses": true,
+							"vendorChunk": false,
+							"buildOptimizer": true,
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "2mb",
+									"maximumError": "5mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb",
+									"maximumError": "10kb"
+								}
+							]
+						}
+					},
+					"outputs": ["{options.outputPath}"],
+					"defaultConfiguration": ""
+				},
+				"serve": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+					"options": {
+						"browserTarget": "ng-arch:build",
+						"proxyConfig": "apps/ng-arch/proxy.conf.json"
+					},
+					"configurations": {
+						"production": {
+							"browserTarget": "ng-arch:build:production"
+						}
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"browserTarget": "ng-arch:build"
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/ng-arch/src/**/*.ts"]
+					}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"options": {
+						"jestConfig": "apps/ng-arch/jest.config.js",
+						"passWithNoTests": true
+					},
+					"outputs": ["coverage/apps/ng-arch"]
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-achievements-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/achievements/data-access",
+			"sourceRoot": "libs/ng-arch/achievements/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/achievements/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/achievements/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/achievements/data-access/src/**/*.ts",
+							"libs/ng-arch/achievements/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-achievements-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/achievements/feature",
+			"sourceRoot": "libs/ng-arch/achievements/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/achievements/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/achievements/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/achievements/feature/src/**/*.ts",
+							"libs/ng-arch/achievements/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-achievements-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/achievements/types",
+			"sourceRoot": "libs/ng-arch/achievements/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/achievements/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/achievements/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/achievements/types/src/**/*.ts",
+							"libs/ng-arch/achievements/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-candidate-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/candidate/data-access",
+			"sourceRoot": "libs/ng-arch/candidate/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/candidate/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/candidate/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/candidate/data-access/src/**/*.ts",
+							"libs/ng-arch/candidate/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-candidate-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/candidate/feature",
+			"sourceRoot": "libs/ng-arch/candidate/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/candidate/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/candidate/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/candidate/feature/src/**/*.ts",
+							"libs/ng-arch/candidate/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-candidate-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/candidate/types",
+			"sourceRoot": "libs/ng-arch/candidate/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/candidate/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/candidate/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/candidate/types/src/**/*.ts",
+							"libs/ng-arch/candidate/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-core-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/core/data-access",
+			"sourceRoot": "libs/ng-arch/core/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/core/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/core/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/core/data-access/src/**/*.ts",
+							"libs/ng-arch/core/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-core-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/core/feature",
+			"sourceRoot": "libs/ng-arch/core/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/core/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/core/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/core/feature/src/**/*.ts",
+							"libs/ng-arch/core/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-core-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/core/types",
+			"sourceRoot": "libs/ng-arch/core/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/core/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/core/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/core/types/src/**/*.ts",
+							"libs/ng-arch/core/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-dashboard-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/dashboard/data-access",
+			"sourceRoot": "libs/ng-arch/dashboard/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/dashboard/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/dashboard/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/dashboard/data-access/src/**/*.ts",
+							"libs/ng-arch/dashboard/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-dashboard-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/dashboard/feature",
+			"sourceRoot": "libs/ng-arch/dashboard/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/dashboard/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/dashboard/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/dashboard/feature/src/**/*.ts",
+							"libs/ng-arch/dashboard/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-dashboard-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/dashboard/types",
+			"sourceRoot": "libs/ng-arch/dashboard/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/dashboard/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/dashboard/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/dashboard/types/src/**/*.ts",
+							"libs/ng-arch/dashboard/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-e2e": {
+			"root": "apps/ng-arch-e2e",
+			"sourceRoot": "apps/ng-arch-e2e/src",
+			"projectType": "application",
+			"architect": {
+				"e2e": {
+					"builder": "@nrwl/cypress:cypress",
+					"options": {
+						"cypressConfig": "apps/ng-arch-e2e/cypress.json",
+						"tsConfig": "apps/ng-arch-e2e/tsconfig.e2e.json",
+						"devServerTarget": "ng-arch:serve"
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "ng-arch:serve:production"
+						}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/ng-arch-e2e/**/*.{js,ts}"]
+					}
+				}
+			},
+			"tags": [],
+			"implicitDependencies": ["ng-arch"]
+		},
+		"ng-arch-jobboard-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/jobboard/data-access",
+			"sourceRoot": "libs/ng-arch/jobboard/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/jobboard/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/jobboard/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/jobboard/data-access/src/**/*.ts",
+							"libs/ng-arch/jobboard/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-jobboard-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/jobboard/feature",
+			"sourceRoot": "libs/ng-arch/jobboard/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/jobboard/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/jobboard/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/jobboard/feature/src/**/*.ts",
+							"libs/ng-arch/jobboard/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-jobboard-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/jobboard/types",
+			"sourceRoot": "libs/ng-arch/jobboard/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/jobboard/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/jobboard/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/jobboard/types/src/**/*.ts",
+							"libs/ng-arch/jobboard/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-jobboards-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/jobboards/data-access",
+			"sourceRoot": "libs/ng-arch/jobboards/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/jobboards/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/jobboards/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/jobboards/data-access/src/**/*.ts",
+							"libs/ng-arch/jobboards/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-jobboards-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/jobboards/feature",
+			"sourceRoot": "libs/ng-arch/jobboards/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/jobboards/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/jobboards/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/jobboards/feature/src/**/*.ts",
+							"libs/ng-arch/jobboards/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-jobboards-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/jobboards/types",
+			"sourceRoot": "libs/ng-arch/jobboards/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/jobboards/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/jobboards/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/jobboards/types/src/**/*.ts",
+							"libs/ng-arch/jobboards/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-login-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/login/data-access",
+			"sourceRoot": "libs/ng-arch/login/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/login/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/login/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/login/data-access/src/**/*.ts",
+							"libs/ng-arch/login/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-login-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/login/feature",
+			"sourceRoot": "libs/ng-arch/login/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/login/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/login/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/login/feature/src/**/*.ts",
+							"libs/ng-arch/login/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-login-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/login/types",
+			"sourceRoot": "libs/ng-arch/login/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/login/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/login/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/login/types/src/**/*.ts",
+							"libs/ng-arch/login/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-recruitment-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/recruitment/data-access",
+			"sourceRoot": "libs/ng-arch/recruitment/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/recruitment/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/recruitment/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/recruitment/data-access/src/**/*.ts",
+							"libs/ng-arch/recruitment/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-recruitment-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/recruitment/feature",
+			"sourceRoot": "libs/ng-arch/recruitment/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/recruitment/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/recruitment/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/recruitment/feature/src/**/*.ts",
+							"libs/ng-arch/recruitment/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-recruitment-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/recruitment/types",
+			"sourceRoot": "libs/ng-arch/recruitment/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/recruitment/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/recruitment/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/recruitment/types/src/**/*.ts",
+							"libs/ng-arch/recruitment/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"shared-ui-components": {
+			"projectType": "library",
+			"root": "libs/shared/ui/components",
+			"sourceRoot": "libs/shared/ui/components/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/shared/ui/components"],
+					"options": {
+						"jestConfig": "libs/shared/ui/components/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/shared/ui/components/src/**/*.ts",
+							"libs/shared/ui/components/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"shared-ui-material": {
+			"projectType": "library",
+			"root": "libs/shared/ui/material",
+			"sourceRoot": "libs/shared/ui/material/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/shared/ui/material"],
+					"options": {
+						"jestConfig": "libs/shared/ui/material/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/shared/ui/material/src/**/*.ts",
+							"libs/shared/ui/material/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"shared-ui-styles": {
+			"projectType": "library",
+			"root": "libs/shared/ui/styles",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"tags": ["scope:shared", "type:ui"]
+		}
+	}
+}

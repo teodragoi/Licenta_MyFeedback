@@ -1,0 +1,124 @@
+@use 'global/opacities' as opacities;
+
+:root {
+	--color-background-00: 248, 250, 251;
+	--color-background-00-high-contrast: 50, 69, 82;
+	--color-background-01: 255, 255, 255;
+	--color-background-01-high-contrast: 86, 105, 118;
+	--color-background-02: 249, 249, 249;
+	--color-background-02-high-contrast: 125, 146, 161;
+	--color-border-00: 218, 226, 232;
+	--color-shadow: 18, 27, 33;
+	--color-background-10: 46, 52, 56;
+	--color-background-10-high-contrast: 255, 255, 255;
+	--color-background-11: 17, 27, 34;
+	--color-background-11-high-contrast: 172, 186, 195;
+	--color-background-12: 56, 62, 66;
+	--color-background-12-high-contrast: 86, 105, 118;
+	--color-border-10: 58, 67, 73;
+	--color-blue-200: 22, 135, 217;
+	--color-blue-500: 0, 120, 206;
+	--color-blue-600: 0, 105, 180;
+	--color-blue-700: 0, 90, 155;
+	--color-orange-200: 255, 176, 51;
+	--color-orange-500: 243, 156, 18;
+	--color-orange-600: 217, 139, 16;
+	--color-orange-700: 191, 123, 14;
+	--color-danger: 220, 53, 69;
+	--color-danger-background: 248, 224, 224;
+	--color-success: 40, 167, 69;
+	--color-success-background: 223, 240, 216;
+	--color-warning: 255, 193, 7;
+	--color-warning-background: 252, 248, 227;
+	--color-info: 0, 102, 221;
+	--color-info-background: 184, 208, 236;
+}
+
+body {
+	--themed-background: var(--color-background-00);
+	--themed-headline: var(--color-background-00-high-contrast);
+	--themed-panel-background: var(--color-background-01);
+	--themed-panel-background-second: var(--color-background-02);
+	--themed-text: var(--color-background-01-high-contrast);
+	--themed-label: var(--color-background-02-high-contrast);
+	--themed-border: var(--color-border-00);
+}
+
+body.dark {
+	--themed-background: var(--color-background-10);
+	--themed-headline: var(--color-background-10-high-contrast);
+	--themed-panel-background: var(--color-background-11);
+	--themed-panel-background-second: var(--color-background-12);
+	--themed-text: var(--color-background-11-high-contrast);
+	--themed-label: var(--color-background-12-high-contrast);
+	--themed-border: var(--color-border-10);
+}
+
+@media (prefers-color-scheme: dark) {
+	body.system {
+		--themed-background: var(--color-background-10);
+		--themed-headline: var(--color-background-10-high-contrast);
+		--themed-panel-background: var(--color-background-11);
+		--themed-panel-background-second: var(--color-background-12);
+		--themed-text: var(--color-background-11-high-contrast);
+		--themed-label: var(--color-background-12-high-contrast);
+		--themed-border: var(--color-border-10);
+	}
+}
+
+$base-colors: (
+	shadow: var(--color-shadow),
+);
+
+$themed-colors: (
+	themed-background: var(--themed-background),
+	themed-headline: var(--themed-headline),
+	themed-panel-background: var(--themed-panel-background),
+	themed-panel-background-second: var(--themed-panel-background-second),
+	themed-text: var(--themed-text),
+	themed-border: var(--themed-border),
+	themed-label: var(--themed-label),
+);
+
+$data-visualization: (
+	blue-200: var(--color-blue-200),
+	blue-500: var(--color-blue-500),
+	blue-600: var(--color-blue-600),
+	blue-700: var(--color-blue-700),
+	orange-200: var(--color-orange-200),
+	orange-500: var(--color-orange-500),
+	orange-600: var(--color-orange-600),
+	orange-700: var(--color-orange-700),
+	danger: var(--color-danger),
+	danger-background: var(--color-danger-background),
+	success: var(--color-success),
+	success-background: var(--color-success-background),
+	warning: var(--color-warning),
+	warning-background: var(--color-warning-background),
+	info: var(--color-info),
+	info-background: var(--color-info-background),
+);
+
+$colors: map-merge(
+	map-merge($base-colors, $themed-colors),
+	$data-visualization
+);
+
+/// Access colors.
+///
+/// @access public
+///
+/// @param {String} $colorName - The needed color.
+/// @param {Number} $opacity [100] - The needed opacity applied to the color. Must be a value between 0 and 100, which will be divided by 100.
+///
+/// @require {Variable} $colors - A list of all available colors. If the provided `$colorName` is not in this list, an error will be prompted.
+/// @require {Function} get-opacity - The provided `$opacity` is checked through this method which provides the needed opacity applied to the color.
+///
+/// @return {Color} rgba color for the specified `$colorName` and `$opacity`.
+@function get-color($colorName, $opacity: 100) {
+	@if not map-has-key($colors, $colorName) {
+		@error 'Color `#{$colorName}` not available.';
+	}
+
+	@return rgba(map-get($colors, $colorName), opacities.get-opacity($opacity));
+}

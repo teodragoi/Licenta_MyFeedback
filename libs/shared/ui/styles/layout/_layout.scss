@@ -1,0 +1,26 @@
+@use 'global' as *;
+
+html,
+body,
+ng-arch-root {
+	@extend %flex-column;
+
+	flex: 1;
+	min-height: 100%;
+	scroll-behavior: smooth;
+}
+
+html,
+body {
+	background-color: get-color(themed-background);
+	transition: get-transition(background-color);
+}
+
+router-outlet {
+	margin: 0 !important;
+}
+
+hr {
+	color: get-color(themed-border);
+	opacity: get-opacity(8);
+}

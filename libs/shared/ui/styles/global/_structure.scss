@@ -1,0 +1,58 @@
+@use 'sass:math';
+
+/// Validates parameter to be a positive number.
+///
+/// @access private
+///
+/// @param {Number} $number - Number to be validated.
+///
+/// @return {Number} `$number` if validations pass.
+@function positive-number($number) {
+	@if type-of($number) != number or $number < 1 {
+		@error 'Accepted only a positive number.';
+	}
+
+	@return $number;
+}
+
+/// Converts received size to `rem`.
+///
+/// @access private
+///
+/// @param {Number} $size - A `pixel` value to be converted to `rem` equivalent.
+///
+/// @return {Number} a `rem` value.
+@function to-rem($size) {
+	@if type-of($size) != number {
+		@error 'Only numbers accepted.';
+	}
+
+	$scale: 16;
+
+	@return math.div($size, $scale) * 1rem;
+}
+
+/// Access sizes.
+///
+/// Usage:
+///   ❯ Call this method with the needed size, which needs to be even or equal to 1.
+///
+/// @access public
+/// @see {Function} get-spacing for spacing sizes.
+///
+/// @param {Number} $size - A number that represents the needed size in `px`.
+///
+/// @require {Function} positive-number
+/// @require {Function} to-rem
+///
+/// @return {Number} a size in `rem`.
+@function get-size($size) {
+	// Validate size.
+	$size: positive-number($size);
+
+	@if $size % 2 != 0 and $size != 1 {
+		@error 'Only even sizes or 1 accepted.';
+	}
+
+	@return to-rem($size);
+}

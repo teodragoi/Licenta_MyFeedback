@@ -1,0 +1,63 @@
+// Content:
+//   ❯ Flex
+//   ❯ Text ellipsis
+
+// Flex
+%flex-row {
+	display: flex;
+
+	&-center {
+		&-x {
+			display: flex;
+			justify-content: center;
+		}
+
+		&-y {
+			align-items: center;
+			display: flex;
+		}
+
+		&-xy {
+			align-items: center;
+			display: flex;
+			justify-content: center;
+		}
+	}
+}
+
+%flex-column {
+	@mixin flex-column {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@include flex-column;
+
+	&-center {
+		&-x {
+			align-items: center;
+
+			@include flex-column;
+		}
+
+		&-y {
+			justify-content: center;
+
+			@include flex-column;
+		}
+
+		&-xy {
+			align-items: center;
+			justify-content: center;
+
+			@include flex-column;
+		}
+	}
+}
+
+// Text ellipsis
+%text-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

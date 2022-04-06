@@ -1,0 +1,59 @@
+@use 'global' as *;
+
+$headlines: (
+	h1: (
+		size: 34,
+		line-height: 40,
+		weight: bolder,
+	),
+	h2: (
+		size: 24,
+		line-height: 28,
+	),
+	h3: (
+		size: 20,
+		line-height: 24,
+	),
+	h4: (
+		size: 16,
+		line-height: 20,
+		weight: bold,
+	),
+	h5: (
+		size: 14,
+		line-height: 18,
+	),
+	h6: (
+		size: 12,
+		line-height: 14,
+	),
+);
+
+/// Access headline.
+///
+/// @access private
+///
+/// @param {String} $headline - The needed headline config.
+@mixin get-headline($headline) {
+	@if not map-has-key($headlines, $headline) {
+		@error 'Headline `#{$headline}` not available.';
+	}
+
+	$config: map-get($headlines, $headline);
+
+	color: get-color(themed-headline);
+	font-size: get-size(map-get($config, size));
+	user-select: none;
+
+	@if map-has-key($config, weight) {
+		font-weight: get-font-weight(map-get($config, weight));
+	} @else {
+		font-weight: get-font-weight(normal);
+	}
+
+	@if map-has-key($config, line-height) {
+		line-height: get-size(map-get($config, line-height));
+	} @else {
+		line-height: 1;
+	}
+}

@@ -1,0 +1,29 @@
+@use 'global/colors' as colors;
+@use 'global/structure' as structure;
+
+$elevations: (
+	0dp: none,
+	1dp: 0 structure.get-size(2) structure.get-size(4)
+		colors.get-color(shadow, 24),
+	2dp: 0 structure.get-size(8) structure.get-size(16)
+		colors.get-color(shadow, 16),
+	3dp: 0 structure.get-size(24) structure.get-size(128)
+		colors.get-color(shadow, 40),
+);
+
+/// Access elevations.
+///
+/// @access public
+///
+/// @param {String} $elevationName [0dp] - The needed elevation.
+///
+/// @require {Variable} $elevations - A list of all available elevations. If the provided `$elevationName` is not in this list, an error will be prompted.
+///
+/// @return {List} elevation for the specified `$elevationName`.
+@function get-elevation($elevationName: 0dp) {
+	@if not map-has-key($elevations, $elevationName) {
+		@error 'Elevation `#{$elevationName}` not available.';
+	}
+
+	@return map-get($elevations, $elevationName);
+}

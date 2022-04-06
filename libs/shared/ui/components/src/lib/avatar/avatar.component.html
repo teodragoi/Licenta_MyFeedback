@@ -1,0 +1,8 @@
+<img *ngIf="imageSrc?.length; else showInitials" [src]="imageSrc" />
+
+<ng-template #showInitials>
+	<span *ngIf="nameInitials; else showBlank">{{ nameInitials }}</span>
+	<ng-template #showBlank>
+		<mat-icon>person</mat-icon>
+	</ng-template>
+</ng-template>

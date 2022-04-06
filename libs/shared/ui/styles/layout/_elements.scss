@@ -1,0 +1,61 @@
+@use 'global' as *;
+
+.mat-menu {
+	&-content {
+		background-color: get-color(themed-panel-background);
+		border: get-border();
+		box-shadow: get-elevation(2dp);
+	}
+
+	&-item {
+		color: get-color(themed-headline);
+	}
+}
+
+.mat-button-toggle {
+	border-left: none !important;
+
+	&-group {
+		background-color: get-color(themed-panel-background);
+		border: get-border();
+	}
+
+	&-label-content {
+		align-items: center;
+		display: flex;
+		line-height: get-size(40) !important;
+
+		> *:not(:last-child) {
+			margin-right: get-size(8);
+		}
+	}
+
+	&-appearance-standard {
+		background-color: transparent !important;
+		color: get-color(themed-text) !important;
+
+		&.mat-button-toggle-checked {
+			color: get-color(orange-500) !important;
+			font-weight: 600;
+		}
+	}
+}
+
+.mat-table {
+	background-color: get-color(themed-panel-background);
+	border-radius: get-size(4);
+	box-shadow: get-elevation(2dp);
+	overflow: hidden;
+
+	thead {
+		background-color: get-color(themed-panel-background-second);
+	}
+}
+
+.mat-header-cell {
+	color: get-color(themed-text) !important;
+}
+
+.mat-cell {
+	color: get-color(themed-headline) !important;
+}

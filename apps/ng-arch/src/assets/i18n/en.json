@@ -1,0 +1,10 @@
+{
+	"dashboard": {
+		"testMessage": "Test message"
+	},
+	"userProfile": {
+		"profileSettings": "Profile Settings",
+		"switchToDarkTheme": "Switch to dark theme",
+		"switchToLightTheme": "Switch to light theme"
+	}
+}

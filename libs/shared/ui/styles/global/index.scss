@@ -1,0 +1,8 @@
+@forward 'borders';
+@forward 'colors' show $data-visualization, get-color;
+@forward 'elevations' show get-elevation;
+@forward 'opacities' show get-opacity;
+@forward 'placeholders';
+@forward 'structure' show get-size;
+@forward 'transitions' show get-duration, get-timing-function, get-transition;
+@forward 'typography' show get-font-family, get-font-weight;

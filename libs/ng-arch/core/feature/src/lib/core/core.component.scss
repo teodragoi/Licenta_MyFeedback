@@ -1,0 +1,18 @@
+@use 'global' as *;
+
+:host {
+	align-self: center;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	max-width: get-size(1440);
+	padding: 0 5%;
+	width: 100%;
+}
+
+main {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: get-size(8) 0;
+}

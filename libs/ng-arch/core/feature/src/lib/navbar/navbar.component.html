@@ -1,0 +1,35 @@
+<shared-avatar
+	[matMenuTriggerFor]="userSettingsMenu"
+	[name]="'Test Name'"
+	class="navbar__avatar"
+></shared-avatar>
+
+<mat-menu #userSettingsMenu="matMenu" xPosition="before">
+	<button (click)="changeTranslation($event)" mat-menu-item class="language">
+		<img
+			[src]="
+				currentLanguage === 'en'
+					? 'assets/illustrations/chinese.svg'
+					: 'assets/illustrations/english.svg'
+			"
+		/>
+		<span>{{
+			currentLanguage === 'en' ? '切换到中文' : 'Switch to english'
+		}}</span>
+	</button>
+
+	<button
+		*ngIf="isDarkTheme$ | async; else shoLightTheme"
+		(click)="setTheme($event, theme.LIGHT)"
+		mat-menu-item
+	>
+		<mat-icon class="warning">light_mode</mat-icon>
+		<span>{{ 'userProfile.switchToLightTheme' | translate }}</span>
+	</button>
+	<ng-template #shoLightTheme>
+		<button (click)="setTheme($event, theme.DARK)" mat-menu-item>
+			<mat-icon class="warning">nightlight</mat-icon>
+			<span>{{ 'userProfile.switchToDarkTheme' | translate }}</span>
+		</button>
+	</ng-template>
+</mat-menu>

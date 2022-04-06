@@ -1,0 +1,24 @@
+@use 'global' as *;
+
+::-webkit-scrollbar {
+	// Height & width
+	height: get-size(8);
+	width: get-size(8);
+
+	// Track
+	&-track {
+		background-color: transparent;
+		border: none;
+	}
+
+	// Handle
+	&-thumb {
+		background-color: get-color(themed-border, 24);
+		border: none;
+		border-radius: get-border-radius();
+
+		&:hover {
+			background-color: get-color(themed-border, 40);
+		}
+	}
+}

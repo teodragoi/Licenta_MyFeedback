@@ -1,0 +1,14 @@
+{
+	"app": {
+		"title": "Hackathon Bytex 2021"
+	},
+	"login": {
+		"email": "Email",
+		"forgotPassword": "Ai uitat parola?",
+		"login": "Logare",
+		"password": "Parola",
+		"register": "Inregistrare",
+		"signIn": "Autentificare",
+		"signOut": "Delogare"
+	}
+}

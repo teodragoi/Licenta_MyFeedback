@@ -1,0 +1,68 @@
+$durations: (
+	shortest: 150,
+	short: 200,
+	standard: 250,
+	long: 300,
+	longest: 350,
+);
+
+/// Access durations.
+///
+/// @access private
+///
+/// @param {String} $durationName [standard] - The needed duration.
+///
+/// @require {Variable} $durations - A list of all available durations. If the provided `$durationName` is not in this list, an error will be prompted.
+///
+/// @return {String} duration for the specified `$durationName`.
+@function get-duration($durationName: standard) {
+	@if not map-has-key($durations, $durationName) {
+		@error 'Duration `#{$durationName}` not available.';
+	}
+
+	@return #{map-get($durations, $durationName)}ms;
+}
+
+$timing-functions: (
+	standard: cubic-bezier(0.4, 0, 0.2, 1),
+	accelerate: cubic-bezier(0, 0, 0.2, 1),
+	decelerate: cubic-bezier(0.4, 0, 1, 1),
+);
+
+/// Access timing functions.
+///
+/// @access private
+///
+/// @param {String} $timingFunctionName [standard] - The needed timing function.
+///
+/// @require {Variable} $timing-functions - A list of all available timing functions. If the provided `$timingFunctionName` is not in this list, an error will be prompted.
+///
+/// @return {Function} timing function for the specified `$timingFunctionName`.
+@function get-timing-function($timingFunctionName: standard) {
+	@if not map-has-key($timing-functions, $timingFunctionName) {
+		@error 'Timing function `#{$timingFunctionName}` not available.';
+	}
+
+	@return map-get($timing-functions, $timingFunctionName);
+}
+
+/// Access transitions.
+///
+/// @access public
+///
+/// @param {String} $property [all] - The transition property.
+/// @param {String} $durationName [standard] - The needed duration.
+/// @param {String} $timingFunctionName [standard] - The needed timing function.
+///
+/// @require {Function} get-duration
+/// @require {Function} get-timing-function
+///
+/// @return {String} transition for the specified `$durationName` and `$timingFunctionName`, applied to all elements.
+@function get-transition(
+	$property: all,
+	$durationName: standard,
+	$timingFunctionName: standard
+) {
+	@return $property get-duration($durationName)
+		get-timing-function($timingFunctionName);
+}

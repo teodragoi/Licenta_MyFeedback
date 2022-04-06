@@ -1,0 +1,28 @@
+@use 'global' as *;
+
+:host {
+	display: flex;
+	justify-content: flex-end;
+	padding: get-size(24) 0;
+}
+
+.navbar {
+	&__avatar {
+		border-color: get-color(orange-500);
+		cursor: pointer;
+	}
+}
+
+.language {
+	align-items: center;
+	display: flex;
+
+	> *:not(:last-child) {
+		margin-right: get-size(16);
+	}
+
+	img {
+		height: get-size(24);
+		width: get-size(24);
+	}
+}

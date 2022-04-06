@@ -1,0 +1,20 @@
+@use 'sass:math';
+
+$opacities: (0, 4, 8, 16, 24, 40, 60, 80, 100);
+
+/// Access opacities.
+///
+/// @access public
+///
+/// @param {Number} $opacity [100] - The needed opacity. Must be a value between 0 and 100, which represents the percentage.
+///
+/// @require {Variable} $opacities - A list of all available opacities. If the provided `$opacity` is not in this list, an error will be prompted.
+///
+/// @return {Number} value between 0 and 1 for the specified `$opacity` that has been divided by 100.
+@function get-opacity($opacity: 100) {
+	@if not index($opacities, $opacity) {
+		@error 'Opacity `#{$opacity}` not available.';
+	}
+
+	@return math.div($opacity, 100);
+}

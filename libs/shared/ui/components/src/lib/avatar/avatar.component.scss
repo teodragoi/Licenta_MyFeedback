@@ -1,0 +1,19 @@
+@use 'global' as *;
+
+:host {
+	align-items: center;
+	background-color: get-color(themed-background);
+	border: get-size(2) solid get-color(themed-panel-background);
+	border-radius: 50%;
+	color: get-color(themed-text);
+	display: flex;
+	height: get-size(32);
+	justify-content: center;
+	overflow: hidden;
+	user-select: none;
+	width: get-size(32);
+}
+
+img {
+	max-width: 100%;
+}

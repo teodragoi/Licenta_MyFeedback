@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="2" width="20" height="20" rx="2" fill="#FF4B55"/>
+<g clip-path="url(#a)">
+<rect x="2" y="2" width="20" height="20" rx="2" fill="#012169"/>
+<path d="M7.52788 12L2.00004 9L2 5L12 9.76394L22 5V9.5L16.4722 12L22 15V19.5L12 14.2361L2 19V15L7.52788 12Z" clip-rule="evenodd" fill="#fff" fill-rule="evenodd"/>
+<path d="M12 10.5093L22 5.5V9L14.9814 12L22 15V18.5L12 13.4907L2 18V15L9.01855 12L2 9V5.5L12 10.5093Z" clip-rule="evenodd" fill="#C8102E" fill-rule="evenodd"/>
+<path d="M8.66667 8.66667V2H15.3333V8.66667H22V15.3333H15.3333V22H8.66667V15.3333H2V8.66667H8.66667Z" clip-rule="evenodd" fill="#fff" fill-rule="evenodd"/>
+<path d="m10 10v-8h4v8h8v4h-8v8h-4v-8h-8v-4h8z" clip-rule="evenodd" fill="#C8102E" fill-rule="evenodd"/>
+</g>
+<defs>
+<clipPath id="a">
+<rect x="2" y="2" width="20" height="20" rx="2" fill="#fff"/>
+</clipPath>
+</defs>
+</svg>

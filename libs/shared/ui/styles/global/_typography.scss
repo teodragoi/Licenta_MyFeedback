@@ -1,0 +1,85 @@
+$fonts: (
+	primary: (
+		name: 'Inter',
+		type: sans-serif,
+		weights: (
+			light: 200,
+			normal: 400,
+			bold: 500,
+			bolder: 600,
+		),
+	),
+	code: (
+		name: 'Roboto Mono',
+		type: monospace,
+		weights: (
+			normal: 400,
+		),
+	),
+);
+
+/// Access font.
+///
+/// @access private
+///
+/// @param {String} $fontType [primary] - The needed font config.
+///
+/// @require {Variable} $fonts - A list of all available fonts. If the provided `$fontType` is not in this list, an error will be prompted.
+///
+/// @return {Map} font config for the specified `$fontType`.
+@function get-font($fontType: primary) {
+	@if not map-has-key($fonts, $fontType) {
+		@error 'Font `#{$fontType}` not available.';
+	}
+
+	@return map-get($fonts, $fontType);
+}
+
+/// Access font families.
+///
+/// @access public
+///
+/// @param {String} $fontType [primary] - The needed font.
+///
+/// @require {Function} get-font
+///
+/// @return {List} font-family for the specified `$fontType`.
+@function get-font-family($fontType: primary) {
+	$font-config: get-font($fontType);
+
+	@if not map-has-key($font-config, name) {
+		@error 'Font name for `#{$fontType}` font not available.';
+	}
+
+	@if not map-has-key($font-config, type) {
+		@error 'Font type for `#{$fontType}` font not available.';
+	}
+
+	@return map-get($font-config, name), map-get($font-config, type);
+}
+
+/// Access font weights.
+///
+/// @access public
+///
+/// @param {String} $fontWeight [normal] - The needed font weight.
+/// @param {String} $fontType [primary] - The needed font for the needed font weight.
+///
+/// @require {Function} get-font
+///
+/// @return {Number} font weight for the specified `$fontType` and `$fontWeight`.
+@function get-font-weight($fontWeight: normal, $fontType: primary) {
+	$font-config: get-font($fontType);
+
+	@if not map-has-key($font-config, weights) {
+		@error 'Font weights for `#{$fontType}` font not available.';
+	}
+
+	$font-weights: map-get($font-config, weights);
+
+	@if not map-has-key($font-weights, $fontWeight) {
+		@error 'Font weight `#{$fontWeight}` for `#{$fontType}` not available.';
+	}
+
+	@return map-get($font-weights, $fontWeight);
+}

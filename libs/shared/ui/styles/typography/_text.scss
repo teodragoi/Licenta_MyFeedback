@@ -1,0 +1,26 @@
+@use 'global' as *;
+@use 'headlines' as *;
+
+@each $headline, $config in $headlines {
+	#{$headline},
+	.#{$headline} {
+		@include get-headline($headline);
+	}
+}
+
+body {
+	color: get-color(themed-text);
+	font: normal 14px/1.25 get-font-family(); // stylelint-disable-line unit-allowed-list
+}
+
+a {
+	color: get-color(themed-text);
+	transition: get-transition();
+	user-select: none;
+}
+
+code {
+	color: get-color(themed-label);
+	font-family: get-font-family(code);
+	font-size: get-size(12);
+}

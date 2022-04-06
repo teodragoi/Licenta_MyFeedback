@@ -1,0 +1,10 @@
+{
+	"dashboard": {
+		"testMessage": "测试信息"
+	},
+	"userProfile": {
+		"profileSettings": "配置文件设置",
+		"switchToDarkTheme": "切换到深色主题",
+		"switchToLightTheme": "切换到浅色主题"
+	}
+}

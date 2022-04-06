@@ -1,0 +1,100 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"rootDir": ".",
+		"sourceMap": true,
+		"declaration": false,
+		"moduleResolution": "node",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"target": "es2015",
+		"module": "esnext",
+		"typeRoots": ["node_modules/@types"],
+		"lib": ["es2017", "dom"],
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"@api-interfaces": ["libs/api/interfaces/src/index.ts"],
+			"@api/*": ["apps/api/src/app/*"],
+			"@api/environment": ["apps/api/src/environments/environment.ts"],
+			"@environment": ["apps/ng-arch/src/environments/environment.ts"],
+			"@ng-arch/api/interfaces": ["libs/api/interfaces/src/index.ts"],
+			"@ng-arch/ng-arch/achievements/data-access": [
+				"libs/ng-arch/achievements/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/achievements/feature": [
+				"libs/ng-arch/achievements/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/achievements/types": [
+				"libs/ng-arch/achievements/types/src/index.ts"
+			],
+			"@ng-arch/ng-arch/candidate/data-access": [
+				"libs/ng-arch/candidate/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/candidate/feature": [
+				"libs/ng-arch/candidate/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/candidate/types": [
+				"libs/ng-arch/candidate/types/src/index.ts"
+			],
+			"@ng-arch/ng-arch/core/data-access": [
+				"libs/ng-arch/core/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/core/feature": [
+				"libs/ng-arch/core/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/core/types": ["libs/ng-arch/core/types/src/index.ts"],
+			"@ng-arch/ng-arch/dashboard/data-access": [
+				"libs/ng-arch/dashboard/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/dashboard/feature": [
+				"libs/ng-arch/dashboard/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/dashboard/types": [
+				"libs/ng-arch/dashboard/types/src/index.ts"
+			],
+			"@ng-arch/ng-arch/jobboard/data-access": [
+				"libs/ng-arch/jobboard/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/jobboard/feature": [
+				"libs/ng-arch/jobboard/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/jobboard/types": [
+				"libs/ng-arch/jobboard/types/src/index.ts"
+			],
+			"@ng-arch/ng-arch/jobboards/data-access": [
+				"libs/ng-arch/jobboards/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/jobboards/feature": [
+				"libs/ng-arch/jobboards/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/jobboards/types": [
+				"libs/ng-arch/jobboards/types/src/index.ts"
+			],
+			"@ng-arch/ng-arch/login/data-access": [
+				"libs/ng-arch/login/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/login/feature": [
+				"libs/ng-arch/login/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/login/types": ["libs/ng-arch/login/types/src/index.ts"],
+			"@ng-arch/ng-arch/recruitment/data-access": [
+				"libs/ng-arch/recruitment/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/recruitment/feature": [
+				"libs/ng-arch/recruitment/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/recruitment/types": [
+				"libs/ng-arch/recruitment/types/src/index.ts"
+			],
+			"@ng-arch/shared/ui/components": [
+				"libs/shared/ui/components/src/index.ts"
+			],
+			"@ng-arch/shared/ui/material": ["libs/shared/ui/material/src/index.ts"],
+			"@shared/services": ["libs/shared/services/index.ts"]
+		}
+	},
+	"exclude": ["node_modules", "tmp"]
+}

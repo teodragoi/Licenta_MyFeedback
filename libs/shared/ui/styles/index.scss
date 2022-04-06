@@ -1,0 +1,19 @@
+// Content:
+//   ❯ Vendor
+//   ❯ Global
+//   ❯ Typography
+//   ❯ Layout
+// Documentation:
+//   ❯ For annotations availability check: https://sassdoc.com/annotations.
+
+// Vendor
+@use 'vendor';
+
+// Global
+@forward 'global';
+
+// Typography
+@forward 'typography';
+
+// Layout
+@forward 'layout';

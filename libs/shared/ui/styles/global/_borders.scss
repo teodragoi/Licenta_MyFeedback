@@ -1,0 +1,30 @@
+@use 'global/colors' as colors;
+@use 'global/structure' as structure;
+
+/// Access border.
+///
+/// @access public
+/// @see {Function} get-color - Used to get default border color.
+///
+/// @param {Number} $size [1] - The needed border size.
+/// @param {String} $style [solid] - The needed border style.
+/// @param {Color} $color [themed-border] - The needed color of the border.
+///
+/// @require {Function} get-size - Used to convert provided `size` to it's equivalent in `rem`.
+///
+/// @return {List} a border of 1px size, solid, with the specified `$color`.
+@function get-border(
+	$size: 1,
+	$style: solid,
+	$color: colors.get-color(themed-border)
+) {
+	@if type-of($size) != number {
+		@error 'Only number size accepted.';
+	}
+
+	@if type-of($style) != string {
+		@error 'Only string style accepted.';
+	}
+
+	@return structure.get-size($size) $style $color;
+}
