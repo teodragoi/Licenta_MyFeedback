@@ -1,14 +1,18 @@
 {
-	"app": {
-		"title": "Hackathon Bytex 2021"
+	"common": {
+		"add": "Adauga"
 	},
-	"login": {
-		"email": "Email",
-		"forgotPassword": "Ai uitat parola?",
-		"login": "Logare",
-		"password": "Parola",
-		"register": "Inregistrare",
-		"signIn": "Autentificare",
-		"signOut": "Delogare"
+	"dashboard": {
+		"testMessage": "Mesaj de test"
+	},
+	"hierarchyManagement": {
+		"addRoleLabel": "Adauga rol",
+		"addRolePlaceholder": "Adauga numele rolului",
+		"selectRoleType": "Selecteaza tipul rolului"
+	},
+	"userProfile": {
+		"profileSettings": "Setari profil",
+		"switchToDarkTheme": "Schimba pe tema dark",
+		"switchToLightTheme": "Schimba pe tema light"
 	}
 }

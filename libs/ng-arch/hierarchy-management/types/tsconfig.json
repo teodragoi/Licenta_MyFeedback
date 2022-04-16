@@ -14,13 +14,11 @@
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
 		"noImplicitReturns": true,
-		"noFallthroughCasesInSwitch": true,
-		"strictPropertyInitialization": false
+		"noFallthroughCasesInSwitch": true
 	},
 	"angularCompilerOptions": {
 		"strictInjectionParameters": true,
 		"strictInputAccessModifiers": true,
-		"strictTemplates": true,
-		"strictPropertyInitialization": false
+		"strictTemplates": true
 	}
 }

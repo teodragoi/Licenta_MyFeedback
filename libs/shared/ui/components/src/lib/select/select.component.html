@@ -1,0 +1,13 @@
+<h4 *ngIf="title">
+	{{ title }}
+</h4>
+
+<mat-form-field appearance="standard">
+	<mat-label *ngIf="label">{{ label }}</mat-label>
+
+	<mat-select [disabled]="isDisabled" [value]="selectedValue" (selectionChange)="onSelectionChange($event)">
+		<mat-option *ngFor="let option of selectOptions" [value]="option.value">
+			{{ option.name }}
+		</mat-option>
+	</mat-select>
+</mat-form-field>

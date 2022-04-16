@@ -15,6 +15,13 @@ const routes: Routes = [
 					),
 			},
 			{
+				path: 'hierarchy-management',
+				loadChildren: () =>
+					import('@ng-arch/ng-arch/hierarchy-management/feature').then(
+						(m) => m.NgArchHierarchyManagementFeatureModule
+					),
+			},
+			{
 				path: '',
 				redirectTo: 'dashboard',
 			},

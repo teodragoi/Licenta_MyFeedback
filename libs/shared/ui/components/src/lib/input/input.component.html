@@ -1,0 +1,11 @@
+<mat-form-field appearance="standard">
+	<mat-label *ngIf="label"> {{ label }} </mat-label>
+	<input
+		matInput
+		[attr.aria-label]="label"
+		[disabled]="isDisabled"
+		[placeholder]="placeholder"
+		[ngModel]="inputValue"
+		(ngModelChange)="onInputChange($event)"
+	/>
+</mat-form-field>

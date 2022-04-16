@@ -1,6 +1,14 @@
 {
+	"common": {
+		"add": "Add"
+	},
 	"dashboard": {
 		"testMessage": "Test message"
+	},
+	"hierarchyManagement": {
+		"addRoleLabel": "Add role",
+		"addRolePlaceholder": "Add role name",
+		"selectRoleType": "Select role type"
 	},
 	"userProfile": {
 		"profileSettings": "Profile Settings",

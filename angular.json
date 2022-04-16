@@ -367,6 +367,110 @@
 			"tags": [],
 			"implicitDependencies": ["ng-arch"]
 		},
+		"ng-arch-hierarchy-management-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/hierarchy-management/data-access",
+			"sourceRoot": "libs/ng-arch/hierarchy-management/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/hierarchy-management/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/hierarchy-management/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/hierarchy-management/data-access/src/**/*.ts",
+							"libs/ng-arch/hierarchy-management/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-hierarchy-management-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/hierarchy-management/feature",
+			"sourceRoot": "libs/ng-arch/hierarchy-management/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/hierarchy-management/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/hierarchy-management/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/hierarchy-management/feature/src/**/*.ts",
+							"libs/ng-arch/hierarchy-management/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-hierarchy-management-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/hierarchy-management/types",
+			"sourceRoot": "libs/ng-arch/hierarchy-management/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/hierarchy-management/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/hierarchy-management/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/hierarchy-management/types/src/**/*.ts",
+							"libs/ng-arch/hierarchy-management/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"shared-types": {
+			"projectType": "library",
+			"root": "libs/shared/types",
+			"sourceRoot": "libs/shared/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/shared/types"],
+					"options": {
+						"jestConfig": "libs/shared/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/shared/types/src/**/*.ts",
+							"libs/shared/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"shared-ui-components": {
 			"projectType": "library",
 			"root": "libs/shared/ui/components",
