@@ -15,10 +15,10 @@ const routes: Routes = [
 					),
 			},
 			{
-				path: 'hierarchy-management',
+				path: 'roles-management',
 				loadChildren: () =>
-					import('@ng-arch/ng-arch/hierarchy-management/feature').then(
-						(m) => m.NgArchHierarchyManagementFeatureModule
+					import('@ng-arch/ng-arch/roles-management/feature').then(
+						(m) => m.NgArchRolesManagementFeatureModule
 					),
 			},
 			{

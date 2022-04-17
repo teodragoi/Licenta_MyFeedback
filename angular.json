@@ -367,17 +367,17 @@
 			"tags": [],
 			"implicitDependencies": ["ng-arch"]
 		},
-		"ng-arch-hierarchy-management-data-access": {
+		"ng-arch-roles-management-data-access": {
 			"projectType": "library",
-			"root": "libs/ng-arch/hierarchy-management/data-access",
-			"sourceRoot": "libs/ng-arch/hierarchy-management/data-access/src",
+			"root": "libs/ng-arch/roles-management/data-access",
+			"sourceRoot": "libs/ng-arch/roles-management/data-access/src",
 			"prefix": "ng-arch",
 			"architect": {
 				"test": {
 					"builder": "@nrwl/jest:jest",
-					"outputs": ["coverage/libs/ng-arch/hierarchy-management/data-access"],
+					"outputs": ["coverage/libs/ng-arch/roles-management/data-access"],
 					"options": {
-						"jestConfig": "libs/ng-arch/hierarchy-management/data-access/jest.config.js",
+						"jestConfig": "libs/ng-arch/roles-management/data-access/jest.config.js",
 						"passWithNoTests": true
 					}
 				},
@@ -385,25 +385,25 @@
 					"builder": "@nrwl/linter:eslint",
 					"options": {
 						"lintFilePatterns": [
-							"libs/ng-arch/hierarchy-management/data-access/src/**/*.ts",
-							"libs/ng-arch/hierarchy-management/data-access/src/**/*.html"
+							"libs/ng-arch/roles-management/data-access/src/**/*.ts",
+							"libs/ng-arch/roles-management/data-access/src/**/*.html"
 						]
 					}
 				}
 			},
 			"tags": []
 		},
-		"ng-arch-hierarchy-management-feature": {
+		"ng-arch-roles-management-feature": {
 			"projectType": "library",
-			"root": "libs/ng-arch/hierarchy-management/feature",
-			"sourceRoot": "libs/ng-arch/hierarchy-management/feature/src",
+			"root": "libs/ng-arch/roles-management/feature",
+			"sourceRoot": "libs/ng-arch/roles-management/feature/src",
 			"prefix": "ng-arch",
 			"architect": {
 				"test": {
 					"builder": "@nrwl/jest:jest",
-					"outputs": ["coverage/libs/ng-arch/hierarchy-management/feature"],
+					"outputs": ["coverage/libs/ng-arch/roles-management/feature"],
 					"options": {
-						"jestConfig": "libs/ng-arch/hierarchy-management/feature/jest.config.js",
+						"jestConfig": "libs/ng-arch/roles-management/feature/jest.config.js",
 						"passWithNoTests": true
 					}
 				},
@@ -411,25 +411,25 @@
 					"builder": "@nrwl/linter:eslint",
 					"options": {
 						"lintFilePatterns": [
-							"libs/ng-arch/hierarchy-management/feature/src/**/*.ts",
-							"libs/ng-arch/hierarchy-management/feature/src/**/*.html"
+							"libs/ng-arch/roles-management/feature/src/**/*.ts",
+							"libs/ng-arch/roles-management/feature/src/**/*.html"
 						]
 					}
 				}
 			},
 			"tags": []
 		},
-		"ng-arch-hierarchy-management-types": {
+		"ng-arch-roles-management-types": {
 			"projectType": "library",
-			"root": "libs/ng-arch/hierarchy-management/types",
-			"sourceRoot": "libs/ng-arch/hierarchy-management/types/src",
+			"root": "libs/ng-arch/roles-management/types",
+			"sourceRoot": "libs/ng-arch/roles-management/types/src",
 			"prefix": "ng-arch",
 			"architect": {
 				"test": {
 					"builder": "@nrwl/jest:jest",
-					"outputs": ["coverage/libs/ng-arch/hierarchy-management/types"],
+					"outputs": ["coverage/libs/ng-arch/roles-management/types"],
 					"options": {
-						"jestConfig": "libs/ng-arch/hierarchy-management/types/jest.config.js",
+						"jestConfig": "libs/ng-arch/roles-management/types/jest.config.js",
 						"passWithNoTests": true
 					}
 				},
@@ -437,8 +437,8 @@
 					"builder": "@nrwl/linter:eslint",
 					"options": {
 						"lintFilePatterns": [
-							"libs/ng-arch/hierarchy-management/types/src/**/*.ts",
-							"libs/ng-arch/hierarchy-management/types/src/**/*.html"
+							"libs/ng-arch/roles-management/types/src/**/*.ts",
+							"libs/ng-arch/roles-management/types/src/**/*.html"
 						]
 					}
 				}

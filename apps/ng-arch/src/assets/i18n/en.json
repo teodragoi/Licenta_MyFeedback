@@ -5,7 +5,7 @@
 	"dashboard": {
 		"testMessage": "Test message"
 	},
-	"hierarchyManagement": {
+	"rolesManagement": {
 		"addRoleLabel": "Add role",
 		"addRolePlaceholder": "Add role name",
 		"selectRoleType": "Select role type"

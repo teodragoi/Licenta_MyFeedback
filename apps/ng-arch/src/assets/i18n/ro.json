@@ -5,7 +5,7 @@
 	"dashboard": {
 		"testMessage": "Mesaj de test"
 	},
-	"hierarchyManagement": {
+	"rolesManagement": {
 		"addRoleLabel": "Adauga rol",
 		"addRolePlaceholder": "Adauga numele rolului",
 		"selectRoleType": "Selecteaza tipul rolului"

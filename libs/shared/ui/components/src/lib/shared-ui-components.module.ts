@@ -5,9 +5,10 @@ import { AvatarComponent } from './avatar/avatar.component';
 import { SelectComponent } from './select/select.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './input/input.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
-	declarations: [AvatarComponent, InputComponent, SelectComponent],
+	declarations: [AvatarComponent, InputComponent, SelectComponent, TableComponent],
 	exports: [AvatarComponent, InputComponent, SelectComponent],
 	imports: [
 		CommonModule,

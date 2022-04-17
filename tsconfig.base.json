@@ -55,14 +55,14 @@
 			"@ng-arch/ng-arch/dashboard/types": [
 				"libs/ng-arch/dashboard/types/src/index.ts"
 			],
-			"@ng-arch/ng-arch/hierarchy-management/data-access": [
-				"libs/ng-arch/hierarchy-management/data-access/src/index.ts"
+			"@ng-arch/ng-arch/roles-management/data-access": [
+				"libs/ng-arch/roles-management/data-access/src/index.ts"
 			],
-			"@ng-arch/ng-arch/hierarchy-management/feature": [
-				"libs/ng-arch/hierarchy-management/feature/src/index.ts"
+			"@ng-arch/ng-arch/roles-management/feature": [
+				"libs/ng-arch/roles-management/feature/src/index.ts"
 			],
-			"@ng-arch/ng-arch/hierarchy-management/types": [
-				"libs/ng-arch/hierarchy-management/types/src/index.ts"
+			"@ng-arch/ng-arch/roles-management/types": [
+				"libs/ng-arch/roles-management/types/src/index.ts"
 			],
 			"@ng-arch/ng-arch/jobboard/data-access": [
 				"libs/ng-arch/jobboard/data-access/src/index.ts"
