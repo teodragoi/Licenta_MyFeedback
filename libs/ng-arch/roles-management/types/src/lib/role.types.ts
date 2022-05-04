@@ -11,6 +11,10 @@ export interface Role {
 	type: RoleType;
 }
 
+export interface RoleDTO extends Role {
+	id: number;
+}
+
 export interface RoleVmData {
 	isLoading: boolean;
 	rolesTableConfig: TableConfig<Role>;

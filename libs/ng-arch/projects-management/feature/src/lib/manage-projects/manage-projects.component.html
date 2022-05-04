@@ -1,1 +1,11 @@
-<ng-arch-add-project></ng-arch-add-project>
+<ng-container *ngIf="vmData$ | async as vmData">
+	<ng-arch-add-project></ng-arch-add-project>
+
+	<ng-arch-table
+		*ngIf="!vmData.isLoading; else loading"
+		[config]="vmData.projectsTableConfig"
+		(actionSelected)="onActionSelected($event)"
+	></ng-arch-table>
+
+	<ng-template #loading></ng-template>
+</ng-container>

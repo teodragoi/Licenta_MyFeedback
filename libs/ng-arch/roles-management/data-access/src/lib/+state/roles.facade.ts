@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Role } from '@ng-arch/ng-arch/roles-management/types';
+import { Role, RoleDTO } from '@ng-arch/ng-arch/roles-management/types';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as RolesActions from './roles.actions';
@@ -22,7 +22,7 @@ export class RolesFacade {
 		this.store.dispatch(RolesActions.addRole({ role }));
 	}
 
-	public dispatchDeleteRole(role: Role): void {
-		this.store.dispatch(RolesActions.deleteRole({ role }));
+	public dispatchDeleteRole(roleDTO: RoleDTO): void {
+		this.store.dispatch(RolesActions.deleteRole({ roleDTO }));
 	}
 }

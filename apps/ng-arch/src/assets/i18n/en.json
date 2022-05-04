@@ -22,11 +22,11 @@
 	"rolesManagement": {
 		"addRoleLabel": "Add role",
 		"addRolePlaceholder": "Add role name",
-		"selectRoleType": "Select role type",
-		"table": {
-			"name": "Name",
-			"type": "Type"
-		}
+		"selectRoleType": "Select role type"
+	},
+	"table": {
+		"name": "Name",
+		"type": "Type"
 	},
 	"userProfile": {
 		"profileSettings": "Profile Settings",

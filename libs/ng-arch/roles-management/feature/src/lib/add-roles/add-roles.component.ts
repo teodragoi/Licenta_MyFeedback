@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RolesFacade } from '@ng-arch/ng-arch/roles-management/data-access';
 import { RoleType } from '@ng-arch/ng-arch/roles-management/types';
 import { SelectData } from '@ng-arch/shared/types';
-import { RolesService } from '../roles.service';
 
 @Component({
 	selector: 'ng-arch-add-roles',
@@ -33,7 +32,7 @@ export class AddRolesComponent implements OnInit {
 		return !this.form.valid;
 	}
 
-	constructor(private fb: FormBuilder, private rolesService: RolesService) {}
+	constructor(private fb: FormBuilder, private rolesFacade: RolesFacade) {}
 
 	public ngOnInit(): void {
 		this.form = this.fb.group({
@@ -43,7 +42,7 @@ export class AddRolesComponent implements OnInit {
 	}
 
 	public addRole(): void {
-		this.rolesService.addRole({
+		this.rolesFacade.dispatchAddRole({
 			name: this.form.controls['roleName'].value,
 			type: this.form.controls['roleType'].value,
 		});

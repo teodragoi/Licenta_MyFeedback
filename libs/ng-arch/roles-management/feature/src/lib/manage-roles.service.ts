@@ -10,7 +10,7 @@ import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
-export class RolesService {
+export class ManageRolesService {
 	public roleData$: Observable<RoleVmData> = combineLatest([
 		this.rolesFacade.isLoading$,
 		this.rolesFacade.roles$,
@@ -23,24 +23,16 @@ export class RolesService {
 
 	constructor(private rolesFacade: RolesFacade) {}
 
-	public addRole(role: Role): void {
-		this.rolesFacade.dispatchAddRole(role);
-	}
-
-	public removeRole(role: Role): void {
-		this.rolesFacade.dispatchDeleteRole(role);
-	}
-
 	private buildTableConfig(roles: Role[]): TableConfig<Role> {
 		return {
 			columns: [
 				{
-					name: 'rolesManagement.table.name',
+					name: 'table.name',
 					propertyName: 'name',
 					type: TableColumnType.DATA,
 				},
 				{
-					name: 'rolesManagement.table.type',
+					name: 'table.type',
 					propertyName: 'type',
 					type: TableColumnType.DATA,
 				},

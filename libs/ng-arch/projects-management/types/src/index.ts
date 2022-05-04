@@ -1,1 +1,1 @@
-export * from './lib/ng-arch-projects-management-types.module';
+export * from './lib/project.types';

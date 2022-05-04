@@ -8,7 +8,7 @@ import { SharedUiMaterialModule } from '@ng-arch/shared/ui/material';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgArchRolesManagementDataAccessModule } from '@ng-arch/ng-arch/roles-management/data-access';
 import { ManageRolesComponent } from './manage-roles/manage-roles.component';
-import { RolesService } from './roles.service';
+import { ManageRolesService } from './manage-roles.service';
 
 @NgModule({
 	declarations: [AddRolesComponent, ManageRolesComponent],
@@ -22,6 +22,6 @@ import { RolesService } from './roles.service';
 		SharedUiMaterialModule,
 		TranslateModule,
 	],
-	providers: [RolesService],
+	providers: [ManageRolesService],
 })
 export class NgArchRolesManagementFeatureModule {}

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ProjectsFacade } from '@ng-arch/ng-arch/projects-management/data-access';
 
 @Component({
 	selector: 'ng-arch-add-project',
@@ -8,17 +9,22 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddProjectComponent implements OnInit {
-	public formGroup: FormGroup;
+	public form: FormGroup;
 
-	constructor(private fb: FormBuilder) {}
+	constructor(
+		private fb: FormBuilder,
+		private projectsFacade: ProjectsFacade
+	) {}
 
 	public ngOnInit(): void {
-		this.formGroup = this.fb.group({
+		this.form = this.fb.group({
 			projectName: this.fb.control(''),
 		});
 	}
 
 	public addProject(): void {
-		console.log('add');
+		this.projectsFacade.dispatchAddProject({
+			name: this.form.controls['projectName'].value,
+		});
 	}
 }

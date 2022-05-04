@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Role } from '@ng-arch/ng-arch/roles-management/types';
+import { Role, RoleDTO } from '@ng-arch/ng-arch/roles-management/types';
 import { Action, createReducer, on } from '@ngrx/store';
 import { mockedRoles } from '../role.mocks';
 
@@ -8,7 +8,7 @@ import * as RolesActions from './roles.actions';
 export interface RolesState {
 	error: HttpErrorResponse | null;
 	isLoading: boolean;
-	roles: Role[];
+	roles: RoleDTO[];
 }
 
 const initialState: RolesState = {
@@ -21,17 +21,23 @@ export const rolesFeatureKey = 'roles';
 
 const reducer = createReducer(
 	initialState,
-	on(RolesActions.addRole, (state, { role }) => ({
+	on(RolesActions.addRole, (state) => ({
+		...state,
+		isLoading: true,
+	})),
+	on(RolesActions.onAddRoleSuccess, (state, { role }) => ({
 		...state,
 		isLoading: false,
 		roles: [...state.roles, role],
 	})),
-	on(RolesActions.deleteRole, (state, { role }) => ({
+	on(RolesActions.deleteRole, (state) => ({
+		...state,
+		isLoading: true,
+	})),
+	on(RolesActions.onDeleteRoleSuccess, (state, { roleDTO }) => ({
 		...state,
 		isLoading: false,
-		roles: state.roles.filter(
-			(stateRole: Role) => stateRole.name !== role.name
-		),
+		roles: state.roles.filter((role: RoleDTO) => role.id !== roleDTO.id),
 	}))
 );
 

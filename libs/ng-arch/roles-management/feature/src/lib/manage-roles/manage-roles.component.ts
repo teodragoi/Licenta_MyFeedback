@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Role, RoleVmData } from '@ng-arch/ng-arch/roles-management/types';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RolesFacade } from '@ng-arch/ng-arch/roles-management/data-access';
+import { RoleDTO, RoleVmData } from '@ng-arch/ng-arch/roles-management/types';
 import { TableActions } from '@ng-arch/shared/types';
 import { Observable } from 'rxjs';
-import { RolesService } from '../roles.service';
+import { ManageRolesService } from '../manage-roles.service';
 
 @Component({
 	selector: 'ng-arch-manage-roles',
@@ -11,17 +12,20 @@ import { RolesService } from '../roles.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ManageRolesComponent {
-	public vmData$: Observable<RoleVmData> = this.rolesService.roleData$;
+	public vmData$: Observable<RoleVmData> = this.manageRolesService.roleData$;
 
-	constructor(private rolesService: RolesService) {}
+	constructor(
+		private manageRolesService: ManageRolesService,
+		private rolesFacade: RolesFacade
+	) {}
 
 	public onActionSelected(event: {
 		action: TableActions;
-		element: Role;
+		element: RoleDTO;
 	}): void {
 		console.log(event);
 		if (event.action === TableActions.DELETE) {
-			this.rolesService.removeRole(event.element);
+			this.rolesFacade.dispatchDeleteRole(event.element);
 		}
 	}
 }
