@@ -9,14 +9,24 @@
 		"testMessage": "Mesaj de test"
 	},
 	"languageSwitch": "Schimba in engleza",
+	"navbar": {
+		"routes": {
+			"dashboard": "Dashboard",
+			"projectsManagement": "Management proiecte",
+			"rolesManagement": "Management roluri"
+		}
+	},
+	"projectsManagement": {
+		"addProjectLabel": "Adauga proiect"
+	},
 	"rolesManagement": {
 		"addRoleLabel": "Adauga rol",
 		"addRolePlaceholder": "Adauga numele rolului",
-		"selectRoleType": "Selecteaza tipul rolului",
-		"table": {
-			"name": "Nume",
-			"type": "Tip"
-		}
+		"selectRoleType": "Selecteaza tipul rolului"
+	},
+	"table": {
+		"name": "Nume",
+		"type": "Tip"
 	},
 	"userProfile": {
 		"profileSettings": "Setari profil",

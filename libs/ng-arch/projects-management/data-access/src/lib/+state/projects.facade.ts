@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Project } from '@ng-arch/ng-arch/projects-management/types';
+import { Project, ProjectDTO } from '@ng-arch/ng-arch/projects-management/types';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as ProjectsActions from './projects.actions';
@@ -12,7 +12,7 @@ export class ProjectsFacade {
 		ProjectsSelectors.selectIsLoading
 	);
 
-	public projects$: Observable<Project[]> = this.store.select(
+	public projects$: Observable<ProjectDTO[]> = this.store.select(
 		ProjectsSelectors.selectProjects
 	);
 
@@ -22,7 +22,7 @@ export class ProjectsFacade {
 		this.store.dispatch(ProjectsActions.addProject({ project }));
 	}
 
-	public dispatchDeleteProject(project: Project): void {
-		this.store.dispatch(ProjectsActions.deleteProject({ project }));
+	public dispatchDeleteProject(projectDTO: ProjectDTO): void {
+		this.store.dispatch(ProjectsActions.deleteProject({ projectDTO }));
 	}
 }

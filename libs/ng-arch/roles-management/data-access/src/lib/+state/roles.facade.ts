@@ -12,7 +12,7 @@ export class RolesFacade {
 		RolesSelectors.selectIsLoading
 	);
 
-	public roles$: Observable<Role[]> = this.store.select(
+	public roles$: Observable<RoleDTO[]> = this.store.select(
 		RolesSelectors.selectRoles
 	);
 

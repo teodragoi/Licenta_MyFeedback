@@ -4,7 +4,11 @@ export interface Project {
 	name: string;
 }
 
+export interface ProjectDTO extends Project {
+	id: number;
+}
+
 export interface ProjectsVmData {
 	isLoading: boolean;
-	projectsTableConfig: TableConfig<Project>;
+	projectsTableConfig: TableConfig<ProjectDTO>;
 }

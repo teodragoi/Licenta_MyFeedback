@@ -17,5 +17,5 @@ export interface RoleDTO extends Role {
 
 export interface RoleVmData {
 	isLoading: boolean;
-	rolesTableConfig: TableConfig<Role>;
+	rolesTableConfig: TableConfig<RoleDTO>;
 }
