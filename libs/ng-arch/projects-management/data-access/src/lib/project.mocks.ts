@@ -1,13 +1,16 @@
-import { Project } from '@ng-arch/ng-arch/projects-management/types';
+import { ProjectDTO } from '@ng-arch/ng-arch/projects-management/types';
 
-export const mockedProjects: Project[] = [
+export const mockedProjects: ProjectDTO[] = [
 	{
+		id: 1,
 		name: 'Project 1',
 	},
 	{
+		id: 2,
 		name: 'Project 2',
 	},
 	{
+		id: 3,
 		name: 'Project 3',
 	},
 ];

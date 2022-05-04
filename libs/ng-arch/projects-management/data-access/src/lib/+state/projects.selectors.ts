@@ -13,3 +13,8 @@ export const selectProjects = createSelector(
 	getProjectsState,
 	(state: ProjectsState) => state.projects
 );
+
+export const selectLatestProjectId = createSelector(
+	getProjectsState,
+	(state: ProjectsState) => state.projects[state.projects.length - 1].id
+);
