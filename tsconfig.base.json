@@ -55,15 +55,6 @@
 			"@ng-arch/ng-arch/dashboard/types": [
 				"libs/ng-arch/dashboard/types/src/index.ts"
 			],
-			"@ng-arch/ng-arch/roles-management/data-access": [
-				"libs/ng-arch/roles-management/data-access/src/index.ts"
-			],
-			"@ng-arch/ng-arch/roles-management/feature": [
-				"libs/ng-arch/roles-management/feature/src/index.ts"
-			],
-			"@ng-arch/ng-arch/roles-management/types": [
-				"libs/ng-arch/roles-management/types/src/index.ts"
-			],
 			"@ng-arch/ng-arch/jobboard/data-access": [
 				"libs/ng-arch/jobboard/data-access/src/index.ts"
 			],
@@ -89,6 +80,18 @@
 				"libs/ng-arch/login/feature/src/index.ts"
 			],
 			"@ng-arch/ng-arch/login/types": ["libs/ng-arch/login/types/src/index.ts"],
+			"@ng-arch/ng-arch/projects-management": [
+				"libs/ng-arch/projects-management/src/index.ts"
+			],
+			"@ng-arch/ng-arch/projects-management/data-access": [
+				"libs/ng-arch/projects-management/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/projects-management/feature": [
+				"libs/ng-arch/projects-management/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/projects-management/types": [
+				"libs/ng-arch/projects-management/types/src/index.ts"
+			],
 			"@ng-arch/ng-arch/recruitment/data-access": [
 				"libs/ng-arch/recruitment/data-access/src/index.ts"
 			],
@@ -97,6 +100,15 @@
 			],
 			"@ng-arch/ng-arch/recruitment/types": [
 				"libs/ng-arch/recruitment/types/src/index.ts"
+			],
+			"@ng-arch/ng-arch/roles-management/data-access": [
+				"libs/ng-arch/roles-management/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/roles-management/feature": [
+				"libs/ng-arch/roles-management/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/roles-management/types": [
+				"libs/ng-arch/roles-management/types/src/index.ts"
 			],
 			"@ng-arch/shared/types": ["libs/shared/types/src/index.ts"],
 			"@ng-arch/shared/ui/components": [

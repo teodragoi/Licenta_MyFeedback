@@ -1,14 +1,22 @@
 {
 	"common": {
-		"add": "Adauga"
+		"actions": "Actiuni",
+		"add": "Adauga",
+		"delete": "Sterge",
+		"edit": "Editeaza"
 	},
 	"dashboard": {
 		"testMessage": "Mesaj de test"
 	},
+	"languageSwitch": "Schimba in engleza",
 	"rolesManagement": {
 		"addRoleLabel": "Adauga rol",
 		"addRolePlaceholder": "Adauga numele rolului",
-		"selectRoleType": "Selecteaza tipul rolului"
+		"selectRoleType": "Selecteaza tipul rolului",
+		"table": {
+			"name": "Nume",
+			"type": "Tip"
+		}
 	},
 	"userProfile": {
 		"profileSettings": "Setari profil",

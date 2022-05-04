@@ -367,6 +367,84 @@
 			"tags": [],
 			"implicitDependencies": ["ng-arch"]
 		},
+		"ng-arch-projects-management-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/projects-management/data-access",
+			"sourceRoot": "libs/ng-arch/projects-management/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/projects-management/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/projects-management/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/projects-management/data-access/src/**/*.ts",
+							"libs/ng-arch/projects-management/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-projects-management-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/projects-management/feature",
+			"sourceRoot": "libs/ng-arch/projects-management/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/projects-management/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/projects-management/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/projects-management/feature/src/**/*.ts",
+							"libs/ng-arch/projects-management/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-projects-management-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/projects-management/types",
+			"sourceRoot": "libs/ng-arch/projects-management/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/projects-management/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/projects-management/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/projects-management/types/src/**/*.ts",
+							"libs/ng-arch/projects-management/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"ng-arch-roles-management-data-access": {
 			"projectType": "library",
 			"root": "libs/ng-arch/roles-management/data-access",

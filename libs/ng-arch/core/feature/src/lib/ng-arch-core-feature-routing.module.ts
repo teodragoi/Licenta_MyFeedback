@@ -15,6 +15,13 @@ const routes: Routes = [
 					),
 			},
 			{
+				path: 'projects-management',
+				loadChildren: () =>
+					import('@ng-arch/ng-arch/projects-management/feature').then(
+						(m) => m.NgArchProjectsManagementFeatureModule
+					),
+			},
+			{
 				path: 'roles-management',
 				loadChildren: () =>
 					import('@ng-arch/ng-arch/roles-management/feature').then(

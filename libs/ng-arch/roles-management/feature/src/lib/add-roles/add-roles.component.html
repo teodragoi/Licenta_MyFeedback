@@ -1,13 +1,13 @@
 <form [formGroup]="form" class="add-roles__form">
 	<shared-input
-		formControlName="roleName"
 		[label]="'rolesManagement.addRoleLabel' | translate"
+		formControlName="roleName"
 	></shared-input>
 
 	<shared-select
-		formControlName="roleType"
 		[label]="'rolesManagement.selectRoleType' | translate"
 		[selectOptions]="selectTypeOptions"
+		formControlName="roleType"
 	></shared-select>
 
 	<button

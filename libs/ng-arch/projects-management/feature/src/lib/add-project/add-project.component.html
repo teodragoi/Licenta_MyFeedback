@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup" class="add-projects__form">
+	<shared-input
+		[label]="'projectsManagement.addProjectLabel' | translate"
+		formControlName="projectName"
+	></shared-input>
+
+	<button
+		[attr.aria-label]="'common.add' | translate"
+		(click)="addProject()"
+		color="accent"
+		mat-mini-fab
+	>
+		<mat-icon>add</mat-icon>
+	</button>
+</form>

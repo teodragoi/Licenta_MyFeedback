@@ -1,3 +1,17 @@
+<div class="navbar__routes">
+	<button mat-button [routerLink]="'dashboard'">
+		{{ 'navbar.routes.dashboard' | translate }}
+	</button>
+
+	<button mat-button [routerLink]="'roles-management'">
+		{{ 'navbar.routes.rolesManagement' | translate }}
+	</button>
+
+	<button mat-button [routerLink]="'projects-management'">
+		{{ 'navbar.routes.projectsManagement' | translate }}
+	</button>
+</div>
+
 <shared-avatar
 	[matMenuTriggerFor]="userSettingsMenu"
 	[name]="'Test Name'"
@@ -6,16 +20,7 @@
 
 <mat-menu #userSettingsMenu="matMenu" xPosition="before">
 	<button (click)="changeTranslation($event)" mat-menu-item class="language">
-		<img
-			[src]="
-				currentLanguage === 'en'
-					? 'assets/illustrations/chinese.svg'
-					: 'assets/illustrations/english.svg'
-			"
-		/>
-		<span>{{
-			currentLanguage === 'en' ? '切换到中文' : 'Switch to english'
-		}}</span>
+		{{ 'languageSwitch' | translate }}
 	</button>
 
 	<button
@@ -24,11 +29,13 @@
 		mat-menu-item
 	>
 		<mat-icon class="warning">light_mode</mat-icon>
+
 		<span>{{ 'userProfile.switchToLightTheme' | translate }}</span>
 	</button>
 	<ng-template #shoLightTheme>
 		<button (click)="setTheme($event, theme.DARK)" mat-menu-item>
 			<mat-icon class="warning">nightlight</mat-icon>
+
 			<span>{{ 'userProfile.switchToDarkTheme' | translate }}</span>
 		</button>
 	</ng-template>

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import * as fromReducer from './+state/hierarchy-reducers';
+import * as fromReducer from './+state/roles.reducers';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		StoreModule.forFeature(
-			fromReducer.hierarchyFeatureKey,
-			fromReducer.hierarchyReducer
+			fromReducer.rolesFeatureKey,
+			fromReducer.rolesReducer
 		),
 	],
 })

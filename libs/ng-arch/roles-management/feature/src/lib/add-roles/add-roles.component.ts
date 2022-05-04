@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HierarchyFacade } from '@ng-arch/ng-arch/roles-management/data-access';
+import { RolesFacade } from '@ng-arch/ng-arch/roles-management/data-access';
 import { RoleType } from '@ng-arch/ng-arch/roles-management/types';
 import { SelectData } from '@ng-arch/shared/types';
 import { RolesService } from '../roles.service';

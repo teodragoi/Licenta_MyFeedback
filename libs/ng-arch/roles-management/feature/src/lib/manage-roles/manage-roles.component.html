@@ -1,3 +1,11 @@
-<ng-arch-add-roles></ng-arch-add-roles>
+<ng-container *ngIf="vmData$ | async as vmData">
+	<ng-arch-add-roles></ng-arch-add-roles>
 
-<p>manage-roles works!</p>
+	<ng-arch-table
+		*ngIf="!vmData.isLoading; else loading"
+		[config]="vmData.rolesTableConfig"
+		(actionSelected)="onActionSelected($event)"
+	></ng-arch-table>
+
+	<ng-template #loading></ng-template>
+</ng-container>

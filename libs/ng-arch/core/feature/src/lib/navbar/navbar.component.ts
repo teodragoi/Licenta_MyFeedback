@@ -23,7 +23,7 @@ export class NavbarComponent {
 	public changeTranslation(event: MouseEvent): void {
 		event.stopPropagation();
 
-		this.currentLanguage = this.currentLanguage === 'en' ? 'chi' : 'en';
+		this.currentLanguage = this.currentLanguage === 'en' ? 'ro' : 'en';
 		this.translateService.use(this.currentLanguage);
 	}
 

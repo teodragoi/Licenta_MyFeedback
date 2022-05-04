@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { RoleVmData } from '@ng-arch/ng-arch/roles-management/types';
+import { Role, RoleVmData } from '@ng-arch/ng-arch/roles-management/types';
+import { TableActions } from '@ng-arch/shared/types';
 import { Observable } from 'rxjs';
 import { RolesService } from '../roles.service';
 
@@ -9,14 +10,18 @@ import { RolesService } from '../roles.service';
 	styleUrls: ['./manage-roles.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ManageRolesComponent implements OnInit {
+export class ManageRolesComponent {
 	public vmData$: Observable<RoleVmData> = this.rolesService.roleData$;
 
 	constructor(private rolesService: RolesService) {}
 
-	public ngOnInit(): void {
-		this.vmData$.subscribe((res) => {
-			console.log(res);
-		});
+	public onActionSelected(event: {
+		action: TableActions;
+		element: Role;
+	}): void {
+		console.log(event);
+		if (event.action === TableActions.DELETE) {
+			this.rolesService.removeRole(event.element);
+		}
 	}
 }

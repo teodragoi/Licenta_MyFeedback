@@ -2,7 +2,7 @@
 
 :host {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	padding: get-size(24) 0;
 }
 
@@ -10,6 +10,10 @@
 	&__avatar {
 		border-color: get-color(orange-500);
 		cursor: pointer;
+	}
+
+	&__routes > *:not(:last-child) {
+		margin-right: 1rem;
 	}
 }
 

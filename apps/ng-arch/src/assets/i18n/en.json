@@ -1,14 +1,32 @@
 {
 	"common": {
-		"add": "Add"
+		"actions": "Actions",
+		"add": "Add",
+		"delete": "Delete",
+		"edit": "Edit"
 	},
 	"dashboard": {
 		"testMessage": "Test message"
 	},
+	"languageSwitch": "Switch to romanian",
+	"navbar": {
+		"routes": {
+			"dashboard": "Dashboard",
+			"projectsManagement": "Projects management",
+			"rolesManagement": "Roles management"
+		}
+	},
+	"projectsManagement": {
+		"addProjectLabel": "Add project"
+	},
 	"rolesManagement": {
 		"addRoleLabel": "Add role",
 		"addRolePlaceholder": "Add role name",
-		"selectRoleType": "Select role type"
+		"selectRoleType": "Select role type",
+		"table": {
+			"name": "Name",
+			"type": "Type"
+		}
 	},
 	"userProfile": {
 		"profileSettings": "Profile Settings",
