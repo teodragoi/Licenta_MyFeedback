@@ -29,6 +29,13 @@ const routes: Routes = [
 					),
 			},
 			{
+				path: 'employees-management',
+				loadChildren: () =>
+					import('@ng-arch/ng-arch/employees-management/feature').then(
+						(m) => m.NgArchEmployeesManagementFeatureModule
+					),
+			},
+			{
 				path: '',
 				redirectTo: 'dashboard',
 			},

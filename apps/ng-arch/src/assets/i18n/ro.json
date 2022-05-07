@@ -12,6 +12,7 @@
 	"navbar": {
 		"routes": {
 			"dashboard": "Dashboard",
+			"employeesManagement": "Management angajati",
 			"projectsManagement": "Management proiecte",
 			"rolesManagement": "Management roluri"
 		}

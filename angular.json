@@ -367,6 +367,84 @@
 			"tags": [],
 			"implicitDependencies": ["ng-arch"]
 		},
+		"ng-arch-employees-management-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/employees-management/data-access",
+			"sourceRoot": "libs/ng-arch/employees-management/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/employees-management/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/employees-management/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/employees-management/data-access/src/**/*.ts",
+							"libs/ng-arch/employees-management/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-employees-management-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/employees-management/feature",
+			"sourceRoot": "libs/ng-arch/employees-management/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/employees-management/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/employees-management/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/employees-management/feature/src/**/*.ts",
+							"libs/ng-arch/employees-management/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-employees-management-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/employees-management/types",
+			"sourceRoot": "libs/ng-arch/employees-management/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/employees-management/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/employees-management/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/employees-management/types/src/**/*.ts",
+							"libs/ng-arch/employees-management/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"ng-arch-projects-management-data-access": {
 			"projectType": "library",
 			"root": "libs/ng-arch/projects-management/data-access",

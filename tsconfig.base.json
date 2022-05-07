@@ -55,6 +55,15 @@
 			"@ng-arch/ng-arch/dashboard/types": [
 				"libs/ng-arch/dashboard/types/src/index.ts"
 			],
+			"@ng-arch/ng-arch/employees-management/data-access": [
+				"libs/ng-arch/employees-management/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/employees-management/feature": [
+				"libs/ng-arch/employees-management/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/employees-management/types": [
+				"libs/ng-arch/employees-management/types/src/index.ts"
+			],
 			"@ng-arch/ng-arch/jobboard/data-access": [
 				"libs/ng-arch/jobboard/data-access/src/index.ts"
 			],
