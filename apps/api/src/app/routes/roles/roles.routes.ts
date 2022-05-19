@@ -8,5 +8,6 @@ const router: Router = Router();
 router.get('/', RolesController.getRoles);
 
 router.post('/', payloadValidation(addRoleSchema), RolesController.addRole);
+router.delete('/:roleId', RolesController.deleteRole);
 
 export default router;

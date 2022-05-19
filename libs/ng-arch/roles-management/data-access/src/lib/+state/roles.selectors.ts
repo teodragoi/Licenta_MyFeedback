@@ -10,7 +10,7 @@ export const selectIsLoading = createSelector(
 
 export const selectLatestRoleId = createSelector(
 	getRolesState,
-	(state: RolesState) => state.roles[state.roles.length - 1].id
+	(state: RolesState) => state.roles[state.roles.length - 1]
 );
 
 export const selectRoles = createSelector(

@@ -22,7 +22,11 @@ export class RolesFacade {
 		this.store.dispatch(RolesActions.addRole({ role }));
 	}
 
-	public dispatchDeleteRole(role: Role): void {
-		this.store.dispatch(RolesActions.deleteRole({ role }));
+	public dispatchDeleteRole(roleId: string): void {
+		this.store.dispatch(RolesActions.deleteRole({ roleId }));
+	}
+
+	public dispatchGetAllRoles(): void {
+		this.store.dispatch(RolesActions.getAllRoles());
 	}
 }

@@ -15,30 +15,39 @@ export class RolesController {
 				},
 			});
 
-			return res.status(HttpStatus.OK).json({ success: true, roles });
+			return res.status(HttpStatus.OK).json(roles);
 		} catch (error) {
-			console.error(error);
 			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-				success: false,
-				message: 'An error occurred while trying to get roles',
+				error,
 			});
 		}
 	}
 
 	public static async addRole(req: Request, res: Response): Promise<Response> {
-    console.log(req.body)
 		try {
 			const role: Role = await RoleDTO.create({
 				...req.body,
 			});
 
-			return res.status(HttpStatus.OK).json({ success: true, role });
+			return res.status(HttpStatus.CREATED).json(role);
 		} catch (error) {
-			console.error(error);
-			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-				success: false,
-				message: 'An error occurred while trying to add a role',
+			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);
+		}
+	}
+
+	public static async deleteRole(
+		req: Request,
+		res: Response
+	): Promise<Response> {
+		try {
+			const { roleId } = req.params;
+
+			await RoleDTO.deleteOne({
+				_id: roleId,
 			});
+			return res.status(HttpStatus.NO_CONTENT).json({ success: true });
+		} catch (error) {
+			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);
 		}
 	}
 }
