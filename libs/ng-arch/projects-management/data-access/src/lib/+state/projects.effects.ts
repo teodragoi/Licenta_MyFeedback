@@ -18,9 +18,9 @@ export class ProjectsEffects {
 			mergeMap(([{ project }, latestId]) =>
 				of(
 					ProjectsActions.onAddProjectSuccess({
-						projectDTO: {
-							id: latestId + 1,
+						project: {
 							...project,
+							id: (latestId ?? -1) + 1,
 						},
 					})
 				)
@@ -31,10 +31,10 @@ export class ProjectsEffects {
 	deleteProject$ = createEffect(() =>
 		this.actions$.pipe(
 			ofType(ProjectsActions.deleteProject),
-			switchMap(({ projectDTO }) =>
+			switchMap(({ project }) =>
 				of(
 					ProjectsActions.onDeleteProjectSuccess({
-						projectDTO,
+						project,
 					})
 				)
 			)

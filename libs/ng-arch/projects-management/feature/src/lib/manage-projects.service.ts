@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ProjectsFacade } from '@ng-arch/ng-arch/projects-management/data-access';
 import {
 	Project,
-	ProjectDTO,
 	ProjectsVmData,
 } from '@ng-arch/ng-arch/projects-management/types';
 import {
@@ -27,7 +26,7 @@ export class ManageProjectsService {
 
 	constructor(private projectsFacade: ProjectsFacade) {}
 
-	private buildTableConfig(projects: ProjectDTO[]): TableConfig<ProjectDTO> {
+	private buildTableConfig(projects: Project[]): TableConfig<Project> {
 		return {
 			columns: [
 				{

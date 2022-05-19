@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ProjectsFacade } from '@ng-arch/ng-arch/projects-management/data-access';
 import {
-	ProjectDTO,
+	Project,
 	ProjectsVmData,
 } from '@ng-arch/ng-arch/projects-management/types';
 import { TableActions } from '@ng-arch/shared/types';
@@ -26,7 +26,7 @@ export class ManageProjectsComponent {
 
 	public onActionSelected(event: {
 		action: TableActions;
-		element: ProjectDTO;
+		element: Project;
 	}): void {
 		if (event.action === TableActions.DELETE) {
 			this.projectsFacade.dispatchDeleteProject(event.element);

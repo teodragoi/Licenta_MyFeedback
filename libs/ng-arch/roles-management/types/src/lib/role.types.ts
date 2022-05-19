@@ -7,15 +7,12 @@ export enum RoleType {
 }
 
 export interface Role {
+	id?: number;
 	name: string;
 	type: RoleType;
 }
 
-export interface RoleDTO extends Role {
-	id: number;
-}
-
 export interface RoleVmData {
 	isLoading: boolean;
-	rolesTableConfig: TableConfig<RoleDTO>;
+	rolesTableConfig: TableConfig<Role>;
 }

@@ -1,0 +1,22 @@
+<form [formGroup]="form" class="add-roles__form">
+	<shared-input
+		[label]="'rolesManagement.addRoleLabel' | translate"
+		formControlName="roleName"
+	></shared-input>
+
+	<shared-select
+		[label]="'rolesManagement.selectRoleType' | translate"
+		[selectOptions]="selectTypeOptions"
+		formControlName="roleType"
+	></shared-select>
+
+	<button
+		[attr.aria-label]="'common.add' | translate"
+		[disabled]="addButtonDisabled"
+		(click)="addRole()"
+		color="accent"
+		mat-mini-fab
+	>
+		<mat-icon>add</mat-icon>
+	</button>
+</form>

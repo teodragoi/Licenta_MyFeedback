@@ -21,24 +21,6 @@
 			"@api/environment": ["apps/api/src/environments/environment.ts"],
 			"@environment": ["apps/ng-arch/src/environments/environment.ts"],
 			"@ng-arch/api/interfaces": ["libs/api/interfaces/src/index.ts"],
-			"@ng-arch/ng-arch/achievements/data-access": [
-				"libs/ng-arch/achievements/data-access/src/index.ts"
-			],
-			"@ng-arch/ng-arch/achievements/feature": [
-				"libs/ng-arch/achievements/feature/src/index.ts"
-			],
-			"@ng-arch/ng-arch/achievements/types": [
-				"libs/ng-arch/achievements/types/src/index.ts"
-			],
-			"@ng-arch/ng-arch/candidate/data-access": [
-				"libs/ng-arch/candidate/data-access/src/index.ts"
-			],
-			"@ng-arch/ng-arch/candidate/feature": [
-				"libs/ng-arch/candidate/feature/src/index.ts"
-			],
-			"@ng-arch/ng-arch/candidate/types": [
-				"libs/ng-arch/candidate/types/src/index.ts"
-			],
 			"@ng-arch/ng-arch/core/data-access": [
 				"libs/ng-arch/core/data-access/src/index.ts"
 			],
@@ -64,24 +46,6 @@
 			"@ng-arch/ng-arch/employees-management/types": [
 				"libs/ng-arch/employees-management/types/src/index.ts"
 			],
-			"@ng-arch/ng-arch/jobboard/data-access": [
-				"libs/ng-arch/jobboard/data-access/src/index.ts"
-			],
-			"@ng-arch/ng-arch/jobboard/feature": [
-				"libs/ng-arch/jobboard/feature/src/index.ts"
-			],
-			"@ng-arch/ng-arch/jobboard/types": [
-				"libs/ng-arch/jobboard/types/src/index.ts"
-			],
-			"@ng-arch/ng-arch/jobboards/data-access": [
-				"libs/ng-arch/jobboards/data-access/src/index.ts"
-			],
-			"@ng-arch/ng-arch/jobboards/feature": [
-				"libs/ng-arch/jobboards/feature/src/index.ts"
-			],
-			"@ng-arch/ng-arch/jobboards/types": [
-				"libs/ng-arch/jobboards/types/src/index.ts"
-			],
 			"@ng-arch/ng-arch/login/data-access": [
 				"libs/ng-arch/login/data-access/src/index.ts"
 			],
@@ -101,15 +65,6 @@
 			"@ng-arch/ng-arch/projects-management/types": [
 				"libs/ng-arch/projects-management/types/src/index.ts"
 			],
-			"@ng-arch/ng-arch/recruitment/data-access": [
-				"libs/ng-arch/recruitment/data-access/src/index.ts"
-			],
-			"@ng-arch/ng-arch/recruitment/feature": [
-				"libs/ng-arch/recruitment/feature/src/index.ts"
-			],
-			"@ng-arch/ng-arch/recruitment/types": [
-				"libs/ng-arch/recruitment/types/src/index.ts"
-			],
 			"@ng-arch/ng-arch/roles-management/data-access": [
 				"libs/ng-arch/roles-management/data-access/src/index.ts"
 			],
@@ -118,6 +73,15 @@
 			],
 			"@ng-arch/ng-arch/roles-management/types": [
 				"libs/ng-arch/roles-management/types/src/index.ts"
+			],
+			"@ng-arch/ng-arch/seniorities/data-access": [
+				"libs/ng-arch/seniorities/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/seniorities/feature": [
+				"libs/ng-arch/seniorities/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/seniorities/types": [
+				"libs/ng-arch/seniorities/types/src/index.ts"
 			],
 			"@ng-arch/shared/types": ["libs/shared/types/src/index.ts"],
 			"@ng-arch/shared/ui/components": [

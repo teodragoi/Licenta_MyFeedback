@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ProjectDTO } from '@ng-arch/ng-arch/projects-management/types';
+import { Project } from '@ng-arch/ng-arch/projects-management/types';
 import { Action, createReducer, on } from '@ngrx/store';
 import { mockedProjects } from '../project.mocks';
 import * as ProjectsActions from './projects.actions';
@@ -7,7 +7,7 @@ import * as ProjectsActions from './projects.actions';
 export interface ProjectsState {
 	error: HttpErrorResponse | null;
 	isLoading: boolean;
-	projects: ProjectDTO[];
+	projects: Project[];
 }
 
 const initialState: ProjectsState = {
@@ -24,20 +24,20 @@ const reducer = createReducer(
 		...state,
 		isLoading: true,
 	})),
-	on(ProjectsActions.onAddProjectSuccess, (state, { projectDTO }) => ({
+	on(ProjectsActions.onAddProjectSuccess, (state, { project }) => ({
 		...state,
 		isLoading: false,
-		projects: [...state.projects, projectDTO],
+		projects: [...state.projects, project],
 	})),
-	on(ProjectsActions.deleteProject, (state, { projectDTO }) => ({
+	on(ProjectsActions.deleteProject, (state) => ({
 		...state,
 		isLoading: true,
 	})),
-	on(ProjectsActions.onDeleteProjectSuccess, (state, { projectDTO }) => ({
+	on(ProjectsActions.onDeleteProjectSuccess, (state, { project }) => ({
 		...state,
 		isLoading: false,
 		projects: state.projects.filter(
-			(project: ProjectDTO) => project.id !== projectDTO.id
+			(projectState: Project) => projectState.id !== project.id
 		),
 	}))
 );

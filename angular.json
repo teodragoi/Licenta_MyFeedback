@@ -601,6 +601,84 @@
 			},
 			"tags": []
 		},
+		"ng-arch-seniorities-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/seniorities/data-access",
+			"sourceRoot": "libs/ng-arch/seniorities/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/seniorities/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/seniorities/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/seniorities/data-access/src/**/*.ts",
+							"libs/ng-arch/seniorities/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-seniorities-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/seniorities/feature",
+			"sourceRoot": "libs/ng-arch/seniorities/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/seniorities/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/seniorities/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/seniorities/feature/src/**/*.ts",
+							"libs/ng-arch/seniorities/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-seniorities-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/seniorities/types",
+			"sourceRoot": "libs/ng-arch/seniorities/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/seniorities/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/seniorities/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/seniorities/types/src/**/*.ts",
+							"libs/ng-arch/seniorities/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"shared-types": {
 			"projectType": "library",
 			"root": "libs/shared/types",

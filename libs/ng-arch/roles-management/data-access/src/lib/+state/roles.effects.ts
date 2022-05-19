@@ -18,8 +18,8 @@ export class RolesEffects {
 				of(
 					RolesActions.onAddRoleSuccess({
 						role: {
-							id: latestId + 1,
 							...role,
+							id: (latestId ?? -1) + 1,
 						},
 					})
 				)
@@ -30,10 +30,10 @@ export class RolesEffects {
 	deleteRole$ = createEffect(() =>
 		this.actions$.pipe(
 			ofType(RolesActions.deleteRole),
-			switchMap(({ roleDTO }) =>
+			switchMap(({ role }) =>
 				of(
 					RolesActions.onDeleteRoleSuccess({
-						roleDTO,
+						role,
 					})
 				)
 			)

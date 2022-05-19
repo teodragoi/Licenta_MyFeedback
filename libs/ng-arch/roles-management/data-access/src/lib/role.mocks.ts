@@ -1,6 +1,6 @@
-import { RoleDTO, RoleType } from '@ng-arch/ng-arch/roles-management/types';
+import { Role, RoleType } from '@ng-arch/ng-arch/roles-management/types';
 
-export const mockedRoles: RoleDTO[] = [
+export const mockedRoles: Role[] = [
 	{
 		id: 1,
 		name: 'Team Lead',

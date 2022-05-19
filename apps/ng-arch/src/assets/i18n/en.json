@@ -25,6 +25,9 @@
 		"addRolePlaceholder": "Add role name",
 		"selectRoleType": "Select role type"
 	},
+	"seniorityManagement": {
+		"addSeniorityLabel": "Add seniority"
+	},
 	"table": {
 		"name": "Name",
 		"type": "Type"

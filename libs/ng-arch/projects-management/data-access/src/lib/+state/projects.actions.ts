@@ -1,6 +1,5 @@
 import {
 	Project,
-	ProjectDTO,
 } from '@ng-arch/ng-arch/projects-management/types';
 import { createAction, props } from '@ngrx/store';
 
@@ -11,15 +10,15 @@ export const addProject = createAction(
 
 export const onAddProjectSuccess = createAction(
 	'[Projects] On Add Project Success',
-	props<{ projectDTO: ProjectDTO }>()
+	props<{ project: Project }>()
 );
 
 export const deleteProject = createAction(
 	'[Projects] Delete Project',
-	props<{ projectDTO: ProjectDTO }>()
+	props<{ project: Project }>()
 );
 
 export const onDeleteProjectSuccess = createAction(
 	'[Projects] On Delete Project Success',
-	props<{ projectDTO: ProjectDTO }>()
+	props<{ project: Project }>()
 );

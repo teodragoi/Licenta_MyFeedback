@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Role, RoleDTO } from '@ng-arch/ng-arch/roles-management/types';
+import { Role } from '@ng-arch/ng-arch/roles-management/types';
 import { Action, createReducer, on } from '@ngrx/store';
 import { mockedRoles } from '../role.mocks';
 
@@ -8,7 +8,7 @@ import * as RolesActions from './roles.actions';
 export interface RolesState {
 	error: HttpErrorResponse | null;
 	isLoading: boolean;
-	roles: RoleDTO[];
+	roles: Role[];
 }
 
 const initialState: RolesState = {
@@ -34,10 +34,10 @@ const reducer = createReducer(
 		...state,
 		isLoading: true,
 	})),
-	on(RolesActions.onDeleteRoleSuccess, (state, { roleDTO }) => ({
+	on(RolesActions.onDeleteRoleSuccess, (state, { role }) => ({
 		...state,
 		isLoading: false,
-		roles: state.roles.filter((role: RoleDTO) => role.id !== roleDTO.id),
+		roles: state.roles.filter((roleState: Role) => roleState.id !== role.id),
 	}))
 );
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RolesFacade } from '@ng-arch/ng-arch/roles-management/data-access';
-import { Role, RoleDTO, RoleVmData } from '@ng-arch/ng-arch/roles-management/types';
+import { Role, RoleVmData } from '@ng-arch/ng-arch/roles-management/types';
 import {
 	TableConfig,
 	TableColumnType,
@@ -23,7 +23,7 @@ export class ManageRolesService {
 
 	constructor(private rolesFacade: RolesFacade) {}
 
-	private buildTableConfig(roles: RoleDTO[]): TableConfig<RoleDTO> {
+	private buildTableConfig(roles: Role[]): TableConfig<Role> {
 		return {
 			columns: [
 				{
