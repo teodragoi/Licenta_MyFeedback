@@ -49,15 +49,14 @@ export class RolesEffects {
 	getRoles$ = createEffect(() =>
 		this.actions$.pipe(
 			ofType(RolesActions.getAllRoles),
-			switchMap(() => {
-				console.log('in this effect');
-				return this.rolesService.getAllRoles().pipe(
+			switchMap(() =>
+				this.rolesService.getAllRoles().pipe(
 					map((roles: Role[]) => RolesActions.onGetAllRolesSuccess({ roles })),
 					catchError((error: HttpErrorResponse) =>
 						of(RolesActions.onGetAllRolesFailure({ error }))
 					)
-				);
-			})
+				)
+			)
 		)
 	);
 

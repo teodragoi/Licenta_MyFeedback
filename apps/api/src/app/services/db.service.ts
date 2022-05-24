@@ -1,6 +1,7 @@
-import * as mongoose from 'mongoose';
 import { environment } from '@api/environment';
+import * as mongoose from 'mongoose';
 import { from } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 export class DB {
 	private static isConnected = false;
@@ -11,14 +12,16 @@ export class DB {
 		}
 
 		this.isConnected = true;
-    
-		from(mongoose.connect(environment.DB_URI)).subscribe(
-			() => {
-				console.log('Connection successful');
-			},
-			(error) => {
-				console.error(error);
-			}
-		);
+
+		from(mongoose.connect(environment.DB_URI))
+			.pipe(take(1))
+			.subscribe(
+				() => {
+					console.log('Connection successful');
+				},
+				(error) => {
+					console.error(error);
+				}
+			);
 	}
 }

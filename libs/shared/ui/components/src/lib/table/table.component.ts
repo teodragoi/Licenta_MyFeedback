@@ -3,7 +3,6 @@ import {
 	Component,
 	EventEmitter,
 	Input,
-	OnInit,
 	Output,
 } from '@angular/core';
 import {
@@ -19,10 +18,7 @@ import {
 	styleUrls: ['./table.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TableComponent implements OnInit {
-	ngOnInit(): void {
-		console.log(this.config);
-	}
+export class TableComponent {
 	@Input() public config: TableConfig<any>;
 	@Output() public actionSelected: EventEmitter<{
 		action: TableActions;
