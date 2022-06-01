@@ -1,6 +1,6 @@
-import { EmployeesController } from '@api/controllers/employees';
+import { EmployeesController } from '@api/controllers';
 import { payloadValidation } from '@api/middlewares';
-import { addEmployeeSchema } from '@api/schemas/employees';
+import { addEmployeeSchema } from '@api/schemas';
 import { Router } from 'express';
 
 const router: Router = Router();

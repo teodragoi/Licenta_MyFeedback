@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ProjectsFacade } from '@ng-arch/ng-arch/projects-management/data-access';
 import {
 	Project,
@@ -15,7 +15,7 @@ import { ManageProjectsService } from '../manage-projects.service';
 	styleUrls: ['./manage-projects.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ManageProjectsComponent {
+export class ManageProjectsComponent implements OnInit {
 	public vmData$: Observable<ProjectsVmData> =
 		this.manageProjectsService.projectsData$;
 
@@ -24,12 +24,16 @@ export class ManageProjectsComponent {
 		private projectsFacade: ProjectsFacade
 	) {}
 
+	public ngOnInit(): void {
+		this.projectsFacade.dispatchGetAllProjects();
+	}
+
 	public onActionSelected(event: {
 		action: TableActions;
 		element: Project;
 	}): void {
 		if (event.action === TableActions.DELETE) {
-			this.projectsFacade.dispatchDeleteProject(event.element);
+			this.projectsFacade.dispatchDeleteProject(event.element._id ?? '');
 		}
 	}
 }

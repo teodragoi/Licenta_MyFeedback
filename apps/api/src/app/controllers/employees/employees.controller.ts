@@ -33,11 +33,13 @@ export class EmployeesController {
 		try {
 			const { employeeId } = req.params;
 
-			const employees: Employee[] = await EmployeeDTO.findOne({
+			const employee: Employee = await EmployeeDTO.findOne({
 				_id: employeeId,
-			}).populate('roles', '-__v');
+			})
+				.populate('roles', '-__v')
+				.populate('projects', '-__v');
 
-			return res.status(HttpStatus.OK).json(employees);
+			return res.status(HttpStatus.OK).json(employee);
 		} catch (error) {
 			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
 				error,

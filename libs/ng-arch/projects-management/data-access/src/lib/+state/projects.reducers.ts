@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Project } from '@ng-arch/ng-arch/projects-management/types';
 import { Action, createReducer, on } from '@ngrx/store';
-import { mockedProjects } from '../project.mocks';
+
 import * as ProjectsActions from './projects.actions';
 
 export interface ProjectsState {
@@ -13,7 +13,7 @@ export interface ProjectsState {
 const initialState: ProjectsState = {
 	error: null,
 	isLoading: false,
-	projects: mockedProjects,
+	projects: [],
 };
 
 export const projectsFeatureKey = 'projects';
@@ -33,13 +33,28 @@ const reducer = createReducer(
 		...state,
 		isLoading: true,
 	})),
-	on(ProjectsActions.onDeleteProjectSuccess, (state, { project }) => ({
+	on(ProjectsActions.onDeleteProjectSuccess, (state, { projectId }) => ({
 		...state,
 		isLoading: false,
 		projects: state.projects.filter(
-			(projectState: Project) => projectState.id !== project.id
+			(projectState: Project) => projectState._id !== projectId
 		),
-	}))
+	})),
+	on(ProjectsActions.getAllProjects, (state) => ({
+		...state,
+		isLoading: true,
+	})),
+	on(ProjectsActions.onGetAllProjectsSuccess, (state, { projects }) => ({
+		...state,
+		isLoading: false,
+		projects,
+	})),
+	on(
+		ProjectsActions.onAddProjectFailure,
+		ProjectsActions.onDeleteProjectFailure,
+		ProjectsActions.onGetAllProjectsFailure,
+		(state, { error }) => ({ ...state, error })
+	)
 );
 
 export function projectsReducer(state: ProjectsState, action: Action) {

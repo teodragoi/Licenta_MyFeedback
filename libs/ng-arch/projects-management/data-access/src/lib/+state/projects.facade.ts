@@ -22,7 +22,11 @@ export class ProjectsFacade {
 		this.store.dispatch(ProjectsActions.addProject({ project }));
 	}
 
-	public dispatchDeleteProject(project: Project): void {
-		this.store.dispatch(ProjectsActions.deleteProject({ project }));
+	public dispatchDeleteProject(projectId: string): void {
+		this.store.dispatch(ProjectsActions.deleteProject({ projectId }));
+	}
+
+	public dispatchGetAllProjects(): void {
+		this.store.dispatch(ProjectsActions.getAllProjects());
 	}
 }

@@ -13,7 +13,6 @@ const employeeSchema: Schema = new Schema({
 		{
 			type: Schema.Types.ObjectId,
 			ref: 'roles',
-			required: true,
 			default: [],
 		},
 	],

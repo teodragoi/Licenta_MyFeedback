@@ -1,4 +1,4 @@
-import { RolesController } from '@api/controllers/roles/roles.controller';
+import { RolesController } from '@api/controllers';
 import { payloadValidation } from '@api/middlewares';
 import { addRoleSchema } from '@api/schemas';
 import { Router } from 'express';
