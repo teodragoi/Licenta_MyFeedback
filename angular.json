@@ -445,6 +445,32 @@
 			},
 			"tags": []
 		},
+		"ng-arch-project-details-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/project-details/data-access",
+			"sourceRoot": "libs/ng-arch/project-details/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/project-details/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/project-details/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/project-details/data-access/src/**/*.ts",
+							"libs/ng-arch/project-details/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"ng-arch-projects-management-data-access": {
 			"projectType": "library",
 			"root": "libs/ng-arch/projects-management/data-access",

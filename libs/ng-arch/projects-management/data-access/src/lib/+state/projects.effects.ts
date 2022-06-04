@@ -59,7 +59,6 @@ export class ProjectsEffects {
 
 	constructor(
 		private actions$: Actions,
-		private projectsService: ProjectsService,
-		private store: Store<ProjectsState>
+		private projectsService: ProjectsService
 	) {}
 }

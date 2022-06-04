@@ -24,6 +24,7 @@ export class TableComponent {
 		action: TableActions;
 		element: any;
 	}> = new EventEmitter();
+	@Output() public rowClicked: EventEmitter<any> = new EventEmitter();
 
 	public readonly TableColumnType = TableColumnType;
 
@@ -37,5 +38,13 @@ export class TableComponent {
 
 	public onActionClick(action: TableActions, element: any): void {
 		this.actionSelected.emit({ action, element });
+	}
+
+	public onRowClick(row: any): void {
+		this.rowClicked.emit(row);
+	}
+
+	public uniqueIdentifier(index: number): number {
+		return index;
 	}
 }

@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { RolesFacade } from '@ng-arch/ng-arch/roles-management/data-access';
-import { Role, RoleVmData } from '@ng-arch/ng-arch/roles-management/types';
+import {
+	AssignmentRolesVmData,
+	Role,
+	RoleVmData,
+} from '@ng-arch/ng-arch/roles-management/types';
 import {
 	TableConfig,
 	TableColumnType,
 	TableActions,
 } from '@ng-arch/shared/types';
 import { combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ManageRolesService {
 	public roleData$: Observable<RoleVmData> = combineLatest([
 		this.rolesFacade.isLoading$,
@@ -20,6 +24,17 @@ export class ManageRolesService {
 			rolesTableConfig: this.buildTableConfig(roles),
 		}))
 	);
+
+	public assignmentRolesData$: Observable<AssignmentRolesVmData> =
+		combineLatest([this.rolesFacade.isLoading$, this.rolesFacade.roles$]).pipe(
+			map(([isLoading, roles]) => ({
+				isLoading,
+				rolesData: roles.map((role: Role) => ({
+					label: role.name,
+					value: role._id,
+				})),
+			}))
+		);
 
 	constructor(private rolesFacade: RolesFacade) {}
 

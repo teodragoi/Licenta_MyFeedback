@@ -53,6 +53,9 @@
 				"libs/ng-arch/login/feature/src/index.ts"
 			],
 			"@ng-arch/ng-arch/login/types": ["libs/ng-arch/login/types/src/index.ts"],
+			"@ng-arch/ng-arch/project-details/data-access": [
+				"libs/ng-arch/project-details/data-access/src/index.ts"
+			],
 			"@ng-arch/ng-arch/projects-management": [
 				"libs/ng-arch/projects-management/src/index.ts"
 			],

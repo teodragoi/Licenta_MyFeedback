@@ -1,0 +1,20 @@
+<mat-card>
+	<mat-card-title>{{
+		'rolesManagement.assignedRoles' | translate
+	}}</mat-card-title>
+
+	<mat-card-content>
+		<shared-list [listData]="availableRoles"></shared-list>
+	</mat-card-content>
+
+	<mat-card-footer>
+		<button
+			[attr.aria-label]="'rolesManagement.editAssignedRoles' | translate"
+			(click)="onAssignButtonClicked()"
+			color="primary"
+			mat-raised-button
+		>
+			{{ 'rolesManagement.editAssignedRoles' | translate }}
+		</button>
+	</mat-card-footer>
+</mat-card>

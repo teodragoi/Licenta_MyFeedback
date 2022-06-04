@@ -2,6 +2,8 @@
 	"common": {
 		"actions": "Actions",
 		"add": "Add",
+		"cancel": "Cancel",
+		"confirm": "Confirm",
 		"delete": "Delete",
 		"edit": "Edit"
 	},
@@ -17,12 +19,18 @@
 			"rolesManagement": "Roles management"
 		}
 	},
+	"projectDetails": {
+		"assignedEmployees": "Assigned employees:",
+		"editAssignedEmployees": "Edit assigned employees"
+	},
 	"projectsManagement": {
 		"addProjectLabel": "Add project"
 	},
 	"rolesManagement": {
 		"addRoleLabel": "Add role",
 		"addRolePlaceholder": "Add role name",
+		"assignedRoles": "Assigned roles",
+		"editAssignedRoles": "Edit assigned roles",
 		"selectRoleType": "Select role type"
 	},
 	"seniorityManagement": {

@@ -5,6 +5,7 @@
 		*ngIf="!vmData.isLoading; else loading"
 		[config]="vmData.projectsTableConfig"
 		(actionSelected)="onActionSelected($event)"
+		(rowClicked)="onRowClicked($event)"
 	></ng-arch-table>
 
 	<ng-template #loading></ng-template>

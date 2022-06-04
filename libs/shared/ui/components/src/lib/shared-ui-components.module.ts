@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedUiMaterialModule } from '@ng-arch/shared/ui/material';
-import { AvatarComponent } from './avatar/avatar.component';
-import { SelectComponent } from './select/select.component';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { InputComponent } from './input/input.component';
-import { TableComponent } from './table/table.component';
+import { SharedUiMaterialModule } from '@ng-arch/shared/ui/material';
 import { TranslateModule } from '@ngx-translate/core';
+import { AvatarComponent } from './avatar/avatar.component';
+import { InputComponent } from './input/input.component';
+import { ListComponent } from './list/list.component';
+import { SelectComponent } from './select/select.component';
+import { SelectionListComponent } from './selection-list/selection-list.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
 	declarations: [
@@ -14,8 +16,17 @@ import { TranslateModule } from '@ngx-translate/core';
 		InputComponent,
 		SelectComponent,
 		TableComponent,
+		SelectionListComponent,
+		ListComponent,
 	],
-	exports: [AvatarComponent, InputComponent, SelectComponent, TableComponent],
+	exports: [
+		AvatarComponent,
+		InputComponent,
+		ListComponent,
+		SelectionListComponent,
+		SelectComponent,
+		TableComponent,
+	],
 	imports: [
 		CommonModule,
 		FormsModule,

@@ -1,0 +1,17 @@
+:host {
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	& > *:not(:last-child) {
+		margin-bottom: 1.5rem;
+	}
+}
+
+footer {
+	display: flex;
+	justify-content: flex-end;
+
+	& > *:not(:last-child) {
+		margin-right: 0.5rem;
+	}
+}

@@ -26,6 +26,24 @@ export class EmployeesController {
 		}
 	}
 
+	public static async getEmployeesWithRoles(req: Request, res: Response) {
+		try {
+			const { roles } = req.body;
+
+			const allEmployees: Employee[] = await EmployeeDTO.find({});
+
+			const employees = allEmployees.filter((employee) =>
+				employee.roles.some((id) => {
+					return roles.includes(id.toString());
+				})
+			);
+
+			return res.status(HttpStatus.OK).json(employees);
+		} catch (error) {
+			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ error });
+		}
+	}
+
 	public static async getEmployeeDetails(
 		req: Request,
 		res: Response

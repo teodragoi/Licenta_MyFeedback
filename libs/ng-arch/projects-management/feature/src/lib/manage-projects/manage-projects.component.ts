@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectsFacade } from '@ng-arch/ng-arch/projects-management/data-access';
 import {
 	Project,
@@ -21,7 +22,9 @@ export class ManageProjectsComponent implements OnInit {
 
 	constructor(
 		private manageProjectsService: ManageProjectsService,
-		private projectsFacade: ProjectsFacade
+		private projectsFacade: ProjectsFacade,
+		private route: ActivatedRoute,
+		private router: Router
 	) {}
 
 	public ngOnInit(): void {
@@ -35,5 +38,9 @@ export class ManageProjectsComponent implements OnInit {
 		if (event.action === TableActions.DELETE) {
 			this.projectsFacade.dispatchDeleteProject(event.element._id ?? '');
 		}
+	}
+
+	public onRowClicked(element: Project): void {
+		this.router.navigate([`./${element._id}`], { relativeTo: this.route });
 	}
 }

@@ -1,0 +1,25 @@
+<h3>
+	{{ 'projectDetails.editAssignedEmployees' | translate }}
+</h3>
+
+<form [formGroup]="formGroup">
+	<shared-selection-list
+		formControlName="selectedEmployees"
+		[listData]="employeesData$ | async"
+	></shared-selection-list>
+</form>
+
+<footer>
+	<button [mat-dialog-close]="null" mat-button>
+		{{ 'common.cancel' | translate }}
+	</button>
+
+	<button
+		[disabled]="disabledConfirmButton"
+		(click)="onConfirmClick($event)"
+		color="primary"
+		mat-raised-button
+	>
+		{{ 'common.confirm' | translate }}
+	</button>
+</footer>

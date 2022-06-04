@@ -36,10 +36,6 @@ export class SelectComponent implements ControlValueAccessor {
 		this.onChange(selection.value);
 	}
 
-	public writeValue(value: string | number): void {
-		this.selectedValue = value;
-	}
-
 	public registerOnChange(fn: Function): void {
 		this.onChange = fn;
 	}
@@ -50,5 +46,13 @@ export class SelectComponent implements ControlValueAccessor {
 
 	public setDisabledState(disabled: boolean): void {
 		this.isDisabled = disabled;
+	}
+
+	public uniqueIdentifier(index: number): number {
+		return index;
+	}
+
+	public writeValue(value: string | number): void {
+		this.selectedValue = value;
 	}
 }

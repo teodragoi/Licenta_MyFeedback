@@ -9,9 +9,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgArchRolesManagementDataAccessModule } from '@ng-arch/ng-arch/roles-management/data-access';
 import { ManageRolesComponent } from './manage-roles/manage-roles.component';
 import { ManageRolesService } from './manage-roles.service';
+import { RoleAssignmentModalComponent } from './role-assignment-modal/role-assignment-modal.component';
 
 @NgModule({
-	declarations: [AddRolesComponent, ManageRolesComponent],
+	declarations: [AddRolesComponent, ManageRolesComponent, RoleAssignmentModalComponent],
 	imports: [
 		CommonModule,
 		FormsModule,

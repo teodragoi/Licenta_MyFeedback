@@ -1,0 +1,27 @@
+<h3>
+	{{ 'rolesManagement.editAssignedRoles' | translate }}
+</h3>
+
+<ng-container *ngIf="vmData$ | async as vmData">
+	<form [formGroup]="formGroup">
+		<shared-selection-list
+			formControlName="selectedRoles"
+			[listData]="vmData.rolesData"
+		></shared-selection-list>
+	</form>
+
+	<footer>
+		<button [mat-dialog-close]="null" mat-button>
+			{{ 'common.cancel' | translate }}
+		</button>
+
+		<button
+			[disabled]="disabledConfirmButton"
+			(click)="onConfirmClick($event)"
+			color="primary"
+			mat-raised-button
+		>
+			{{ 'common.confirm' | translate }}
+		</button>
+	</footer>
+</ng-container>

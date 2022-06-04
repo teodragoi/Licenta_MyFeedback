@@ -1,0 +1,13 @@
+<mat-selection-list
+	[multiple]="!isSingleSelection"
+	(selectionChange)="onSelectionChange()"
+>
+	<mat-list-option
+		*ngFor="let item of listData; trackBy: uniqueIdentifier"
+		[attr.aria-label]="item.label"
+		[selected]="item.selected"
+		[value]="item.value"
+	>
+		{{ item.label }}
+	</mat-list-option>
+</mat-selection-list>

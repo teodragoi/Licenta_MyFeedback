@@ -7,6 +7,8 @@ const router: Router = Router();
 
 router.get('/', EmployeesController.getEmployees);
 router.get('/:employeeId', EmployeesController.getEmployeeDetails);
+
+router.post('/byRoles', EmployeesController.getEmployeesWithRoles);
 router.post(
 	'/',
 	payloadValidation(addEmployeeSchema),

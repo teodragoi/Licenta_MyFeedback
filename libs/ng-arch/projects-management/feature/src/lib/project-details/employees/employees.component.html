@@ -1,0 +1,20 @@
+<mat-card>
+	<mat-card-title>{{
+		'projectDetails.assignedEmployees' | translate
+	}}</mat-card-title>
+
+	<mat-card-content>
+		<shared-list [listData]="assignedEmployees"></shared-list>
+	</mat-card-content>
+
+	<mat-card-footer>
+		<button
+			[attr.aria-label]="'projectDetails.editAssignedEmployees' | translate"
+			(click)="onAssignButtonClicked()"
+			color="primary"
+			mat-raised-button
+		>
+			{{ 'projectDetails.editAssignedEmployees' | translate }}
+		</button>
+	</mat-card-footer>
+</mat-card>

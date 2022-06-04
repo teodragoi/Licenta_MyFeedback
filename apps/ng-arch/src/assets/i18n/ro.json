@@ -2,6 +2,8 @@
 	"common": {
 		"actions": "Actiuni",
 		"add": "Adauga",
+		"cancel": "Anuleaza",
+		"confirm": "Confirm",
 		"delete": "Sterge",
 		"edit": "Editeaza"
 	},
@@ -17,12 +19,18 @@
 			"rolesManagement": "Management roluri"
 		}
 	},
+	"projectDetails": {
+		"assignedEmployees": "Angajati asignati",
+		"editAssignedEmployees": "Editeaza angajatii asignati"
+	},
 	"projectsManagement": {
 		"addProjectLabel": "Adauga proiect"
 	},
 	"rolesManagement": {
 		"addRoleLabel": "Adauga rol",
 		"addRolePlaceholder": "Adauga numele rolului",
+		"assignedRoles": "Roluri asignate",
+		"editAssignedRoles": "Editeaza rolurile asignate",
 		"selectRoleType": "Selecteaza tipul rolului"
 	},
 	"table": {

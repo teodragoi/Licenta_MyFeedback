@@ -4,4 +4,8 @@ table {
 	td > *:not(:last-child) {
 		margin-right: 1rem;
 	}
+
+	tr:hover {
+		cursor: pointer;
+	}
 }

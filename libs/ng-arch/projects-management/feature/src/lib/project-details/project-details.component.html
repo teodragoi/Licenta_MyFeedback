@@ -1,0 +1,17 @@
+<ng-container *ngIf="vmData$ | async as vmData">
+	<main *ngIf="!vmData.isLoading; else loading">
+		<ng-arch-project-details-employees
+			[assignedEmployees]="vmData.assignedEmployees"
+			[project]="vmData.project"
+		></ng-arch-project-details-employees>
+
+		<ng-arch-project-details-roles
+			[availableRoles]="vmData.availableRoles"
+			[project]="vmData.project"
+		></ng-arch-project-details-roles>
+	</main>
+
+	<ng-template #loading>
+		<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+	</ng-template>
+</ng-container>

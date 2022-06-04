@@ -1,4 +1,4 @@
-import { TableConfig } from '@ng-arch/shared/types';
+import { ListData, TableConfig } from '@ng-arch/shared/types';
 
 export enum RoleType {
 	ADMIN = 'Admin',
@@ -7,7 +7,7 @@ export enum RoleType {
 }
 
 export interface Role {
-	_id?: string
+	_id?: string;
 	name: string;
 	type: RoleType;
 }
@@ -15,4 +15,9 @@ export interface Role {
 export interface RoleVmData {
 	isLoading: boolean;
 	rolesTableConfig: TableConfig<Role>;
+}
+
+export interface AssignmentRolesVmData {
+	isLoading: boolean;
+	rolesData: ListData[] | null;
 }
