@@ -4,8 +4,12 @@
 		"add": "Add",
 		"cancel": "Cancel",
 		"confirm": "Confirm",
+		"confirmPassword": "Confirm Password",
 		"delete": "Delete",
-		"edit": "Edit"
+		"edit": "Edit",
+		"email": "Email",
+		"name": "Name",
+		"password": "Password"
 	},
 	"dashboard": {
 		"testMessage": "Test message"
@@ -16,7 +20,8 @@
 			"dashboard": "Dashboard",
 			"employeesManagement": "Employees management",
 			"projectsManagement": "Projects management",
-			"rolesManagement": "Roles management"
+			"rolesManagement": "Roles management",
+			"usersManagement": "Users management"
 		}
 	},
 	"projectDetails": {
@@ -40,9 +45,17 @@
 		"name": "Name",
 		"type": "Type"
 	},
+	"usersManagement": {
+		"addUser": "Add User"
+	},
 	"userProfile": {
 		"profileSettings": "Profile Settings",
 		"switchToDarkTheme": "Switch to dark theme",
 		"switchToLightTheme": "Switch to light theme"
+	},
+	"validationErrors": {
+		"email": "The value is not an email.",
+		"mustMatch": "Value must match password.",
+		"required": "The field is required"
 	}
 }

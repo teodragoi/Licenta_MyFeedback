@@ -4,7 +4,11 @@ import {
 	forwardRef,
 	Input,
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+	ControlValueAccessor,
+	NG_VALUE_ACCESSOR,
+	ValidationErrors,
+} from '@angular/forms';
 
 @Component({
 	selector: 'shared-input',
@@ -22,6 +26,28 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class InputComponent implements ControlValueAccessor {
 	@Input() label: string;
 	@Input() placeholder = '';
+	@Input() type: string;
+	@Input() public error: ValidationErrors | null | undefined;
+
+	public get errorMessage(): string {
+		if (!this.error) {
+			return '';
+		}
+
+		if (this.error['email']) {
+			return 'validationErrors.email';
+		}
+
+		if (this.error['required']) {
+			return 'validationErrors.required';
+		}
+
+		if (this.error['mustMatch']) {
+			return 'validationErrors.mustMatch';
+		}
+
+		return '';
+	}
 
 	public inputValue: string;
 	public isDisabled: boolean;

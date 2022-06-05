@@ -79,6 +79,5 @@ export class SelectionListComponent implements ControlValueAccessor {
 
 	public writeValue(selectedValues: any): void {
 		this.selectedValues = selectedValues;
-		console.log('in write', selectedValues);
 	}
 }

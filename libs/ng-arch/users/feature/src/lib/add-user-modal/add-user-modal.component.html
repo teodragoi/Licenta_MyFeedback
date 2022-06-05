@@ -1,0 +1,42 @@
+<form [formGroup]="formGroup">
+	<shared-input
+		[error]="getError('name')"
+		[label]="'common.name' | translate"
+		formControlName="name"
+	></shared-input>
+
+	<shared-input
+		[error]="getError('email')"
+		[label]="'common.email' | translate"
+		formControlName="email"
+	></shared-input>
+
+	<shared-input
+		[error]="getError('password')"
+		[label]="'common.password' | translate"
+		formControlName="password"
+		type="password"
+	></shared-input>
+
+	<shared-input
+		[error]="getError('confirmPassword')"
+		[label]="'common.confirmPassword' | translate"
+		formControlName="confirmPassword"
+		type="password"
+	></shared-input>
+
+	<footer>
+		<button [mat-dialog-close]="null" mat-button>
+			{{ 'common.cancel' | translate }}
+		</button>
+
+		<button
+			[disabled]="!formGroup.valid"
+			(click)="onConfirmClick($event)"
+			color="primary"
+			mat-raised-button
+		>
+			{{ 'common.confirm' | translate }}
+		</button>
+	</footer>
+</form>

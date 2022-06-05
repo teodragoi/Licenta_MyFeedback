@@ -1,0 +1,19 @@
+form {
+	display: flex;
+	flex-direction: column;
+	max-width: calc((500 / 16) * 1rem);
+	padding: 1rem;
+
+	shared-input {
+		width: 100%;
+	}
+
+	footer {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	> *:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}

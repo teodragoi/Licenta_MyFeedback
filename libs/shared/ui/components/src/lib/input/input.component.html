@@ -1,11 +1,16 @@
-<mat-form-field appearance="standard">
+<mat-form-field appearance="fill">
 	<mat-label *ngIf="label"> {{ label }} </mat-label>
+	
 	<input
 		matInput
 		[attr.aria-label]="label"
+		[type]="type"
 		[disabled]="isDisabled"
 		[placeholder]="placeholder"
 		[ngModel]="inputValue"
 		(ngModelChange)="onInputChange($event)"
 	/>
 </mat-form-field>
+
+<mat-error *ngIf="errorMessage">{{ errorMessage | translate }}</mat-error>
+

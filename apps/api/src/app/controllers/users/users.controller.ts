@@ -21,9 +21,34 @@ export class UsersController {
 		}
 	}
 
+	public static async getUserDetails(
+		req: Request,
+		res: Response
+	): Promise<Response> {
+		try {
+			const { userId } = req.params;
+
+			const user: User = await UserDTO.findOne({ _id: userId });
+
+			return res.status(HttpStatus.OK).json(user);
+		} catch (error) {
+			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);
+		}
+	}
+
 	public static async addUser(req: Request, res: Response): Promise<Response> {
 		try {
 			const payload: User = req.body;
+
+			const existingUser: User = await UserDTO.findOne({
+				email: payload.email,
+			});
+
+			if (existingUser) {
+				return res
+					.status(HttpStatus.BAD_REQUEST)
+					.json({ error: 'User with this email already exists.' });
+			}
 
 			const employee = await EmployeeDTO.create({
 				name: payload.name,

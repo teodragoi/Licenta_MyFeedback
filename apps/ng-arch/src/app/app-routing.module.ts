@@ -9,10 +9,10 @@ const routes: Routes = [
 				(m) => m.NgArchCoreFeatureModule
 			),
 	},
-	// {
-	// 	path: '**',
-	// 	redirectTo: '',
-	// },
+	{
+		path: '**',
+		redirectTo: '',
+	},
 ];
 
 @NgModule({
