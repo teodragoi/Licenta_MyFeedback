@@ -705,6 +705,58 @@
 			},
 			"tags": []
 		},
+		"ng-arch-user-details-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/user-details/data-access",
+			"sourceRoot": "libs/ng-arch/user-details/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/user-details/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/user-details/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/user-details/data-access/src/**/*.ts",
+							"libs/ng-arch/user-details/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-user-details-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/user-details/feature",
+			"sourceRoot": "libs/ng-arch/user-details/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/user-details/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/user-details/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/user-details/feature/src/**/*.ts",
+							"libs/ng-arch/user-details/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"ng-arch-users-data-access": {
 			"projectType": "library",
 			"root": "libs/ng-arch/users/data-access",
