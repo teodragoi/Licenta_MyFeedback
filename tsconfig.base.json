@@ -86,6 +86,13 @@
 			"@ng-arch/ng-arch/seniorities/types": [
 				"libs/ng-arch/seniorities/types/src/index.ts"
 			],
+			"@ng-arch/ng-arch/users/data-access": [
+				"libs/ng-arch/users/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/users/feature": [
+				"libs/ng-arch/users/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/users/types": ["libs/ng-arch/users/types/src/index.ts"],
 			"@ng-arch/shared/types": ["libs/shared/types/src/index.ts"],
 			"@ng-arch/shared/ui/components": [
 				"libs/shared/ui/components/src/index.ts"

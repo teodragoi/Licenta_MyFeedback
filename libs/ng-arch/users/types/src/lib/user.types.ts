@@ -1,0 +1,9 @@
+import { Employee } from '@ng-arch/ng-arch/employees-management/types';
+
+export interface User {
+	_id?: string;
+	name: string;
+	email: string;
+	password: string;
+	employee?: Employee;
+}

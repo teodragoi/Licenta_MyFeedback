@@ -705,6 +705,84 @@
 			},
 			"tags": []
 		},
+		"ng-arch-users-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/users/data-access",
+			"sourceRoot": "libs/ng-arch/users/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/users/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/users/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/users/data-access/src/**/*.ts",
+							"libs/ng-arch/users/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-users-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/users/feature",
+			"sourceRoot": "libs/ng-arch/users/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/users/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/users/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/users/feature/src/**/*.ts",
+							"libs/ng-arch/users/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-users-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/users/types",
+			"sourceRoot": "libs/ng-arch/users/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/users/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/users/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/users/types/src/**/*.ts",
+							"libs/ng-arch/users/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"shared-types": {
 			"projectType": "library",
 			"root": "libs/shared/types",
