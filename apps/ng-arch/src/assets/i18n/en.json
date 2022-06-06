@@ -43,6 +43,7 @@
 		"addSeniorityLabel": "Add seniority"
 	},
 	"table": {
+		"email": "Email",
 		"name": "Name",
 		"type": "Type"
 	},

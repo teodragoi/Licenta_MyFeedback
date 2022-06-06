@@ -367,6 +367,58 @@
 			"tags": [],
 			"implicitDependencies": ["ng-arch"]
 		},
+		"ng-arch-employee-details-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/employee-details/data-access",
+			"sourceRoot": "libs/ng-arch/employee-details/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/employee-details/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/employee-details/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/employee-details/data-access/src/**/*.ts",
+							"libs/ng-arch/employee-details/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-employee-details-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/employee-details/feature",
+			"sourceRoot": "libs/ng-arch/employee-details/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/employee-details/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/employee-details/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/employee-details/feature/src/**/*.ts",
+							"libs/ng-arch/employee-details/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"ng-arch-employees-management-data-access": {
 			"projectType": "library",
 			"root": "libs/ng-arch/employees-management/data-access",

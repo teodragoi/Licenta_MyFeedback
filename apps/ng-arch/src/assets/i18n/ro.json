@@ -40,6 +40,7 @@
 		"selectRoleType": "Selecteaza tipul rolului"
 	},
 	"table": {
+		"email": "Email",
 		"name": "Nume",
 		"type": "Tip"
 	},

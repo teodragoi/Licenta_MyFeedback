@@ -53,9 +53,7 @@ export class EmployeesController {
 
 			const employee: Employee = await EmployeeDTO.findOne({
 				_id: employeeId,
-			})
-				.populate('roles', '-__v')
-				.populate('projects', '-__v');
+			}).populate('roles', '-__v');
 
 			return res.status(HttpStatus.OK).json(employee);
 		} catch (error) {
