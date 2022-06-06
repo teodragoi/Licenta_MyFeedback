@@ -89,6 +89,11 @@ export class UsersController {
 
 			await UserDTO.updateOne({ _id: userId }, { ...req.body });
 
+			const updatedUser: User = await UserDTO.findOne({ _id: userId }).populate(
+				'employee',
+				'-__v'
+			);
+
 			return res
 				.status(HttpStatus.OK)
 				.json({ user: Object.assign(user, { ...req.body }) });
@@ -116,9 +121,12 @@ export class UsersController {
 
 			await UserDTO.updateOne({ _id: userId }, { ...req.body });
 
-			return res
-				.status(HttpStatus.OK)
-				.json({ user: Object.assign(user, { ...req.body }) });
+			const updatedUser: User = await UserDTO.findOne({ _id: userId }).populate(
+				'employee',
+				'-__v'
+			);
+
+			return res.status(HttpStatus.OK).json(updatedUser);
 		} catch (error) {
 			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);
 		}

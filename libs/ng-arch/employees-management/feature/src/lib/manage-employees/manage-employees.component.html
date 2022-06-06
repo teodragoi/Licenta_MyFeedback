@@ -1,10 +1,12 @@
 <ng-container *ngIf="vmData$ | async as vmData">
-
 	<ng-arch-table
 		*ngIf="!vmData.isLoading; else loading"
 		[config]="vmData.employeesTableConfig"
 		(actionSelected)="onActionSelected($event)"
+		(rowClicked)="onRowClicked($event)"
 	></ng-arch-table>
 
-	<ng-template #loading></ng-template>
+	<ng-template #loading>
+		<shared-spinner></shared-spinner>
+	</ng-template>
 </ng-container>

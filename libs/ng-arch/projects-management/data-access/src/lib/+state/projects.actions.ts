@@ -43,3 +43,18 @@ export const onGetAllProjectsFailure = createAction(
 	'[Projects] On Get All Projects Failure',
 	props<{ error: HttpErrorResponse }>()
 );
+
+export const getProjectsByEmployee = createAction(
+	'[Projects] Get Projects By Employee',
+	props<{ employeeId: string }>()
+);
+
+export const onGetProjectsByEmployeeSuccess = createAction(
+	'[Projects] On Get Projects By Employee Success',
+	props<{ projects: Project[] }>()
+);
+
+export const onGetProjectsByEmployeeFailure = createAction(
+	'[Projects] On Get Projects By Employee Failure',
+	props<{ error: HttpErrorResponse }>()
+);

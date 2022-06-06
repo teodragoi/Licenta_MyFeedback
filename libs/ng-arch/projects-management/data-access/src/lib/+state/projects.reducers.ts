@@ -20,18 +20,20 @@ export const projectsFeatureKey = 'projects';
 
 const reducer = createReducer(
 	initialState,
-	on(ProjectsActions.addProject, (state) => ({
-		...state,
-		isLoading: true,
-	})),
+	on(
+		ProjectsActions.addProject,
+		ProjectsActions.getAllProjects,
+		ProjectsActions.deleteProject,
+		ProjectsActions.getProjectsByEmployee,
+		(state) => ({
+			...state,
+			isLoading: true,
+		})
+	),
 	on(ProjectsActions.onAddProjectSuccess, (state, { project }) => ({
 		...state,
 		isLoading: false,
 		projects: [...state.projects, project],
-	})),
-	on(ProjectsActions.deleteProject, (state) => ({
-		...state,
-		isLoading: true,
 	})),
 	on(ProjectsActions.onDeleteProjectSuccess, (state, { projectId }) => ({
 		...state,
@@ -40,20 +42,24 @@ const reducer = createReducer(
 			(projectState: Project) => projectState._id !== projectId
 		),
 	})),
-	on(ProjectsActions.getAllProjects, (state) => ({
-		...state,
-		isLoading: true,
-	})),
-	on(ProjectsActions.onGetAllProjectsSuccess, (state, { projects }) => ({
-		...state,
-		isLoading: false,
-		projects,
-	})),
+	on(
+		ProjectsActions.onGetAllProjectsSuccess,
+		ProjectsActions.onGetProjectsByEmployeeSuccess,
+		(state, { projects }) => ({
+			...state,
+			isLoading: false,
+			projects,
+		})
+	),
 	on(
 		ProjectsActions.onAddProjectFailure,
 		ProjectsActions.onDeleteProjectFailure,
 		ProjectsActions.onGetAllProjectsFailure,
-		(state, { error }) => ({ ...state, error })
+		(state, { error }) => ({
+			...state,
+			isLoading: false,
+			error,
+		})
 	)
 );
 

@@ -28,4 +28,8 @@ export class EmployeesFacade {
 	public dispatchGetEmployeesByRole(roles: string[]): void {
 		this.store.dispatch(EmployeesActions.getEmployeesByRole({ roles }));
 	}
+
+	public dispatchDeleteEmployee(employeeId: string): void {
+		this.store.dispatch(EmployeesActions.deleteEmployee({ employeeId }));
+	}
 }

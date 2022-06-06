@@ -36,7 +36,8 @@ export class TableComponent {
 		return 'common.' + action;
 	}
 
-	public onActionClick(action: TableActions, element: any): void {
+	public onActionClick(action: TableActions, element: any, event: Event): void {
+		event.stopImmediatePropagation();
 		this.actionSelected.emit({ action, element });
 	}
 

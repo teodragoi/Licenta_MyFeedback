@@ -20,4 +20,10 @@ export class EmployeesService {
 			roles,
 		});
 	}
+
+	public deleteEmployee(employeeId: string): Observable<{ success: boolean }> {
+		return this.httpClient.delete<{ success: boolean }>(
+			`${this.baseUrl}/${employeeId}`
+		);
+	}
 }

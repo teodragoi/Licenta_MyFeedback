@@ -9,6 +9,7 @@ import { ListComponent } from './list/list.component';
 import { SelectComponent } from './select/select.component';
 import { SelectionListComponent } from './selection-list/selection-list.component';
 import { TableComponent } from './table/table.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
 	declarations: [
@@ -18,13 +19,15 @@ import { TableComponent } from './table/table.component';
 		TableComponent,
 		SelectionListComponent,
 		ListComponent,
+		SpinnerComponent,
 	],
 	exports: [
 		AvatarComponent,
 		InputComponent,
 		ListComponent,
-		SelectionListComponent,
 		SelectComponent,
+		SelectionListComponent,
+		SpinnerComponent,
 		TableComponent,
 	],
 	imports: [

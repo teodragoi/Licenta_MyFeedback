@@ -1,6 +1,6 @@
 import { EmployeesController } from '@api/controllers';
 import { payloadValidation } from '@api/middlewares';
-import { addEmployeeSchema } from '@api/schemas';
+import { addEmployeeSchema, editEmployeeSchema } from '@api/schemas';
 import { Router } from 'express';
 
 const router: Router = Router();
@@ -13,6 +13,12 @@ router.post(
 	'/',
 	payloadValidation(addEmployeeSchema),
 	EmployeesController.addEmployee
+);
+
+router.patch(
+	'/:employeeId',
+	payloadValidation(editEmployeeSchema),
+	EmployeesController.editEmployeeDetails
 );
 
 router.delete('/:employeeId', EmployeesController.deleteEmployee);

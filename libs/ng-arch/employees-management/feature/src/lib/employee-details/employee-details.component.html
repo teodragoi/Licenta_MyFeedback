@@ -1,0 +1,24 @@
+<mat-card *ngIf="vmData$ | async as vmData">
+	<mat-card-title>{{
+		'employeeDetails.assignedRoles' | translate
+	}}</mat-card-title>
+
+	<mat-card-content>
+		<shared-list [listData]="vmData.assignedRoles"></shared-list>
+	</mat-card-content>
+
+	<mat-card-footer>
+		<button
+			[attr.aria-label]="'rolesManagement.editAssignedRoles' | translate"
+			(click)="onAssignButtonClicked(vmData.employee, vmData.assignedRoles)"
+			color="primary"
+			mat-raised-button
+		>
+			{{ 'rolesManagement.editAssignedRoles' | translate }}
+		</button>
+	</mat-card-footer>
+
+	<ng-template #loading>
+		<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+	</ng-template>
+</mat-card>

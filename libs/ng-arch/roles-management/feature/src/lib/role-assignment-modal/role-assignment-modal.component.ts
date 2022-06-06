@@ -9,6 +9,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { RolesFacade } from '@ng-arch/ng-arch/roles-management/data-access';
 import { AssignmentRolesVmData } from '@ng-arch/ng-arch/roles-management/types';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { ManageRolesService } from '../manage-roles.service';
 
 @Component({
@@ -20,11 +21,10 @@ import { ManageRolesService } from '../manage-roles.service';
 export class RoleAssignmentModalComponent implements OnInit {
 	public vmData$: Observable<AssignmentRolesVmData> =
 		this.manageRolesService.assignmentRolesData$;
-
 	public formGroup: FormGroup;
 
 	public get disabledConfirmButton(): boolean {
-		return !this.formGroup.get('selectedRoles')?.value.length;
+		return !this.formGroup.dirty;
 	}
 
 	constructor(
@@ -40,7 +40,7 @@ export class RoleAssignmentModalComponent implements OnInit {
 		this.formGroup = this.fb.group({
 			selectedRoles: this.fb.control(this.data.roles),
 		});
-    
+
 		this.rolesFacade.dispatchGetAllRoles();
 	}
 

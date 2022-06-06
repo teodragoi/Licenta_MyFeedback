@@ -23,6 +23,7 @@ const reducer = createReducer(
 	on(
 		EmployeesActions.getAllEmployees,
 		EmployeesActions.getEmployeesByRole,
+		EmployeesActions.deleteEmployee,
 		(state) => ({
 			...state,
 			isLoading: true,
@@ -37,9 +38,17 @@ const reducer = createReducer(
 			employees,
 		})
 	),
+	on(EmployeesActions.onDeleteEmployeeSuccess, (state, { employeeId }) => ({
+		...state,
+		isLoading: false,
+		employees: state.employees.filter(
+			(employee: Employee) => employee._id !== employeeId
+		),
+	})),
 	on(
 		EmployeesActions.onGetAllEmployeesFailure,
 		EmployeesActions.onGetEmployeesByRoleFailure,
+		EmployeesActions.onDeleteEmployeeFailure,
 		(state, { error }) => ({
 			...state,
 			isLoading: false,

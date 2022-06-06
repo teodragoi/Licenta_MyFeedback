@@ -75,7 +75,6 @@ export class LoginComponent implements OnInit {
 				(error: HttpErrorResponse) => {
 					if (!!error.error['user']) {
 						this.formGroup.get('email')?.setErrors({ user: true });
-						console.log(this.formGroup.get('email')?.errors);
 					}
 
 					if (!!error.error['password']) {

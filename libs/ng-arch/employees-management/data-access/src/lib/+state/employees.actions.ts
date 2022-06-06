@@ -20,11 +20,26 @@ export const getEmployeesByRole = createAction(
 );
 
 export const onGetEmployeesByRoleSuccess = createAction(
-	'[Employees] On get EMployees By Role Success',
+	'[Employees] On Get EMployees By Role Success',
 	props<{ employees: Employee[] }>()
 );
 
 export const onGetEmployeesByRoleFailure = createAction(
-	'[Employees] On get EMployees By Role Failure',
+	'[Employees] On Get EMployees By Role Failure',
+	props<{ error: HttpErrorResponse }>()
+);
+
+export const deleteEmployee = createAction(
+	'[Employees] Delete Employee',
+	props<{ employeeId: string }>()
+);
+
+export const onDeleteEmployeeSuccess = createAction(
+	'[Employees] On Delete Employee Success',
+	props<{ employeeId: string }>()
+);
+
+export const onDeleteEmployeeFailure = createAction(
+	'[Employees] On Delete Employee Failure',
 	props<{ error: HttpErrorResponse }>()
 );

@@ -6,3 +6,7 @@ export const addEmployeeSchema = Joi.object({
 	projects: Joi.array().optional(),
 	roles: Joi.array().optional(),
 });
+
+export const editEmployeeSchema = Joi.object({
+	roles: Joi.array().required(),
+});

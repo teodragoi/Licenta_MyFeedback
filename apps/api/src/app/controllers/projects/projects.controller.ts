@@ -83,9 +83,13 @@ export class ProjectsController {
 
 			await ProjectDTO.updateOne({ _id: projectId }, { ...req.body });
 
-			return res
-				.status(HttpStatus.OK)
-				.json({ project: Object.assign(project, { ...req.body }) });
+			const updatedProject: Project = await ProjectDTO.findOne({
+				_id: projectId,
+			})
+				.populate('employees', '-__v -roles')
+				.populate('availableRoles', '-__v');
+
+			return res.status(HttpStatus.OK).json(updatedProject);
 		} catch (error) {
 			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);
 		}
@@ -102,6 +106,27 @@ export class ProjectsController {
 				_id: projectId,
 			});
 			return res.status(HttpStatus.NO_CONTENT).json({ success: true });
+		} catch (error) {
+			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);
+		}
+	}
+
+	public static async getProjectsByEmployee(
+		req: Request,
+		res: Response
+	): Promise<Response> {
+		try {
+			const { employeeId } = req.params;
+
+			const projects: Project[] = await ProjectDTO.find({});
+
+			const projectsForEmployee = projects.filter((project: Project) =>
+				project.employees.some(
+					(employee: Employee) => employee._id.toString() === employeeId
+				)
+			);
+
+			return res.status(HttpStatus.OK).json(projectsForEmployee);
 		} catch (error) {
 			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);
 		}

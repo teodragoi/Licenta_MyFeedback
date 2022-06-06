@@ -1,0 +1,25 @@
+:host::ng-deep {
+	.mat-form-field-infix {
+		border-top: 0;
+	}
+}
+
+.user-details {
+	&__title {
+		max-width: calc((300 / 16) * 1rem);
+		display: flex;
+		justify-content: space-between;
+
+		& > *:not(:last-child) {
+			margin-right: 1rem;
+		}
+	}
+
+	&__footer {
+		padding: 1rem;
+	}
+
+	> *:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}

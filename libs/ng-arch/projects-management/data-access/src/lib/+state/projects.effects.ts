@@ -57,6 +57,22 @@ export class ProjectsEffects {
 		)
 	);
 
+	getByEmployee$ = createEffect(() =>
+		this.actions$.pipe(
+			ofType(ProjectsActions.getProjectsByEmployee),
+			switchMap(({ employeeId }) =>
+				this.projectsService.getProjectsByEmployee(employeeId).pipe(
+					map((projects: Project[]) =>
+						ProjectsActions.onGetProjectsByEmployeeSuccess({ projects })
+					),
+					catchError((error: HttpErrorResponse) =>
+						of(ProjectsActions.onGetProjectsByEmployeeFailure({ error }))
+					)
+				)
+			)
+		)
+	);
+
 	constructor(
 		private actions$: Actions,
 		private projectsService: ProjectsService

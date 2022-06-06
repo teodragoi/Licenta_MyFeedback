@@ -22,4 +22,10 @@ export class ProjectsService {
 	public getAllProjects(): Observable<Project[]> {
 		return this.httpClient.get<Project[]>(this.baseUrl);
 	}
+
+	public getProjectsByEmployee(employeeId: string): Observable<Project[]> {
+		return this.httpClient.get<Project[]>(
+			`${this.baseUrl}/byEmployee/${employeeId}`
+		);
+	}
 }

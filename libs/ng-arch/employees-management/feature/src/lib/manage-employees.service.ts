@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
+import { EmployeeDetailsFacade } from '@ng-arch/ng-arch/employee-details/data-access';
 import { EmployeesFacade } from '@ng-arch/ng-arch/employees-management/data-access';
 import {
 	Employee,
+	EmployeeDetailsVmData,
 	EmployeesVmData,
 } from '@ng-arch/ng-arch/employees-management/types';
+import { Role } from '@ng-arch/ng-arch/roles-management/types';
 import {
+	ListData,
 	TableActions,
 	TableColumnType,
 	TableConfig,
@@ -26,7 +30,21 @@ export class ManageEmployeesService {
 		}))
 	);
 
-	constructor(private employeesFacade: EmployeesFacade) {}
+	public detailsVmData$: Observable<EmployeeDetailsVmData> = combineLatest([
+		this.employeeDetailsFacade.isLoading$,
+		this.employeeDetailsFacade.employee$,
+	]).pipe(
+		map(([isLoading, employee]) => ({
+			isLoading,
+			employee,
+			assignedRoles: this.buildAssignedRolesData(employee),
+		}))
+	);
+
+	constructor(
+		private employeesFacade: EmployeesFacade,
+		private employeeDetailsFacade: EmployeeDetailsFacade
+	) {}
 
 	private buildTableConfig(employees: Employee[]): TableConfig<Employee> {
 		return {
@@ -49,5 +67,18 @@ export class ManageEmployeesService {
 			],
 			data: employees,
 		};
+	}
+
+	private buildAssignedRolesData(
+		employee: Employee | null
+	): ListData[] | undefined {
+		if (!employee?.roles?.length) {
+			return undefined;
+		}
+
+		return employee.roles.map((role: Role) => ({
+			label: role.name,
+			value: role._id,
+		}));
 	}
 }

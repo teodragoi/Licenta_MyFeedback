@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeesFacade } from '@ng-arch/ng-arch/employees-management/data-access';
 import {
 	Employee,
@@ -6,7 +7,6 @@ import {
 } from '@ng-arch/ng-arch/employees-management/types';
 import { TableActions } from '@ng-arch/shared/types';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { ManageEmployeesService } from '../manage-employees.service';
 
 @Component({
@@ -17,15 +17,13 @@ import { ManageEmployeesService } from '../manage-employees.service';
 })
 export class ManageEmployeesComponent implements OnInit {
 	public vmData$: Observable<EmployeesVmData> =
-		this.manageEmployeesService.vmData$.pipe(
-			tap((res) => {
-				console.log(res);
-			})
-		);
+		this.manageEmployeesService.vmData$;
 
 	constructor(
 		private employeesFacade: EmployeesFacade,
-		private manageEmployeesService: ManageEmployeesService
+		private manageEmployeesService: ManageEmployeesService,
+		private route: ActivatedRoute,
+		private router: Router
 	) {}
 
 	public ngOnInit(): void {
@@ -33,6 +31,12 @@ export class ManageEmployeesComponent implements OnInit {
 	}
 
 	public onActionSelected(event: { action: TableActions; element: Employee }) {
-		console.log(event);
+		if (event.action === TableActions.DELETE) {
+			this.employeesFacade.dispatchDeleteEmployee(event.element._id ?? '');
+		}
+	}
+
+	public onRowClicked(element: Employee): void {
+		this.router.navigate([`./${element._id}`], { relativeTo: this.route });
 	}
 }

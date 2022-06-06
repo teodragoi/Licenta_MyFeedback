@@ -29,4 +29,8 @@ export class ProjectsFacade {
 	public dispatchGetAllProjects(): void {
 		this.store.dispatch(ProjectsActions.getAllProjects());
 	}
+
+	public dispatchGetProjectsByEmployee(employeeId: string): void {
+		this.store.dispatch(ProjectsActions.getProjectsByEmployee({ employeeId }));
+	}
 }

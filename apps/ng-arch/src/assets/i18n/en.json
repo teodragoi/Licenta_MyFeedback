@@ -16,6 +16,10 @@
 		"testMessage": "Test message"
 	},
 	"languageSwitch": "Switch to romanian",
+	"employeeDetails": {
+		"assignedRoles": "Assigned roles",
+		"editAssignedRoles": "Edit assigned roles"
+	},
 	"navbar": {
 		"routes": {
 			"dashboard": "Dashboard",
@@ -46,6 +50,12 @@
 		"email": "Email",
 		"name": "Name",
 		"type": "Type"
+	},
+	"userDetails": {
+		"changePassword": "Change password",
+		"editName": "Edit name",
+		"myProjects": "My projects:",
+		"myRoles": "My roles:"
 	},
 	"usersManagement": {
 		"addUser": "Add User"

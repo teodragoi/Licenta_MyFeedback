@@ -6,7 +6,6 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { EmployeesService } from '../employees.service';
 import * as EmployeesActions from './employees.actions';
-import * as EmployeesReducer from './employees.reducers';
 
 @Injectable()
 export class EmployeesEffects {
@@ -36,6 +35,20 @@ export class EmployeesEffects {
 					),
 					catchError((error: HttpErrorResponse) =>
 						of(EmployeesActions.onGetEmployeesByRoleFailure({ error }))
+					)
+				)
+			)
+		)
+	);
+
+	public deleteEmployee$ = createEffect(() =>
+		this.actions$.pipe(
+			ofType(EmployeesActions.deleteEmployee),
+			switchMap(({ employeeId }) =>
+				this.employeesService.deleteEmployee(employeeId).pipe(
+					map(() => EmployeesActions.onDeleteEmployeeSuccess({ employeeId })),
+					catchError((error: HttpErrorResponse) =>
+						of(EmployeesActions.onDeleteEmployeeFailure({ error }))
 					)
 				)
 			)

@@ -15,6 +15,10 @@
 	"dashboard": {
 		"testMessage": "Mesaj de test"
 	},
+	"employeeDetails": {
+		"assignedRoles": "Roluri asignate",
+		"editAssignedRoles": "Editeaza rolurile asignate"
+	},
 	"languageSwitch": "Schimba in engleza",
 	"navbar": {
 		"routes": {
@@ -43,6 +47,12 @@
 		"email": "Email",
 		"name": "Nume",
 		"type": "Tip"
+	},
+	"userDetails": {
+		"changePassword": "Change password",
+		"editName": "Editeaza numele",
+		"myProjects": "Proiectele mele:",
+		"myRoles": "Rolurile mele:"
 	},
 	"usersManagement": {
 		"addUser": "Adauga utilizator"

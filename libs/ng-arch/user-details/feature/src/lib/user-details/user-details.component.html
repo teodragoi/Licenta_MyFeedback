@@ -1,1 +1,58 @@
-<p>user-details works!</p>
+<ng-container *ngIf="vmData$ | async as vmData">
+	<form
+		*ngIf="!vmData.isLoading && vmData.user; else loading"
+		[formGroup]="formGroup"
+	>
+		<mat-card class="user-details">
+			<mat-card-title class="user-details__title">
+				<span *ngIf="!editNameEnabled; else editName">
+					{{ formGroup.get('name')?.value }}
+				</span>
+
+				<ng-template #editName>
+					<shared-input formControlName="name"></shared-input>
+				</ng-template>
+
+				<button
+					[attr.aria-label]="
+						(editNameEnabled ? 'userDetails.editName' : 'common.confirm')
+							| translate
+					"
+					(click)="onEditNameClick()"
+					mat-flat-button
+				>
+					<mat-icon> {{ editNameEnabled ? 'check' : 'edit' }} </mat-icon>
+				</button>
+			</mat-card-title>
+
+			<mat-card-content class="user-details__content">
+				<div *ngIf="rolesData$ | async as rolesData">
+					<span> {{ 'userDetails.myRoles' | translate }} </span>
+
+					<shared-list [listData]="rolesData"></shared-list>
+				</div>
+
+				<div *ngIf="projectsData$ | async as projectsData">
+					<span> {{ 'userDetails.myProjects' | translate }} </span>
+
+					<shared-list [listData]="projectsData"></shared-list>
+				</div>
+			</mat-card-content>
+
+			<mat-card-footer class="user-details__footer">
+				<button
+					[attr.aria-label]="'userDetails.changePassword' | translate"
+					(click)="onChangePasswordClick()"
+					color="primary"
+					mat-raised-button
+				>
+					{{ 'userDetails.changePassword' | translate }}
+				</button>
+			</mat-card-footer>
+		</mat-card>
+	</form>
+
+	<ng-template #loading>
+		<shared-spinner></shared-spinner>
+	</ng-template>
+</ng-container>
