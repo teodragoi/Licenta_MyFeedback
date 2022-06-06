@@ -46,6 +46,14 @@ export class InputComponent implements ControlValueAccessor {
 			return 'validationErrors.mustMatch';
 		}
 
+		if (this.error['user']) {
+			return 'validationErrors.user';
+		}
+
+		if (this.error['password']) {
+			return 'validationErrors.password';
+		}
+
 		return '';
 	}
 

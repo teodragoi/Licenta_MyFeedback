@@ -9,7 +9,8 @@
 		"edit": "Editeaza",
 		"email": "Email",
 		"name": "Nume",
-		"password": "Parola"
+		"password": "Parola",
+		"login": "Login"
 	},
 	"dashboard": {
 		"testMessage": "Mesaj de test"
@@ -48,11 +49,14 @@
 	"userProfile": {
 		"profileSettings": "Setari profil",
 		"switchToDarkTheme": "Schimba pe tema dark",
-		"switchToLightTheme": "Schimba pe tema light"
+		"switchToLightTheme": "Schimba pe tema light",
+		"userDetails": "Detalii utilizatori"
 	},
 	"validationErrors": {
 		"email": "Valoarea nu este de tip email.",
 		"mustMatch": "Parola este diferita.",
-		"required": "Campul este obligatoriu."
+		"password": "Parola nu este corecta.",
+		"required": "Campul este obligatoriu.",
+		"user": "Utilizatorul nu exista."
 	}
 }

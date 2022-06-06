@@ -445,6 +445,58 @@
 			},
 			"tags": []
 		},
+		"ng-arch-login-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/login/data-access",
+			"sourceRoot": "libs/ng-arch/login/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/login/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/login/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/login/data-access/src/**/*.ts",
+							"libs/ng-arch/login/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-login-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/login/feature",
+			"sourceRoot": "libs/ng-arch/login/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/login/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/login/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/login/feature/src/**/*.ts",
+							"libs/ng-arch/login/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"ng-arch-project-details-data-access": {
 			"projectType": "library",
 			"root": "libs/ng-arch/project-details/data-access",

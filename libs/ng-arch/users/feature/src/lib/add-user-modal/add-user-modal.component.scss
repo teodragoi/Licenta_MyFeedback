@@ -11,6 +11,10 @@ form {
 	footer {
 		display: flex;
 		justify-content: flex-end;
+
+		& > *:not(:last-child) {
+			margin-right: 0.5rem;
+		}
 	}
 
 	> *:not(:last-child) {

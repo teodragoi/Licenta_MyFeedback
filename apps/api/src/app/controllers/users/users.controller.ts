@@ -28,8 +28,10 @@ export class UsersController {
 		try {
 			const { userId } = req.params;
 
-			const user: User = await UserDTO.findOne({ _id: userId });
-
+			const user: User = await UserDTO.findOne({ _id: userId }).populate(
+				'employee',
+				'-__v'
+			);
 			return res.status(HttpStatus.OK).json(user);
 		} catch (error) {
 			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);

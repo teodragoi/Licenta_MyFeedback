@@ -27,6 +27,14 @@
 ></shared-avatar>
 
 <mat-menu #userSettingsMenu="matMenu" xPosition="before">
+	<button
+		[routerLink]="'user-details/629ce0a2ebb10846237c404d'"
+		mat-menu-item
+		class="language"
+	>
+		{{ 'userProfile.userDetails' | translate }}
+	</button>
+
 	<button (click)="changeTranslation($event)" mat-menu-item class="language">
 		{{ 'languageSwitch' | translate }}
 	</button>

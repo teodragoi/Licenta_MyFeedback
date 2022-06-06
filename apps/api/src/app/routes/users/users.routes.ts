@@ -1,4 +1,4 @@
-import { UsersController } from '@api/controllers/users/users.controller';
+import { UsersController } from '@api/controllers';
 import { payloadValidation } from '@api/middlewares';
 import {
 	addUserSchema,
@@ -10,6 +10,7 @@ import { Router } from 'express';
 const router: Router = Router();
 
 router.get('/', UsersController.getUsers);
+router.get('/:userId', UsersController.getUserDetails);
 
 router.post('/', payloadValidation(addUserSchema), UsersController.addUser);
 

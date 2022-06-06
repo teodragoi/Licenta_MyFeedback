@@ -43,6 +43,13 @@ const routes: Routes = [
 					),
 			},
 			{
+				path: 'user-details',
+				loadChildren: () =>
+					import('@ng-arch/ng-arch/user-details/feature').then(
+						(m) => m.NgArchUserDetailsFeatureModule
+					),
+			},
+			{
 				path: '',
 				redirectTo: 'dashboard',
 			},

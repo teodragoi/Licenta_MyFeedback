@@ -1,0 +1,24 @@
+<form [formGroup]="formGroup">
+	<shared-input
+		[error]="getError('email')"
+		[label]="'common.email' | translate"
+		formControlName="email"
+	></shared-input>
+
+	<shared-input
+		[error]="getError('password')"
+		[label]="'common.password' | translate"
+		formControlName="password"
+		type="password"
+	></shared-input>
+
+	<button
+		[attr.aria-label]="'common.login' | translate"
+		[disabled]="!formGroup.valid"
+		(click)="login($event)"
+		color="primary"
+		mat-raised-button
+	>
+		{{ 'common.login' | translate }}
+	</button>
+</form>

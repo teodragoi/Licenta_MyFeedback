@@ -1,0 +1,17 @@
+:host {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+form {
+	width: calc((300 / 16) * 1rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	& > *:not(:last-child) {
+		margin-bottom: 0.5rem;
+	}
+}

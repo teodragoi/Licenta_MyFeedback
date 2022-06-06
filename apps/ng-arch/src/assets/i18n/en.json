@@ -9,7 +9,8 @@
 		"edit": "Edit",
 		"email": "Email",
 		"name": "Name",
-		"password": "Password"
+		"password": "Password",
+		"login": "Login"
 	},
 	"dashboard": {
 		"testMessage": "Test message"
@@ -51,11 +52,14 @@
 	"userProfile": {
 		"profileSettings": "Profile Settings",
 		"switchToDarkTheme": "Switch to dark theme",
-		"switchToLightTheme": "Switch to light theme"
+		"switchToLightTheme": "Switch to light theme",
+		"userDetails": "User Details"
 	},
 	"validationErrors": {
 		"email": "The value is not an email.",
 		"mustMatch": "Value must match password.",
-		"required": "The field is required"
+		"password": "Password is not correct.",
+		"required": "The field is required",
+		"user": "User does not exist."
 	}
 }
