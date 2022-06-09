@@ -49,7 +49,9 @@ export class EmployeeAssignmentModalComponent implements OnInit {
 
 		this.formGroup = this.fb.group({
 			selectedEmployees: this.fb.control(
-				this.data.project.employees?.map((employee: Employee) => employee._id)
+				this.data.project.employees?.map(
+					(employee: Employee) => employee._id
+				) ?? []
 			),
 		});
 	}
