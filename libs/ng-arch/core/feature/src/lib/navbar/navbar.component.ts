@@ -1,6 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ThemeMode, ThemeService } from '@shared/services';
+import {
+	LocalStorageService,
+	LOCAL_STORAGE_ITEMS,
+	ThemeMode,
+	ThemeService,
+} from '@shared/services';
 
 @Component({
 	selector: 'ng-arch-navbar',
@@ -13,9 +18,15 @@ export class NavbarComponent {
 	public get theme(): typeof ThemeMode {
 		return ThemeMode;
 	}
+
 	public currentLanguage: string = 'en';
+	
+	public get userId(): string {
+		return this.localStorageService.getItem(LOCAL_STORAGE_ITEMS.USER_ID) ?? '';
+	}
 
 	constructor(
+		private localStorageService: LocalStorageService,
 		private themeService: ThemeService,
 		private translateService: TranslateService
 	) {}

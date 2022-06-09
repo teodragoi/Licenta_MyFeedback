@@ -118,7 +118,6 @@ export class ManageProjectsService {
 	private buildFeedbackTemplateConfig(
 		project: Project | null
 	): TableConfig<FeedbackTemplate> {
-
 		return {
 			columns: [
 				{

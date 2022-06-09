@@ -27,13 +27,15 @@ export class ManageRolesService {
 
 	public assignmentRolesData$: Observable<AssignmentRolesVmData> =
 		combineLatest([this.rolesFacade.isLoading$, this.rolesFacade.roles$]).pipe(
-			map(([isLoading, roles]) => ({
-				isLoading,
-				rolesData: roles.map((role: Role) => ({
-					label: role.name,
-					value: role._id,
-				})),
-			}))
+			map(([isLoading, roles]) => {
+				return {
+					isLoading,
+					rolesData: roles.map((role: Role) => ({
+						label: role.name,
+						value: role._id,
+					})),
+				};
+			})
 		);
 
 	constructor(private rolesFacade: RolesFacade) {}

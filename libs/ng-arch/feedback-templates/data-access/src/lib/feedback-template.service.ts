@@ -24,7 +24,6 @@ export class FeedbackTemplateService {
 		feedbackTemplateId: string,
 		feedbackTemplate: Partial<FeedbackTemplate>
 	): Observable<FeedbackTemplate> {
-		console.log(feedbackTemplate);
 		return this.httpClient.patch<FeedbackTemplate>(
 			`${this.baseUrl}/${feedbackTemplateId}`,
 			feedbackTemplate

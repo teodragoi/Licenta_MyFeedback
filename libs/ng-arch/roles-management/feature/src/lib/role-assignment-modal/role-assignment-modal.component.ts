@@ -9,7 +9,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { RolesFacade } from '@ng-arch/ng-arch/roles-management/data-access';
 import { AssignmentRolesVmData } from '@ng-arch/ng-arch/roles-management/types';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { ManageRolesService } from '../manage-roles.service';
 
 @Component({
@@ -38,9 +37,9 @@ export class RoleAssignmentModalComponent implements OnInit {
 
 	public ngOnInit(): void {
 		this.formGroup = this.fb.group({
-			selectedRoles: this.fb.control(this.data.roles),
+			selectedRoles: this.fb.control(this.data.roles ?? []),
 		});
-
+	
 		this.rolesFacade.dispatchGetAllRoles();
 	}
 

@@ -33,15 +33,12 @@ const reducer = createReducer(
 		ProjectDetailsActions.onEditProjectSuccess,
 		ProjectDetailsActions.onAddFeedbackTemplateSuccess,
 		ProjectDetailsActions.onDeleteFeedbackTemplateSuccess,
+		ProjectDetailsActions.onGetProjectDetailsSuccess,
 		(state, { project }) => ({
 			...state,
 			isLoading: false,
-			...project,
+			project,
 		})
-	),
-	on(
-		ProjectDetailsActions.onGetProjectDetailsSuccess,
-		(state, { project }) => ({ ...state, isLoading: false, project })
 	),
 	on(
 		ProjectDetailsActions.onEditProjectFailure,
