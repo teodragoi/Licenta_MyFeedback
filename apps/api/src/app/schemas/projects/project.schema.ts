@@ -8,4 +8,5 @@ export const editProjectSchema = Joi.object({
 	availableRoles: Joi.array().optional(),
 	name: Joi.string().optional(),
 	employees: Joi.array().optional(),
+	feedbackTemplates: Joi.array().optional(),
 });

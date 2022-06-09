@@ -1,8 +1,7 @@
-import { EmployeeDTO, ProjectDTO } from '@api/db';
+import { ProjectDTO } from '@api/db';
 import { Employee } from '@ng-arch/ng-arch/employees-management/types';
 import { Project } from '@ng-arch/ng-arch/projects-management/types';
 import { Request, Response } from 'express';
-import e = require('express');
 import HttpStatus from 'http-status-codes';
 
 export class ProjectsController {
@@ -39,7 +38,8 @@ export class ProjectsController {
 				_id: projectId,
 			})
 				.populate('employees', '-__v -roles')
-				.populate('availableRoles', '-__v');
+				.populate('availableRoles', '-__v')
+				.populate('feedbackTemplates', '-__v');
 
 			return res.status(HttpStatus.OK).json(project);
 		} catch (error) {
@@ -87,7 +87,8 @@ export class ProjectsController {
 				_id: projectId,
 			})
 				.populate('employees', '-__v -roles')
-				.populate('availableRoles', '-__v');
+				.populate('availableRoles', '-__v')
+				.populate('feedbackTemplates', '-__v');
 
 			return res.status(HttpStatus.OK).json(updatedProject);
 		} catch (error) {

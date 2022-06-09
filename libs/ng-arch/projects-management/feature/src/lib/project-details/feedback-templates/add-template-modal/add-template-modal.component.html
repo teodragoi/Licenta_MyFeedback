@@ -1,0 +1,73 @@
+<h3>{{ 'feedbackTemplates.addNewTemplate' | translate }}</h3>
+
+<form [formGroup]="formGroup">
+	<shared-input
+		[error]="getError('name')"
+		[label]="'feedbackTemplates.name' | translate"
+		formControlName="name"
+	></shared-input>
+
+	<div
+		*ngFor="
+			let question of [].constructor(numberOfQuestions);
+			let index = index;
+			trackBy: uniqueIdentifier
+		"
+		class="add-template-questions__container"
+	>
+		<shared-input
+			[error]="getError(getFormControlName(index, 'question'))"
+			[formControlName]="getFormControlName(index, 'question')"
+			[label]="'feedbackTemplates.question' | translate"
+		></shared-input>
+
+		<shared-select
+			[formControlName]="getFormControlName(index, 'type')"
+			[label]="'feedbackTemplates.type' | translate"
+			[selectOptions]="typeSelectData"
+		></shared-select>
+	</div>
+
+	<footer class="add-template-form__footer">
+		<button
+			[attr.aria-label]="'feedbackTemplates.removeLastQuestion' | translate"
+			[disabled]="noQuestionsAdded || !formIsValid"
+			(click)="onRemoveLastQuestionClicked()"
+			color="primary"
+			mat-raised-button
+		>
+			{{ 'feedbackTemplates.removeLastQuestion' | translate }}
+		</button>
+
+		<button
+			[attr.aria-label]="'feedbackTemplates.addQuestion' | translate"
+			[disabled]="disableAddQuestionButton"
+			(click)="onAddQuestionClicked()"
+			color="primary"
+			mat-raised-button
+		>
+			{{ 'feedbackTemplates.addQuestion' | translate }}
+		</button>
+	</footer>
+</form>
+
+<footer class="add-template__footer">
+	<button
+		[attr.aria-label]="'common.cancel' | translate"
+		color="primary"
+		[mat-dialog-close]="null"
+		mat-raised-button
+	>
+		{{ 'common.cancel' | translate }}
+	</button>
+
+	<button
+		[attr.aria-label]="'common.confirm' | translate"
+		[disabled]="noQuestionsAdded"
+		(click)="onConfirmButtonClicked()"
+		color="primary"
+		mat-raised-button
+	>
+		{{ 'common.confirm' | translate }}
+	</button>
+</footer>

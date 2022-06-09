@@ -1,0 +1,13 @@
+<button
+	[attr.aria-label]="'feedbackTemplates.addNewTemplate' | translate"
+	(click)="openAddTemplateModal()"
+  color="primary"
+	mat-raised-button
+>
+	{{ 'feedbackTemplates.addNewTemplate' | translate }}
+</button>
+
+<ng-arch-table
+	[config]="config"
+	(actionSelected)="onActionSelected($event)"
+></ng-arch-table>

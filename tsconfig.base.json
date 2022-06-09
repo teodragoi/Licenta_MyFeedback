@@ -49,6 +49,15 @@
 			"@ng-arch/ng-arch/employees-management/types": [
 				"libs/ng-arch/employees-management/types/src/index.ts"
 			],
+			"@ng-arch/ng-arch/feedback-templates/data-access": [
+				"libs/ng-arch/feedback-templates/data-access/src/index.ts"
+			],
+			"@ng-arch/ng-arch/feedback-templates/feature": [
+				"libs/ng-arch/feedback-templates/feature/src/index.ts"
+			],
+			"@ng-arch/ng-arch/feedback-templates/types": [
+				"libs/ng-arch/feedback-templates/types/src/index.ts"
+			],
 			"@ng-arch/ng-arch/login/data-access": [
 				"libs/ng-arch/login/data-access/src/index.ts"
 			],

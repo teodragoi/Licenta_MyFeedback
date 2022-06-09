@@ -471,6 +471,84 @@
 			},
 			"tags": []
 		},
+		"ng-arch-feedback-templates-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/feedback-templates/data-access",
+			"sourceRoot": "libs/ng-arch/feedback-templates/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/feedback-templates/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/feedback-templates/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/feedback-templates/data-access/src/**/*.ts",
+							"libs/ng-arch/feedback-templates/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-feedback-templates-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/feedback-templates/feature",
+			"sourceRoot": "libs/ng-arch/feedback-templates/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/feedback-templates/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/feedback-templates/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/feedback-templates/feature/src/**/*.ts",
+							"libs/ng-arch/feedback-templates/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-feedback-templates-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/feedback-templates/types",
+			"sourceRoot": "libs/ng-arch/feedback-templates/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/feedback-templates/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/feedback-templates/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/feedback-templates/types/src/**/*.ts",
+							"libs/ng-arch/feedback-templates/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"ng-arch-login-data-access": {
 			"projectType": "library",
 			"root": "libs/ng-arch/login/data-access",

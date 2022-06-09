@@ -21,6 +21,14 @@ const projectSchema: Schema = new Schema({
 			default: [],
 		},
 	],
+	feedbackTemplates: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'feedbackTemplates',
+			required: true,
+			default: [],
+		},
+	],
 });
 
 export const ProjectDTO = model('projects', projectSchema);

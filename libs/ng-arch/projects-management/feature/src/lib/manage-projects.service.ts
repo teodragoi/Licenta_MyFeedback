@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EmployeesFacade } from '@ng-arch/ng-arch/employees-management/data-access';
 import { Employee } from '@ng-arch/ng-arch/employees-management/types';
+import { FeedbackTemplate } from '@ng-arch/ng-arch/feedback-templates/types';
 import { ProjectDetailsFacade } from '@ng-arch/ng-arch/project-details/data-access';
 import { ProjectsFacade } from '@ng-arch/ng-arch/projects-management/data-access';
 import {
@@ -39,10 +40,11 @@ export class ManageProjectsService {
 			project,
 			assignedEmployees: this.buildAssignedEmployeesData(project),
 			availableRoles: this.buildAvailableRolesData(project),
+			feedbackTemplatesConfig: this.buildFeedbackTemplateConfig(project),
 		}))
 	);
 
-	public 	availableEmployeesData$: Observable<ListData[]> =
+	public availableEmployeesData$: Observable<ListData[]> =
 		this.employeesFacade.employees$.pipe(
 			map((employees: Employee[]) =>
 				employees.map((employee: Employee) => ({
@@ -111,5 +113,26 @@ export class ManageProjectsService {
 			label: role.name,
 			value: role._id,
 		}));
+	}
+
+	private buildFeedbackTemplateConfig(
+		project: Project | null
+	): TableConfig<FeedbackTemplate> {
+
+		return {
+			columns: [
+				{
+					name: 'table.name',
+					propertyName: 'name',
+					type: TableColumnType.DATA,
+				},
+				{
+					name: 'common.actions',
+					type: TableColumnType.ACTION,
+					actions: [TableActions.EDIT, TableActions.DELETE],
+				},
+			],
+			data: project?.feedbackTemplates ?? [],
+		};
 	}
 }

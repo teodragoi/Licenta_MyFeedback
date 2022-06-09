@@ -22,16 +22,23 @@ const reducer = createReducer(
 	on(
 		ProjectDetailsActions.editProject,
 		ProjectDetailsActions.getProjectDetails,
+		ProjectDetailsActions.addFeedbackTemplate,
+		ProjectDetailsActions.deleteFeedbackTemplate,
 		(state) => ({
 			...state,
 			isLoading: true,
 		})
 	),
-	on(ProjectDetailsActions.onEditProjectSuccess, (state, { project }) => ({
-		...state,
-		isLoading: false,
-		...project,
-	})),
+	on(
+		ProjectDetailsActions.onEditProjectSuccess,
+		ProjectDetailsActions.onAddFeedbackTemplateSuccess,
+		ProjectDetailsActions.onDeleteFeedbackTemplateSuccess,
+		(state, { project }) => ({
+			...state,
+			isLoading: false,
+			...project,
+		})
+	),
 	on(
 		ProjectDetailsActions.onGetProjectDetailsSuccess,
 		(state, { project }) => ({ ...state, isLoading: false, project })
@@ -39,6 +46,8 @@ const reducer = createReducer(
 	on(
 		ProjectDetailsActions.onEditProjectFailure,
 		ProjectDetailsActions.onGetProjectDetailsFailure,
+		ProjectDetailsActions.onAddFeedbackTemplateFailure,
+		ProjectDetailsActions.onDeleteFeedbackTemplateFailure,
 		(state, { error }) => ({
 			...state,
 			isLoading: false,

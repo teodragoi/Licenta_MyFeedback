@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FeedbackTemplate } from '@ng-arch/ng-arch/feedback-templates/types';
 import { Project } from '@ng-arch/ng-arch/projects-management/types';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -31,5 +32,17 @@ export class ProjectDetailsFacade {
 
 	public dispatchGetProjectDetails(projectId: string): void {
 		this.store.dispatch(ProjectDetailsActions.getProjectDetails({ projectId }));
+	}
+
+	public dispatchAddFeedbackTemplate(feedbackTemplate: FeedbackTemplate): void {
+		this.store.dispatch(
+			ProjectDetailsActions.addFeedbackTemplate({ feedbackTemplate })
+		);
+	}
+
+	public dispatchDeleteFeedbackTemplate(feedbackTemplateId: string): void {
+		this.store.dispatch(
+			ProjectDetailsActions.deleteFeedbackTemplate({ feedbackTemplateId })
+		);
 	}
 }

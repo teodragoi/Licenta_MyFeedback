@@ -19,6 +19,17 @@
 		"assignedRoles": "Roluri asignate",
 		"editAssignedRoles": "Editeaza rolurile asignate"
 	},
+	"feedbackTemplates": {
+		"addNewTemplate": "Adauga un template nou",
+		"addQuestion": "Adauga intrebare",
+		"editTemplate": "Editeaza Template",
+		"name": "Nume template",
+		"question": "Intrebare",
+		"rating": "Nota",
+		"removeLastQuestion": "Sterge ultima intrebare",
+		"text": "Text",
+		"type": "Tip"
+	},
 	"languageSwitch": "Schimba in engleza",
 	"navbar": {
 		"routes": {

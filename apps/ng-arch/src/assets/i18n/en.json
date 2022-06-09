@@ -15,11 +15,22 @@
 	"dashboard": {
 		"testMessage": "Test message"
 	},
-	"languageSwitch": "Switch to romanian",
 	"employeeDetails": {
 		"assignedRoles": "Assigned roles",
 		"editAssignedRoles": "Edit assigned roles"
 	},
+	"feedbackTemplates": {
+		"addNewTemplate": "Add new feedback template",
+		"addQuestion": "Add question",
+		"editTemplate": "Edit Template",
+		"name": "Template name",
+		"question": "Question",
+		"rating": "Rating",
+		"removeLastQuestion": "Remove last question",
+		"text": "Text",
+		"type": "Type"
+	},
+	"languageSwitch": "Switch to romanian",
 	"navbar": {
 		"routes": {
 			"dashboard": "Dashboard",

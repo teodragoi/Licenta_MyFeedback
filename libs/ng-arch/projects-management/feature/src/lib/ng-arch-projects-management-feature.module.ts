@@ -16,6 +16,10 @@ import { NgArchProjectsManagementFeatureRoutingModule } from './ng-arch-projects
 import { ProjectDetailsEmployeesComponent } from './project-details/employees/employees.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { RolesComponent } from './project-details/roles/roles.component';
+import { FeedbackTemplatesComponent } from './project-details/feedback-templates/feedback-templates.component';
+import { AddTemplateModalComponent } from './project-details/feedback-templates/add-template-modal/add-template-modal.component';
+import { EditTemplateModalComponent } from './project-details/feedback-templates/edit-template-modal/edit-template-modal.component';
+import { NgArchFeedbackTemplatesDataAccessModule } from '@ng-arch/ng-arch/feedback-templates/data-access';
 
 @NgModule({
 	imports: [
@@ -27,6 +31,7 @@ import { RolesComponent } from './project-details/roles/roles.component';
 		NgArchProjectDetailsDataAccessModule,
 		NgArchProjectsManagementDataAccessModule,
 		NgArchProjectsManagementFeatureRoutingModule,
+		NgArchFeedbackTemplatesDataAccessModule,
 		ReactiveFormsModule,
 		SharedUiComponentsModule,
 		TranslateModule,
@@ -38,6 +43,9 @@ import { RolesComponent } from './project-details/roles/roles.component';
 		ProjectDetailsComponent,
 		ProjectDetailsEmployeesComponent,
 		RolesComponent,
+		FeedbackTemplatesComponent,
+		AddTemplateModalComponent,
+		EditTemplateModalComponent,
 	],
 	providers: [ManageProjectsService],
 })

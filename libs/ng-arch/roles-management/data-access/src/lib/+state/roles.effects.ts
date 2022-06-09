@@ -4,17 +4,10 @@ import { Role } from '@ng-arch/ng-arch/roles-management/types';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import {
-	catchError,
-	map,
-	mergeMap,
-	switchMap,
-	withLatestFrom,
-} from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { RolesService } from '../roles.service';
 import * as RolesActions from './roles.actions';
 import { RolesState } from './roles.reducers';
-import * as RolesSelectors from './roles.selectors';
 
 @Injectable()
 export class RolesEffects {

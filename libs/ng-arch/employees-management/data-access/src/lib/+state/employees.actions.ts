@@ -20,7 +20,7 @@ export const getEmployeesByRole = createAction(
 );
 
 export const onGetEmployeesByRoleSuccess = createAction(
-	'[Employees] On Get EMployees By Role Success',
+	'[Employees] On Get Employees By Role Success',
 	props<{ employees: Employee[] }>()
 );
 
