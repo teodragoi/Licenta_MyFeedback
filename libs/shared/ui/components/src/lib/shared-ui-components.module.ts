@@ -10,6 +10,7 @@ import { SelectComponent } from './select/select.component';
 import { SelectionListComponent } from './selection-list/selection-list.component';
 import { TableComponent } from './table/table.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
 	declarations: [
@@ -20,11 +21,13 @@ import { SpinnerComponent } from './spinner/spinner.component';
 		SelectionListComponent,
 		ListComponent,
 		SpinnerComponent,
+		RatingComponent,
 	],
 	exports: [
 		AvatarComponent,
 		InputComponent,
 		ListComponent,
+		RatingComponent,
 		SelectComponent,
 		SelectionListComponent,
 		SpinnerComponent,

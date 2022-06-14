@@ -1,36 +1,13 @@
-@use 'global' as *;
-
-:host {
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-}
-
 .dashboard {
-	&__wip {
-		align-items: center;
+	&__container {
 		display: flex;
-		flex: 1;
-		flex-wrap: wrap;
-		gap: 10%;
-		justify-content: space-evenly;
-		padding: get-size(20);
-
-		&__description > *:not(:last-child) {
-			margin-bottom: get-size(8);
-		}
-
-		lottie-player {
-			max-width: get-size(700);
-		}
+		flex-direction: column;
+		gap: 2rem;
 	}
-}
 
-.workspace-logo {
-	min-width: get-size(300);
-}
-
-.description {
-	color: get-color(themed-text);
-	font-size: get-size(28);
+	&__requests {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
 }

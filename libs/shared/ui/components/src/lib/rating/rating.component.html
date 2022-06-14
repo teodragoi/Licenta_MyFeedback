@@ -1,0 +1,13 @@
+<button
+	*ngFor="
+		let rating of [].constructor(10);
+		let index = index;
+		trackBy: uniqueIdentifier
+	"
+	[attr.aria-label]="'ratings' | translate: { rating: index + 1 }"
+	[color]="selectedRating === index + 1 ? 'accent' : null"
+	(click)="onRatingSelected(index)"
+	mat-mini-fab
+>
+	{{ index + 1 }}
+</button>

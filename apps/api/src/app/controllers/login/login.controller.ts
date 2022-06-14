@@ -10,7 +10,7 @@ export class LoginController {
 
 			const user: User = await UserDTO.findOne({
 				email: payload.email,
-			});
+			}).populate('employee', '-__v -roles');
 
 			if (!user) {
 				return res

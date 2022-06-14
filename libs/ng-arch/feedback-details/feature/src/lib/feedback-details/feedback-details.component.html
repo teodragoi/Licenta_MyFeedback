@@ -1,0 +1,83 @@
+<ng-container *ngIf="vmData$ | async as vmData">
+	<ng-container *ngIf="!vmData.isLoading; else loading">
+		<span>
+			{{
+				'feedbackDetails.from'
+					| translate
+						: { employeeName: vmData.feedback?.fromEmployee?.name ?? '' }
+			}}
+		</span>
+
+		<span>
+			{{
+				'feedbackDetails.to'
+					| translate
+						: { employeeName: vmData.feedback?.forEmployee?.name ?? '' }
+			}}
+		</span>
+
+		<main class="feedback-details__content">
+			<ng-container
+				*ngIf="vmData.feedback?.requestCompleted; else completeFeedback"
+			>
+				<div
+					*ngFor="
+						let answer of vmData.feedback?.answers;
+						let index = index;
+						trackBy: uniqueIdentifier
+					"
+					class="feedback-details__answers"
+				>
+					<span>
+						{{ getQuestionTitle(vmData.feedback?.template, index) }}
+					</span>
+
+					<span> {{ answer.response }} </span>
+				</div>
+			</ng-container>
+
+			<ng-template #completeFeedback>
+				<div
+					*ngFor="
+						let question of vmData.feedback?.template?.questions;
+						trackBy: uniqueIdentifier
+					"
+				>
+					<span> {{ question.question }} </span>
+
+					<form [formGroup]="formGroup">
+						<shared-rating
+							*ngIf="question.type === QuestionTypes.RATING; else textQuestion"
+							[formControlName]="question.question"
+						></shared-rating>
+
+						<ng-template #textQuestion>
+							<shared-input
+								[formControlName]="question.question"
+								[label]="question.question"
+							></shared-input>
+						</ng-template>
+					</form>
+				</div>
+			</ng-template>
+		</main>
+
+		<footer class="feedback-details__footer">
+			<button
+				*ngIf="!vmData.feedback?.requestCompleted"
+				[attr.aria-label]="'feedbackDetails.sendFeedback' | translate"
+				(click)="
+					onSendFeedbackClicked(vmData.feedback?.template?.questions ?? [])
+				"
+				color="primary"
+				mat-raised-button
+			>
+				{{ 'feedbackDetails.sendFeedback' | translate }}
+			</button>
+		</footer>
+	</ng-container>
+
+	<ng-template #loading>
+		<shared-spinner></shared-spinner>
+	</ng-template>
+</ng-container>

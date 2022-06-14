@@ -38,6 +38,11 @@ export class NavbarComponent {
 		this.translateService.use(this.currentLanguage);
 	}
 
+	public logout(): void {
+		this.localStorageService.removeItem(LOCAL_STORAGE_ITEMS.IS_AUTHENTICATED);
+		this.localStorageService.removeItem(LOCAL_STORAGE_ITEMS.USER_ID);
+	}
+
 	public setTheme(event: MouseEvent, theme: ThemeMode): void {
 		event.stopPropagation();
 		this.themeService.setTheme(theme);

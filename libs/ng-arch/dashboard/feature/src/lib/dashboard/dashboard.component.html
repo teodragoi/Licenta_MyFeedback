@@ -1,1 +1,32 @@
-{{ 'dashboard.testMessage' | translate }}
+<ng-container *ngIf="vmData$ | async as vmData">
+	<main *ngIf="!vmData.isLoading; else loading" class="dashboard__container">
+		<h2 class="dashboard__subtitle">
+			{{ 'dashboard.feedbackRequests' | translate }}
+		</h2>
+
+		<div class="dashboard__requests">
+			<ng-arch-request-card
+				*ngFor="
+					let request of vmData.feedbackRequests;
+					trackBy: uniqueIdentifier
+				"
+				[feedbackRequest]="request"
+			></ng-arch-request-card>
+		</div>
+
+		<h2 class="dashboard__subtitle">
+			{{ 'dashboard.myFeedbacks' | translate }}
+		</h2>
+
+		<div class="dashboard__requests">
+			<ng-arch-feedback-card
+				*ngFor="let request of vmData.myFeedbacks; trackBy: uniqueIdentifier"
+				[feedback]="request"
+			></ng-arch-feedback-card>
+		</div>
+	</main>
+
+	<ng-template #loading>
+		<shared-spinner></shared-spinner>
+	</ng-template>
+</ng-container>

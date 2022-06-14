@@ -50,6 +50,13 @@ const routes: Routes = [
 					),
 			},
 			{
+				path: 'feedback-details',
+				loadChildren: () =>
+					import('@ng-arch/ng-arch/feedback-details/feature').then(
+						(m) => m.NgArchFeedbackDetailsFeatureModule
+					),
+			},
+			{
 				path: '',
 				redirectTo: 'dashboard',
 			},

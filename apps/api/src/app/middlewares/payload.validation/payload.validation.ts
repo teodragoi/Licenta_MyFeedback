@@ -15,11 +15,9 @@ export const payloadValidation =
 			await schema.validateAsync(payload);
 			next();
 		} catch (error) {
-			return res
-				.status(HttpStatus.BAD_REQUEST)
-				.json({
-					entity: error._original,
-					messages: [error.details.map((detail) => detail.message)],
-				});
+			return res.status(HttpStatus.BAD_REQUEST).json({
+				entity: error._original,
+				messages: [error.details.map((detail) => detail.message)],
+			});
 		}
 	};

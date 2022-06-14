@@ -13,11 +13,29 @@
 		"login": "Login"
 	},
 	"dashboard": {
-		"testMessage": "Test message"
+		"testMessage": "Test message",
+		"feedbackRequests": "My feedback requests",
+		"myFeedbacks": "My feedbacks"
 	},
 	"employeeDetails": {
 		"assignedRoles": "Assigned roles",
 		"editAssignedRoles": "Edit assigned roles"
+	},
+	"feedbacks": {
+		"dismissRequest": "Dismiss feedback request",
+		"from": "Feedback from {{ employeeName }}",
+		"openFeedback": "Open feedback",
+		"openRequest": "Open feedback request",
+		"request": "Request for {{ employeeName }}"
+	},
+	"feedbackDetails": {
+		"from": "Feedback from {{ employeeName }}",
+		"to": "Feedback for {{ employeeName }}",
+		"sendFeedback": "SendFeedback"
+	},
+	"feedbackRequest": {
+		"employees": "Available employees",
+		"templates": "Available templates"
 	},
 	"feedbackTemplates": {
 		"addNewTemplate": "Add new feedback template",
@@ -42,11 +60,13 @@
 	},
 	"projectDetails": {
 		"assignedEmployees": "Assigned employees:",
-		"editAssignedEmployees": "Edit assigned employees"
+		"editAssignedEmployees": "Edit assigned employees",
+		"requestFeedback": "Request feedback"
 	},
 	"projectsManagement": {
 		"addProjectLabel": "Add project"
 	},
+	"ratings": "Rating {{ rating }}",
 	"rolesManagement": {
 		"addRoleLabel": "Add role",
 		"addRolePlaceholder": "Add role name",
@@ -72,6 +92,7 @@
 		"addUser": "Add User"
 	},
 	"userProfile": {
+		"logout": "Logout",
 		"profileSettings": "Profile Settings",
 		"switchToDarkTheme": "Switch to dark theme",
 		"switchToLightTheme": "Switch to light theme",

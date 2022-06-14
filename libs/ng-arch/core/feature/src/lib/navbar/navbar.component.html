@@ -48,6 +48,15 @@
 
 		<span>{{ 'userProfile.switchToLightTheme' | translate }}</span>
 	</button>
+
+	<button
+		[attr.aria-label]="'userProfile.logout' | translate"
+		[routerLink]="'login/'"
+		(click)="logout()"
+		mat-menu-item
+	>
+		{{ 'userProfile.logout' | translate }}
+	</button>
 	<ng-template #shoLightTheme>
 		<button (click)="setTheme($event, theme.DARK)" mat-menu-item>
 			<mat-icon class="warning">nightlight</mat-icon>

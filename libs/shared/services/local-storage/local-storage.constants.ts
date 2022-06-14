@@ -1,6 +1,7 @@
 export enum LOCAL_STORAGE_ITEMS {
+	EMPLOYEE_ID = 'employeeId',
+	IS_AUTHENTICATED = 'isAuthenticated',
 	ROLE = 'role',
 	THEME = 'theme',
-	IS_AUTHENTICATED = 'isAuthenticated',
-	USER_ID = 'userId'
+	USER_ID = 'userId',
 }

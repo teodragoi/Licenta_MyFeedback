@@ -12,6 +12,7 @@ import {
 import { Role } from '@ng-arch/ng-arch/roles-management/types';
 import {
 	ListData,
+	SelectData,
 	TableActions,
 	TableColumnType,
 	TableConfig,
@@ -65,6 +66,22 @@ export class ManageProjectsService {
 			)
 		);
 
+	public assignedEmployeesSelectData$: Observable<SelectData[]> =
+		this.projectDetailsFacade.project$.pipe(
+			map(
+				(project: Project | null) =>
+					project?.employees?.map((employee: Employee) => ({
+						name: employee.name,
+						value: employee._id ?? '',
+					})) ?? []
+			)
+		);
+
+	public feedbackTemplatesData$: Observable<SelectData[]> =
+		this.projectDetailsFacade.project$.pipe(
+			map((project: Project | null) => this.buildFeedbackTemplateData(project))
+		);
+
 	constructor(
 		private employeesFacade: EmployeesFacade,
 		private projectsFacade: ProjectsFacade,
@@ -112,6 +129,17 @@ export class ManageProjectsService {
 		return project.availableRoles.map((role: Role) => ({
 			label: role.name,
 			value: role._id,
+		}));
+	}
+
+	private buildFeedbackTemplateData(project: Project | null): SelectData[] {
+		if (!project?.feedbackTemplates?.length) {
+			return [];
+		}
+
+		return project.feedbackTemplates.map((template: FeedbackTemplate) => ({
+			name: template.name,
+			value: template._id ?? '',
 		}));
 	}
 

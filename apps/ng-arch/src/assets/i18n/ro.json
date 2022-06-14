@@ -19,6 +19,13 @@
 		"assignedRoles": "Roluri asignate",
 		"editAssignedRoles": "Editeaza rolurile asignate"
 	},
+	"feedbacks": {
+		"dismissRequest": "Ignora cererea de feedback",
+		"from": "Feedback de la {{ employeeName }}",
+		"openFeedback": "Deschide feedback",
+		"openRequest": "Deschide cererea de feedback",
+		"request": "Cerere pentru {{ employeeName }}"
+	},
 	"feedbackTemplates": {
 		"addNewTemplate": "Adauga un template nou",
 		"addQuestion": "Adauga intrebare",
@@ -60,7 +67,7 @@
 		"type": "Tip"
 	},
 	"userDetails": {
-		"changePassword": "Change password",
+		"changePassword": "Schimba parola",
 		"editName": "Editeaza numele",
 		"myProjects": "Proiectele mele:",
 		"myRoles": "Rolurile mele:"
@@ -69,10 +76,11 @@
 		"addUser": "Adauga utilizator"
 	},
 	"userProfile": {
+		"logout": "Delogheaza-te",
 		"profileSettings": "Setari profil",
 		"switchToDarkTheme": "Schimba pe tema dark",
 		"switchToLightTheme": "Schimba pe tema light",
-		"userDetails": "Detalii utilizatori"
+		"userDetails": "Detalii utilizator"
 	},
 	"validationErrors": {
 		"email": "Valoarea nu este de tip email.",

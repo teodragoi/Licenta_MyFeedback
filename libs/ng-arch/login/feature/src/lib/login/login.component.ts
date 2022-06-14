@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
 			.pipe(take(1))
 			.subscribe(
 				(user: User) => {
+					console.log(user);
 					this.localStorageService.setItem(
 						LOCAL_STORAGE_ITEMS.IS_AUTHENTICATED,
 						'true'
@@ -68,6 +69,11 @@ export class LoginComponent implements OnInit {
 					this.localStorageService.setItem(
 						LOCAL_STORAGE_ITEMS.USER_ID,
 						user._id ?? ''
+					);
+
+					this.localStorageService.setItem(
+						LOCAL_STORAGE_ITEMS.EMPLOYEE_ID,
+						user.employee?._id ?? ''
 					);
 
 					this.router.navigate(['dashboard']);

@@ -1,0 +1,25 @@
+<mat-card>
+	<mat-card-title>{{
+		'feedbacks.request'
+			| translate: { employeeName: feedbackRequest.forEmployee?.name }
+	}}</mat-card-title>
+
+	<mat-card-footer class="requests__footer">
+		<button
+			[attr.aria-label]="'feedbacks.dismissRequest' | translate"
+			(click)="onDismissRequestClick()"
+			mat-flat-button
+		>
+			{{ 'feedbacks.dismissRequest' | translate }}
+		</button>
+		
+		<button
+			[attr.aria-label]="'feedbacks.openRequest' | translate"
+			(click)="onOpenRequestClick()"
+			color="primary"
+			mat-raised-button
+		>
+			{{ 'feedbacks.openRequest' | translate }}
+		</button>
+	</mat-card-footer>
+</mat-card>

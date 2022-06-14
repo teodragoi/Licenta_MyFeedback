@@ -27,7 +27,7 @@ export class EmployeeAssignmentModalComponent implements OnInit {
 	public formGroup: FormGroup;
 
 	public get disabledConfirmButton(): boolean {
-		return !this.formGroup.get('selectedEmployees')?.value.length;
+		return !this.formGroup.dirty;
 	}
 
 	constructor(

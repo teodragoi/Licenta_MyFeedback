@@ -471,6 +471,136 @@
 			},
 			"tags": []
 		},
+		"ng-arch-feedback-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/feedback/data-access",
+			"sourceRoot": "libs/ng-arch/feedback/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/feedback/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/feedback/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/feedback/data-access/src/**/*.ts",
+							"libs/ng-arch/feedback/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-feedback-details-data-access": {
+			"projectType": "library",
+			"root": "libs/ng-arch/feedback-details/data-access",
+			"sourceRoot": "libs/ng-arch/feedback-details/data-access/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/feedback-details/data-access"],
+					"options": {
+						"jestConfig": "libs/ng-arch/feedback-details/data-access/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/feedback-details/data-access/src/**/*.ts",
+							"libs/ng-arch/feedback-details/data-access/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-feedback-details-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/feedback-details/feature",
+			"sourceRoot": "libs/ng-arch/feedback-details/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/feedback-details/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/feedback-details/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/feedback-details/feature/src/**/*.ts",
+							"libs/ng-arch/feedback-details/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-feedback-details-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/feedback-details/types",
+			"sourceRoot": "libs/ng-arch/feedback-details/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/feedback-details/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/feedback-details/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/feedback-details/types/src/**/*.ts",
+							"libs/ng-arch/feedback-details/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-feedback-feature": {
+			"projectType": "library",
+			"root": "libs/ng-arch/feedback/feature",
+			"sourceRoot": "libs/ng-arch/feedback/feature/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/feedback/feature"],
+					"options": {
+						"jestConfig": "libs/ng-arch/feedback/feature/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/feedback/feature/src/**/*.ts",
+							"libs/ng-arch/feedback/feature/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
 		"ng-arch-feedback-templates-data-access": {
 			"projectType": "library",
 			"root": "libs/ng-arch/feedback-templates/data-access",
@@ -543,6 +673,32 @@
 						"lintFilePatterns": [
 							"libs/ng-arch/feedback-templates/types/src/**/*.ts",
 							"libs/ng-arch/feedback-templates/types/src/**/*.html"
+						]
+					}
+				}
+			},
+			"tags": []
+		},
+		"ng-arch-feedback-types": {
+			"projectType": "library",
+			"root": "libs/ng-arch/feedback/types",
+			"sourceRoot": "libs/ng-arch/feedback/types/src",
+			"prefix": "ng-arch",
+			"architect": {
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"outputs": ["coverage/libs/ng-arch/feedback/types"],
+					"options": {
+						"jestConfig": "libs/ng-arch/feedback/types/jest.config.js",
+						"passWithNoTests": true
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/ng-arch/feedback/types/src/**/*.ts",
+							"libs/ng-arch/feedback/types/src/**/*.html"
 						]
 					}
 				}

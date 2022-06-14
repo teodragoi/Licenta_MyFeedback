@@ -24,7 +24,7 @@ import { SelectData } from '@ng-arch/shared/types';
 export class SelectComponent implements ControlValueAccessor {
 	@Input() public label: string;
 	@Input() public title: string;
-	@Input() public selectOptions: SelectData[];
+	@Input() public selectOptions: SelectData[] | null;
 
 	public isDisabled: boolean;
 	public selectedValue: string | number;

@@ -1,0 +1,16 @@
+<mat-card>
+	<mat-card-title>{{
+		'feedbacks.from' | translate: { employeeName: feedback.fromEmployee?.name }
+	}}</mat-card-title>
+
+	<mat-card-footer class="feedbacks__footer">
+		<button
+			[attr.aria-label]="'feedbacks.openFeedback' | translate"
+			(click)="onOpenFeedbackClick()"
+			color="primary"
+			mat-raised-button
+		>
+			{{ 'feedbacks.openFeedback' | translate }}
+		</button>
+	</mat-card-footer>
+</mat-card>

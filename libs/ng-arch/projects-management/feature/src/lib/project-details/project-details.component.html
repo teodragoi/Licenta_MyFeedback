@@ -13,6 +13,15 @@
 		<ng-arch-feedback-templates
 			[config]="vmData.feedbackTemplatesConfig"
 		></ng-arch-feedback-templates>
+
+		<button
+			[attr.aria-label]="'projectDetails.requestFeedback' | translate"
+			(click)="onRequestFeedbackClick()"
+			color="primary"
+			mat-raised-button
+		>
+			{{ 'projectDetails.requestFeedback' | translate }}
+		</button>
 	</main>
 
 	<ng-template #loading>
