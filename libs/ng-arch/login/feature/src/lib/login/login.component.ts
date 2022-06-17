@@ -13,6 +13,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '@ng-arch/ng-arch/login/data-access';
+import { Role, RoleType } from '@ng-arch/ng-arch/roles-management/types';
 import { User } from '@ng-arch/ng-arch/users/types';
 import { LOCAL_STORAGE_ITEMS, LocalStorageService } from '@shared/services';
 import { take } from 'rxjs/operators';
@@ -60,6 +61,7 @@ export class LoginComponent implements OnInit {
 			.pipe(take(1))
 			.subscribe(
 				(user: User) => {
+					console.log(user);
 					this.localStorageService.setItem(
 						LOCAL_STORAGE_ITEMS.IS_AUTHENTICATED,
 						'true'
@@ -75,6 +77,11 @@ export class LoginComponent implements OnInit {
 						user.employee?._id ?? ''
 					);
 
+					this.localStorageService.setItem(
+						LOCAL_STORAGE_ITEMS.ROLE,
+						this.getRole(user.employee?.roles ?? [])
+					);
+
 					this.router.navigate(['dashboard']);
 				},
 				(error: HttpErrorResponse) => {
@@ -88,5 +95,14 @@ export class LoginComponent implements OnInit {
 					this.cd.detectChanges();
 				}
 			);
+	}
+
+	private getRole(roles: Role[]): string {
+		if (roles.some((role: Role) => role.type === RoleType.ADMIN)) {
+			return RoleType.ADMIN;
+		} else if (roles.some((role: Role) => role.type === RoleType.MANAGER)) {
+			return RoleType.MANAGER;
+		}
+		return RoleType.EMPLOYEE;
 	}
 }

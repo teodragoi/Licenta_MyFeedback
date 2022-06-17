@@ -3,15 +3,27 @@
 		{{ 'navbar.routes.dashboard' | translate }}
 	</button>
 
-	<button mat-button [routerLink]="'roles-management'">
+	<button
+		*ngIf="isAvailable(roleType.ADMIN)"
+		mat-button
+		[routerLink]="'roles-management'"
+	>
 		{{ 'navbar.routes.rolesManagement' | translate }}
 	</button>
 
-	<button mat-button [routerLink]="'projects-management'">
+	<button
+		*ngIf="isAvailable(roleType.MANAGER)"
+		mat-button
+		[routerLink]="'projects-management'"
+	>
 		{{ 'navbar.routes.projectsManagement' | translate }}
 	</button>
 
-	<button mat-button [routerLink]="'employees-management'">
+	<button
+		*ngIf="isAvailable(roleType.ADMIN)"
+		mat-button
+		[routerLink]="'employees-management'"
+	>
 		{{ 'navbar.routes.employeesManagement' | translate }}
 	</button>
 </div>

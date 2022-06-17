@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RoleType } from '@ng-arch/ng-arch/roles-management/types';
 import { TranslateService } from '@ngx-translate/core';
 import {
 	LocalStorageService,
@@ -20,7 +21,9 @@ export class NavbarComponent {
 	}
 
 	public currentLanguage: string = 'en';
-	
+
+	public readonly roleType = RoleType;
+
 	public get userId(): string {
 		return this.localStorageService.getItem(LOCAL_STORAGE_ITEMS.USER_ID) ?? '';
 	}
@@ -36,6 +39,14 @@ export class NavbarComponent {
 
 		this.currentLanguage = this.currentLanguage === 'en' ? 'ro' : 'en';
 		this.translateService.use(this.currentLanguage);
+	}
+
+	public isAvailable(role: RoleType): boolean {
+		const userRole: string = this.localStorageService.getItem(
+			LOCAL_STORAGE_ITEMS.ROLE
+		);
+
+		return userRole === RoleType.ADMIN ? true : userRole === role.valueOf();
 	}
 
 	public logout(): void {

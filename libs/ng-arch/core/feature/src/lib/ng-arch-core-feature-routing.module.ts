@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuardService, ManagerGuardService } from '@shared/services';
 import { CoreComponent } from './core/core.component';
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
 					),
 			},
 			{
+				canActivate: [ManagerGuardService],
 				path: 'projects-management',
 				loadChildren: () =>
 					import('@ng-arch/ng-arch/projects-management/feature').then(
@@ -22,6 +24,7 @@ const routes: Routes = [
 					),
 			},
 			{
+				canActivate: [AdminGuardService],
 				path: 'roles-management',
 				loadChildren: () =>
 					import('@ng-arch/ng-arch/roles-management/feature').then(
@@ -29,6 +32,7 @@ const routes: Routes = [
 					),
 			},
 			{
+				canActivate: [AdminGuardService],
 				path: 'employees-management',
 				loadChildren: () =>
 					import('@ng-arch/ng-arch/employees-management/feature').then(
