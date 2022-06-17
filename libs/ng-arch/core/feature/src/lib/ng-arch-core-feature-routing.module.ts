@@ -36,13 +36,6 @@ const routes: Routes = [
 					),
 			},
 			{
-				path: 'users',
-				loadChildren: () =>
-					import('@ng-arch/ng-arch/users/feature').then(
-						(m) => m.NgArchUsersFeatureModule
-					),
-			},
-			{
 				path: 'user-details',
 				loadChildren: () =>
 					import('@ng-arch/ng-arch/user-details/feature').then(

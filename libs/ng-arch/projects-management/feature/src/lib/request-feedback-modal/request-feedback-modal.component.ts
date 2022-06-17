@@ -22,10 +22,7 @@ export class RequestFeedbackModalComponent implements OnInit {
 		map(([employees, templates]) => ({
 			employees,
 			templates,
-		})),
-		tap((res) => {
-			console.log(res);
-		})
+		}))
 	);
 
 	public formGroup: FormGroup;

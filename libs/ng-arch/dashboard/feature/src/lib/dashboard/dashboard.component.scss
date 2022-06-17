@@ -5,9 +5,11 @@
 		gap: 2rem;
 	}
 
-	&__requests {
+	&__cards {
 		display: flex;
 		gap: 1rem;
 		flex-wrap: wrap;
+		max-height: calc((300 / 16) * 1rem);
+		overflow: auto;
 	}
 }

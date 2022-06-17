@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { EmployeesFacade } from '@ng-arch/ng-arch/employees-management/data-access';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { UsersService } from '../users.service';
 
 import * as UsersActions from './users.actions';
@@ -27,6 +28,7 @@ export class UsersEffects {
 			switchMap(({ user }) =>
 				this.usersService.addUser(user).pipe(
 					map((user) => UsersActions.onAddUserSuccess({ user })),
+					tap(() => this.employeesFacade.dispatchGetAllEmployees()),
 					catchError((error) => of(UsersActions.onAddUserFailure({ error })))
 				)
 			)
@@ -47,5 +49,9 @@ export class UsersEffects {
 		)
 	);
 
-	constructor(private actions$: Actions, private usersService: UsersService) {}
+	constructor(
+		private actions$: Actions,
+		private employeesFacade: EmployeesFacade,
+		private usersService: UsersService
+	) {}
 }

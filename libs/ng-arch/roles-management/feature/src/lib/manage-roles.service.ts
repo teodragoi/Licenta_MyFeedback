@@ -56,7 +56,7 @@ export class ManageRolesService {
 				{
 					name: 'common.actions',
 					type: TableColumnType.ACTION,
-					actions: [TableActions.EDIT, TableActions.DELETE],
+					actions: [TableActions.DELETE],
 				},
 			],
 			data: roles,

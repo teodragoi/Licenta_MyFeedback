@@ -75,8 +75,6 @@ export class FeedbackDetailsComponent implements OnInit {
 			this.route.snapshot.params['feedbackId'],
 			this.buildAnswers(questions)
 		);
-
-		this.router.navigate(['dashboard']);
 	}
 
 	public uniqueIdentifier(index: number): number {

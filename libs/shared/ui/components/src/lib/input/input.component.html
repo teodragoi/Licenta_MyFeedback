@@ -1,7 +1,8 @@
 <mat-form-field appearance="standard">
 	<mat-label *ngIf="label"> {{ label }} </mat-label>
-	
-	<input
+
+	<textarea
+		*ngIf="isTextArea; else regularInput"
 		matInput
 		[attr.aria-label]="label"
 		[type]="type"
@@ -9,8 +10,19 @@
 		[placeholder]="placeholder"
 		[ngModel]="inputValue"
 		(ngModelChange)="onInputChange($event)"
-	/>
+	></textarea>
+
+	<ng-template #regularInput>
+		<input
+			matInput
+			[attr.aria-label]="label"
+			[type]="type"
+			[disabled]="isDisabled"
+			[placeholder]="placeholder"
+			[ngModel]="inputValue"
+			(ngModelChange)="onInputChange($event)"
+		/>
+	</ng-template>
 </mat-form-field>
 
 <mat-error *ngIf="errorMessage">{{ errorMessage | translate }}</mat-error>
-

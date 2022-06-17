@@ -29,9 +29,8 @@
 		"request": "Request for {{ employeeName }}"
 	},
 	"feedbackDetails": {
-		"from": "Feedback from {{ employeeName }}",
-		"to": "Feedback for {{ employeeName }}",
-		"sendFeedback": "SendFeedback"
+		"title": "Feedback from {{ senderName }} to {{ receiverName }}",
+		"sendFeedback": "Send Feedback"
 	},
 	"feedbackRequest": {
 		"employees": "Available employees",
@@ -54,8 +53,7 @@
 			"dashboard": "Dashboard",
 			"employeesManagement": "Employees management",
 			"projectsManagement": "Projects management",
-			"rolesManagement": "Roles management",
-			"usersManagement": "Users management"
+			"rolesManagement": "Roles management"
 		}
 	},
 	"projectDetails": {

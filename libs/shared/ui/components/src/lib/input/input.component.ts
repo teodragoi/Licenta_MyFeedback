@@ -1,3 +1,4 @@
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
 	ChangeDetectionStrategy,
 	Component,
@@ -28,6 +29,15 @@ export class InputComponent implements ControlValueAccessor {
 	@Input() placeholder = '';
 	@Input() type: string;
 	@Input() public error: ValidationErrors | null | undefined;
+
+	@Input()
+	public get isTextArea(): BooleanInput {
+		return this._isTextArea;
+	}
+	public set isTextArea(value: BooleanInput) {
+		this._isTextArea = coerceBooleanProperty(value);
+	}
+	private _isTextArea: BooleanInput;
 
 	public get errorMessage(): string {
 		if (!this.error) {

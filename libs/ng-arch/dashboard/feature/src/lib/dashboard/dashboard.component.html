@@ -4,7 +4,7 @@
 			{{ 'dashboard.feedbackRequests' | translate }}
 		</h2>
 
-		<div class="dashboard__requests">
+		<div class="dashboard__cards">
 			<ng-arch-request-card
 				*ngFor="
 					let request of vmData.feedbackRequests;
@@ -18,7 +18,7 @@
 			{{ 'dashboard.myFeedbacks' | translate }}
 		</h2>
 
-		<div class="dashboard__requests">
+		<div class="dashboard__cards">
 			<ng-arch-feedback-card
 				*ngFor="let request of vmData.myFeedbacks; trackBy: uniqueIdentifier"
 				[feedback]="request"

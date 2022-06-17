@@ -13,7 +13,6 @@ export class FeedbacksController {
 				fromEmployee: employeeId,
 				requestCompleted: false,
 			}).populate('forEmployee', '-__v -roles');
-			console.log(feedbackRequests);
 
 			if (!feedbackRequests) {
 				return res
@@ -113,11 +112,13 @@ export class FeedbacksController {
 
 			const answers: Answer[] = await AnswerDTO.insertMany(req.body);
 
-			await FeedbackDTO.updateOne({
-				_id: feedbackId,
-				answers,
-				requestCompleted: true,
-			});
+			await FeedbackDTO.updateOne(
+				{ _id: feedbackId },
+				{
+					answers,
+					requestCompleted: true,
+				}
+			);
 
 			return res
 				.status(HttpStatus.OK)
@@ -139,9 +140,11 @@ export class FeedbacksController {
 					.json({ error: 'Feedback not found' });
 			}
 
-			await AnswerDTO.deleteMany({
-				_id: { $in: feedback.answers },
-			});
+			if (feedback.answers.length) {
+				await AnswerDTO.deleteMany({
+					_id: { $in: feedback.answers },
+				});
+			}
 
 			await FeedbackDTO.deleteOne({ _id: feedbackId });
 

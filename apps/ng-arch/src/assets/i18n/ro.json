@@ -13,18 +13,24 @@
 		"login": "Login"
 	},
 	"dashboard": {
-		"testMessage": "Mesaj de test"
+		"testMessage": "Mesaj de test",
+		"feedbackRequests": "Cererile mele de feedback",
+		"myFeedbacks": "Feedback-urile mele"
 	},
 	"employeeDetails": {
 		"assignedRoles": "Roluri asignate",
 		"editAssignedRoles": "Editeaza rolurile asignate"
 	},
 	"feedbacks": {
-		"dismissRequest": "Ignora cererea de feedback",
+		"dismissRequest": "Ignora cererea",
 		"from": "Feedback de la {{ employeeName }}",
 		"openFeedback": "Deschide feedback",
-		"openRequest": "Deschide cererea de feedback",
+		"openRequest": "Deschide cererea",
 		"request": "Cerere pentru {{ employeeName }}"
+	},
+	"feedbackDetails": {
+		"title": "Feedback de la {{ senderName }} pentru {{ receiverName }}",
+		"sendFeedback": "Trimite Feedback"
 	},
 	"feedbackTemplates": {
 		"addNewTemplate": "Adauga un template nou",
@@ -43,8 +49,7 @@
 			"dashboard": "Dashboard",
 			"employeesManagement": "Management angajati",
 			"projectsManagement": "Management proiecte",
-			"rolesManagement": "Management roluri",
-			"usersManagement": "Management utilizatori"
+			"rolesManagement": "Management roluri"
 		}
 	},
 	"projectDetails": {

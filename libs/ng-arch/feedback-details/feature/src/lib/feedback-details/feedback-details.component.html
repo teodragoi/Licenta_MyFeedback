@@ -1,26 +1,24 @@
 <ng-container *ngIf="vmData$ | async as vmData">
-	<ng-container *ngIf="!vmData.isLoading; else loading">
-		<span>
+	<mat-card
+		*ngIf="!vmData.isLoading; else loading"
+		class="feedback-details__container"
+	>
+		<mat-card-title>
 			{{
-				'feedbackDetails.from'
+				'feedbackDetails.title'
 					| translate
-						: { employeeName: vmData.feedback?.fromEmployee?.name ?? '' }
+						: {
+								senderName: vmData.feedback?.fromEmployee?.name ?? '',
+								receiverName: vmData.feedback?.forEmployee?.name ?? ''
+						  }
 			}}
-		</span>
+		</mat-card-title>
 
-		<span>
-			{{
-				'feedbackDetails.to'
-					| translate
-						: { employeeName: vmData.feedback?.forEmployee?.name ?? '' }
-			}}
-		</span>
-
-		<main class="feedback-details__content">
+		<mat-card-content class="feedback-details__content">
 			<ng-container
 				*ngIf="vmData.feedback?.requestCompleted; else completeFeedback"
 			>
-				<div
+				<mat-card
 					*ngFor="
 						let answer of vmData.feedback?.answers;
 						let index = index;
@@ -28,41 +26,47 @@
 					"
 					class="feedback-details__answers"
 				>
-					<span>
+					<mat-card-subtitle>
 						{{ getQuestionTitle(vmData.feedback?.template, index) }}
-					</span>
+					</mat-card-subtitle>
 
-					<span> {{ answer.response }} </span>
-				</div>
+					<mat-card-content> {{ answer.response }} </mat-card-content>
+				</mat-card>
 			</ng-container>
 
 			<ng-template #completeFeedback>
-				<div
+				<mat-card
 					*ngFor="
 						let question of vmData.feedback?.template?.questions;
 						trackBy: uniqueIdentifier
 					"
 				>
-					<span> {{ question.question }} </span>
+					<mat-card-subtitle> {{ question.question }} </mat-card-subtitle>
 
-					<form [formGroup]="formGroup">
-						<shared-rating
-							*ngIf="question.type === QuestionTypes.RATING; else textQuestion"
-							[formControlName]="question.question"
-						></shared-rating>
-
-						<ng-template #textQuestion>
-							<shared-input
+					<mat-card-content class="feedback-details__question__container">
+						<form [formGroup]="formGroup" class="feedback-details__question">
+							<shared-rating
+								*ngIf="
+									question.type === QuestionTypes.RATING;
+									else textQuestion
+								"
 								[formControlName]="question.question"
-								[label]="question.question"
-							></shared-input>
-						</ng-template>
-					</form>
-				</div>
-			</ng-template>
-		</main>
+							></shared-rating>
 
-		<footer class="feedback-details__footer">
+							<ng-template #textQuestion>
+								<shared-input
+									[formControlName]="question.question"
+									[label]="question.question"
+									isTextArea
+								></shared-input>
+							</ng-template>
+						</form>
+					</mat-card-content>
+				</mat-card>
+			</ng-template>
+		</mat-card-content>
+
+		<mat-card-actions class="feedback-details__footer">
 			<button
 				*ngIf="!vmData.feedback?.requestCompleted"
 				[attr.aria-label]="'feedbackDetails.sendFeedback' | translate"
@@ -74,8 +78,8 @@
 			>
 				{{ 'feedbackDetails.sendFeedback' | translate }}
 			</button>
-		</footer>
-	</ng-container>
+		</mat-card-actions>
+	</mat-card>
 
 	<ng-template #loading>
 		<shared-spinner></shared-spinner>

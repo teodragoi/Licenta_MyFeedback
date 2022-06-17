@@ -2,6 +2,8 @@
 	&__form {
 		display: flex;
 		align-items: center;
+		max-width: 50%;
+		min-width: min-content;
 
 		> *:not(:last-child) {
 			margin-right: 1rem;

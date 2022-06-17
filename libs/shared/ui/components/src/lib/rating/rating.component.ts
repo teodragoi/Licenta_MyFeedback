@@ -22,7 +22,6 @@ export class RatingComponent implements ControlValueAccessor {
 
 	public onRatingSelected(rating: number): void {
 		this.selectedRating = rating + 1;
-		console.log(this.selectedRating);
 		this.onChange(this.selectedRating);
 	}
 

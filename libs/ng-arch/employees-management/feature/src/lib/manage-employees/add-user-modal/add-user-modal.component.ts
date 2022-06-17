@@ -1,15 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
 	FormBuilder,
-	FormControl,
 	FormGroup,
 	ValidationErrors,
 	Validators,
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { UsersFacade } from '@ng-arch/ng-arch/users/data-access';
 import { PasswordValidators } from '@shared/services';
-import { debounceTime } from 'rxjs/operators';
 
 @Component({
 	selector: 'ng-arch-add-user-modal',

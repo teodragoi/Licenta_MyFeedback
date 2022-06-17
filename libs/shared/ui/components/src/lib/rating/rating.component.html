@@ -5,7 +5,7 @@
 		trackBy: uniqueIdentifier
 	"
 	[attr.aria-label]="'ratings' | translate: { rating: index + 1 }"
-	[color]="selectedRating === index + 1 ? 'accent' : null"
+	[color]="selectedRating === index + 1 ? 'accent' : 'primary'"
 	(click)="onRatingSelected(index)"
 	mat-mini-fab
 >
