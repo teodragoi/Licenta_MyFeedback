@@ -8,4 +8,9 @@ table {
 	tr:hover {
 		cursor: pointer;
 	}
+
+	::ng-deep tbody {
+		max-height: calc((500 / 16) * 1rem);
+		overflow-y: auto;
+	}
 }

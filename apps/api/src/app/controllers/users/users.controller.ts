@@ -94,9 +94,7 @@ export class UsersController {
 				'-__v'
 			);
 
-			return res
-				.status(HttpStatus.OK)
-				.json({ user: Object.assign(user, { ...req.body }) });
+			return res.status(HttpStatus.OK).json({ user: updatedUser });
 		} catch (error) {
 			return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(error);
 		}

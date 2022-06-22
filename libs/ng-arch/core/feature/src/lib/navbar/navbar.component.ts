@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RoleType } from '@ng-arch/ng-arch/roles-management/types';
+import { UserDetailsFacade } from '@ng-arch/ng-arch/user-details/data-access';
+import { User } from '@ng-arch/ng-arch/users/types';
 import { TranslateService } from '@ngx-translate/core';
 import {
 	LocalStorageService,
@@ -7,6 +9,8 @@ import {
 	ThemeMode,
 	ThemeService,
 } from '@shared/services';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
 	selector: 'ng-arch-navbar',
@@ -14,8 +18,11 @@ import {
 	styleUrls: ['./navbar.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 	public isDarkTheme$ = this.themeService.isDarkTheme$;
+	public userName$: Observable<string> = this.userDetailsFacade.user$.pipe(
+		map((user: User | null) => user?.name ?? 'Test Name')
+	);
 	public get theme(): typeof ThemeMode {
 		return ThemeMode;
 	}
@@ -30,9 +37,14 @@ export class NavbarComponent {
 
 	constructor(
 		private localStorageService: LocalStorageService,
+		private userDetailsFacade: UserDetailsFacade,
 		private themeService: ThemeService,
 		private translateService: TranslateService
 	) {}
+
+	public ngOnInit(): void {
+		this.userDetailsFacade.dispatchGetUserDetails(this.userId);
+	}
 
 	public changeTranslation(event: MouseEvent): void {
 		event.stopPropagation();

@@ -5,7 +5,6 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { UserDetailsService } from '../user-details.service';
-
 import * as UserDetailsActions from './user-details.actions';
 
 @Injectable()

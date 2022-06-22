@@ -61,7 +61,6 @@ export class LoginComponent implements OnInit {
 			.pipe(take(1))
 			.subscribe(
 				(user: User) => {
-					console.log(user);
 					this.localStorageService.setItem(
 						LOCAL_STORAGE_ITEMS.IS_AUTHENTICATED,
 						'true'

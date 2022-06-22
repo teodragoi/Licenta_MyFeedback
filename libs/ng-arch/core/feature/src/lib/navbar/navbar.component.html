@@ -30,7 +30,7 @@
 
 <shared-avatar
 	[matMenuTriggerFor]="userSettingsMenu"
-	[name]="'Test Name'"
+	[name]="userName$ | async"
 	class="navbar__avatar"
 ></shared-avatar>
 

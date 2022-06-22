@@ -7,6 +7,7 @@ import { NgArchCoreDataAccessModule } from '@ng-arch/ng-arch/core/data-access';
 import { CoreComponent } from './core/core.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgArchCoreFeatureRoutingModule } from './ng-arch-core-feature-routing.module';
+import { NgArchUserDetailsDataAccessModule } from '@ng-arch/ng-arch/user-details/data-access';
 
 @NgModule({
 	declarations: [CoreComponent, NavbarComponent],
@@ -15,6 +16,7 @@ import { NgArchCoreFeatureRoutingModule } from './ng-arch-core-feature-routing.m
 		CommonModule,
 		NgArchCoreDataAccessModule,
 		NgArchCoreFeatureRoutingModule,
+		NgArchUserDetailsDataAccessModule,
 		SharedUiComponentsModule,
 		SharedUiMaterialModule,
 		TranslateModule,

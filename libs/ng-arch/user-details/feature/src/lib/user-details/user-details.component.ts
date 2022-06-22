@@ -13,7 +13,7 @@ import { UserDetailsFacade } from '@ng-arch/ng-arch/user-details/data-access';
 import { User, UserDetailsVmData } from '@ng-arch/ng-arch/users/types';
 import { ListData } from '@ng-arch/shared/types';
 import { Observable } from 'rxjs';
-import { take, tap } from 'rxjs/operators';
+import { filter, take, tap } from 'rxjs/operators';
 import { ChangePasswordModalComponent } from '../change-password-modal/change-password-modal.component';
 import { UserDetailsPageService } from '../user-details-page.service';
 
@@ -26,24 +26,23 @@ import { UserDetailsPageService } from '../user-details-page.service';
 export class UserDetailsComponent implements OnInit {
 	public vmData$: Observable<UserDetailsVmData> =
 		this.userDetailsPageService.vmData$.pipe(
+			filter((data: UserDetailsVmData) => !!data.user),
 			tap((data: UserDetailsVmData) => {
-				if (!!data.user) {
-					this.user = data.user;
-					this.formGroup.patchValue({
-						name: this.user.name,
-						email: this.user.email,
-					});
+				this.user = data.user;
+				this.formGroup.patchValue({
+					name: this.user?.name,
+					email: this.user?.email,
+				});
 
-					this.cd.detectChanges();
+				this.cd.detectChanges();
 
-					this.employeeDetailsFacade.dispatchGetEmployeeDetails(
-						this.user.employee?._id ?? ''
-					);
+				this.employeeDetailsFacade.dispatchGetEmployeeDetails(
+					this.user?.employee?._id ?? ''
+				);
 
-					this.projectsFacade.dispatchGetProjectsByEmployee(
-						this.user.employee?._id ?? ''
-					);
-				}
+				this.projectsFacade.dispatchGetProjectsByEmployee(
+					this.user?.employee?._id ?? ''
+				);
 			})
 		);
 	public rolesData$: Observable<ListData[] | undefined> =
@@ -55,7 +54,7 @@ export class UserDetailsComponent implements OnInit {
 	public editNameEnabled = false;
 	public formGroup: FormGroup;
 
-	private user: User;
+	private user: User | null;
 
 	constructor(
 		private cd: ChangeDetectorRef,
@@ -88,13 +87,19 @@ export class UserDetailsComponent implements OnInit {
 			.pipe(take(1))
 			.subscribe((password: string) => {
 				this.userDetailsFacade.dispatchEditUserPassword(
-					this.user._id ?? '',
+					this.user?._id ?? '',
 					password
 				);
 			});
 	}
 
 	public onEditNameClick(): void {
+		if (this.editNameEnabled) {
+			this.userDetailsFacade.dispatchEditUserDetails(this.user?._id ?? '', {
+				name: this.formGroup.get('name')?.value,
+			});
+		}
+
 		this.editNameEnabled = !this.editNameEnabled;
 	}
 }

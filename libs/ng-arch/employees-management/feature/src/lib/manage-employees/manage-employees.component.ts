@@ -57,7 +57,6 @@ export class ManageEmployeesComponent implements OnInit {
 			.afterClosed()
 			.pipe(take(1))
 			.subscribe((user: User) => {
-				console.log(user);
 				this.usersFacade.dispatchAddUser(user);
 			});
 	}

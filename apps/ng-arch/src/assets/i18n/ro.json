@@ -32,11 +32,15 @@
 		"title": "Feedback de la {{ senderName }} pentru {{ receiverName }}",
 		"sendFeedback": "Trimite Feedback"
 	},
+	"feedbackRequest": {
+		"employees": "Angajați",
+		"templates": "Sabloane existente"
+	},
 	"feedbackTemplates": {
-		"addNewTemplate": "Adauga un template nou",
+		"addNewTemplate": "Adauga un sablon nou",
 		"addQuestion": "Adauga intrebare",
-		"editTemplate": "Editeaza Template",
-		"name": "Nume template",
+		"editTemplate": "Editeaza sablon",
+		"name": "Nume sablon",
 		"question": "Intrebare",
 		"rating": "Nota",
 		"removeLastQuestion": "Sterge ultima intrebare",
@@ -54,7 +58,8 @@
 	},
 	"projectDetails": {
 		"assignedEmployees": "Angajati asignati",
-		"editAssignedEmployees": "Editeaza angajatii asignati"
+		"editAssignedEmployees": "Editeaza angajatii asignati",
+		"requestFeedback": "Cere feedback"
 	},
 	"projectsManagement": {
 		"addProjectLabel": "Adauga proiect"
